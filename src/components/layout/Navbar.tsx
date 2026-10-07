@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { site } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
 import SearchModal from "./SearchModal";
+import ThemeToggle from "./ThemeToggle";
 
 type Item = { href: string; label: string; desc?: string };
 type Group = { label: string; href: string; items?: Item[] };
@@ -55,6 +56,10 @@ export default function Navbar() {
         { href: "/get-involved#volunteer", label: n.volunteer, desc: n.volunteerD },
         { href: "/get-involved#unified", label: n.unified, desc: n.unifiedD },
         { href: "/get-involved#families", label: n.families, desc: n.familiesD },
+        { href: "/carpool", label: n.carpool, desc: n.carpoolD },
+        { href: "/volunteer/hours", label: n.hours, desc: n.hoursD },
+        { href: "/volunteer/checklists", label: n.checklists, desc: n.checklistsD },
+        { href: "/coaches", label: n.coaches, desc: n.coachesD },
         { href: "/resources", label: n.resources, desc: n.resourcesD },
       ],
     },
@@ -68,6 +73,10 @@ export default function Navbar() {
         { href: "/sponsors", label: n.sponsors, desc: n.sponsorsD },
         { href: "/donate#sponsor-an-athlete", label: n.sponsorAthlete, desc: n.sponsorAthleteD },
         { href: "/donate#fundraisers", label: n.fundraisers, desc: n.fundraisersD },
+        { href: "/donate#monthly", label: n.monthly, desc: n.monthlyD },
+        { href: "/wishlist", label: n.wishlist, desc: n.wishlistD },
+        { href: "/donate#matching", label: n.matching, desc: n.matchingD },
+        { href: "/impact", label: n.impact, desc: n.impactD },
         { href: "/newsletter", label: n.newsletter, desc: n.newsletterD },
         ...(site.shopUrl ? [{ href: site.shopUrl, label: n.shop, desc: n.shopD }] : []),
       ],
@@ -168,7 +177,7 @@ export default function Navbar() {
                       onBlur={(e) => {
                         if (!e.currentTarget.contains(e.relatedTarget as Node)) hide();
                       }}
-                      className="absolute left-0 top-full z-50 mt-2 w-80 overflow-hidden rounded-2xl border border-mist-dark bg-white p-2 shadow-2xl shadow-ink/15"
+                      className="absolute left-0 top-full z-50 mt-2 max-h-[70vh] w-80 overflow-y-auto rounded-2xl border border-mist-dark bg-white p-2 shadow-2xl shadow-ink/15"
                     >
                       {g.items.map((it) => (
                         <Link
@@ -193,6 +202,7 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-1.5 sm:gap-2">
+          <ThemeToggle />
           <button
             type="button"
             onClick={() => setSearchOpen(true)}

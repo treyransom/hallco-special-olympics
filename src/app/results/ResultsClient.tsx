@@ -8,12 +8,15 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { results, formatDate, loc } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import Confetti, { useConfetti } from "@/components/ui/Confetti";
+import { PartyPopper } from "lucide-react";
 
 const placeStyle = ["", "bg-gold text-ink", "bg-mist-dark text-ink", "bg-[#c97b3a] text-white", "bg-mist text-ink-soft"];
 
 export default function ResultsClient() {
   const { lang, dict: d } = useLang();
   const r = d.results;
+  const { pieces, fire } = useConfetti();
   const totals = results.reduce((t, x) => ({ gold: t.gold + x.medals.gold, silver: t.silver + x.medals.silver, bronze: t.bronze + x.medals.bronze, ribbons: t.ribbons + x.medals.ribbons }), { gold: 0, silver: 0, bronze: 0, ribbons: 0 });
   const cells = (m: typeof totals) => [
     { n: m.gold, l: r.gold, c: "bg-gold text-ink" },
@@ -58,13 +61,13 @@ export default function ResultsClient() {
                 </div>
               </div>
               <div className="overflow-x-auto p-6 sm:p-8">
-                <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-ink-soft">{r.highlights}</p>
+                <p className="flex items-center gap-3 font-heading text-sm font-bold uppercase tracking-[0.2em] text-ink-soft">{r.highlights} <span className="inline-flex items-center gap-1 rounded-full bg-mist px-2 py-0.5 text-[10px] text-teal"><PartyPopper className="h-3 w-3" /> {d.confetti.hint}</span></p>
                 <table className="mt-3 w-full min-w-[32rem] text-left text-sm">
                   <thead><tr className="text-xs uppercase tracking-wider text-ink-soft"><th className="py-2 pr-4 font-bold">{r.athlete}</th><th className="py-2 pr-4 font-bold">{d.nav.sports}</th><th className="py-2 pr-4 font-bold">{r.event}</th><th className="py-2 font-bold">{r.place}</th></tr></thead>
                   <tbody className="divide-y divide-mist">
                     {res.highlights.map((h, n) => (
                       <tr key={n}>
-                        <td className="py-2.5 pr-4 font-heading text-lg font-bold uppercase text-ink">{h.athlete}</td>
+                        <td className="py-2.5 pr-4"><button type="button" onClick={(e) => fire(e.clientX, e.clientY)} className="focus-ring rounded font-heading text-lg font-bold uppercase text-ink transition hover:text-teal">{h.athlete}</button></td>
                         <td className="py-2.5 pr-4 text-ink-soft">{h.sport}</td>
                         <td className="py-2.5 pr-4 text-ink-soft">{h.event}</td>
                         <td className="py-2.5"><span className={cn("inline-block rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider", placeStyle[h.place])}>{d.common.places[h.place]}</span></td>
@@ -78,6 +81,7 @@ export default function ResultsClient() {
           <SectionHeading align="center" title={d.cta.title} description={d.cta.text} className="pt-6" />
         </div>
       </section>
+      <Confetti pieces={pieces} />
     </>
   );
 }

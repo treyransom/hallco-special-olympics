@@ -15,6 +15,16 @@ Home, About, Athlete Stories, Sports, Teams (+ one page per sport), Events, Prac
 
 The homepage is intentionally short: hero, countdown, mission, sports, get-involved, upcoming events, and an Explore grid that links to everything else.
 
+## Editing content
+Events, news, Athlete of the Month, results, stories, sponsors, the announcement bar, and the season fund live in `content/*.json`. Edit the JSON directly, or use the CMS at `/admin`:
+- **Locally, no login:** run `npx decap-server` in one terminal and `npm run dev` in another, then open http://localhost:3000/admin.
+- **Live site:** set `repo` in `public/admin/config.yml` to the GitHub repo, then add an OAuth proxy (Netlify Identity, or a free Cloudflare Worker like `decap-proxy`). Every save becomes a commit.
+
+Everything else (sports, practices, coaches, rosters, FAQs, wish list, carpools, volunteer hours, certifications, checklists, registration windows, the weather alert) is still in `src/lib/data.ts`.
+
+## Installable app
+The site ships a web manifest and a service worker (`public/sw.js`) that caches the schedule, competition guide, and recently visited pages for offline use. The service worker only registers in production builds.
+
 ## Spanish
 Every page has a Spanish version. UI text lives in `src/lib/i18n.tsx` (the `en` and `es` dictionaries). Content in `data.ts` carries optional `es` fields; anything without one falls back to English. The toggle is in the header and the choice is remembered per visitor.
 
@@ -34,6 +44,20 @@ Every page has a Spanish version. UI text lives in `src/lib/i18n.tsx` (the `en` 
 - Site search (⌘K / Ctrl+K) across pages, sports, events, FAQ, news, resources, teams, fundraisers
 - Printable event flyers with a QR code
 - Calendar subscription feed (`/calendar.ics`) with events and weekly practice recurrences
+- Registration deadline badges with days-left countdowns (`registrationWindows`)
+- Weather / cancellation alert banner (`alert` in data.ts), also shown on affected team pages
+- Birthday wall on the Athlete of the Month page (`birthdays`)
+- Athlete milestone badges on rosters (seasons with the program)
+- Carpool board (`/carpool`) with offer/request forms by email
+- Volunteer hours log and leaderboard (`/volunteer/hours`)
+- Coach resources hub and certification tracker (`/coaches`)
+- Day-of-event checklists saved per device (`/volunteer/checklists`)
+- Monthly giving levels and matching-gift employer lookup on /donate
+- Wish list with claimable items (`/wishlist`)
+- Year-end impact report, printable (`/impact`)
+- Photo submission form on the gallery
+- Dark mode toggle, page transitions with a top progress bar
+- Confetti when you tap a name on the medal board
 - Announcement bar (`announcement` in data.ts; dismiss is remembered for the session)
 - Dropdown navigation on desktop, accordion menu on mobile
 - Homepage hero (swap in a video by setting `site.heroVideo`)

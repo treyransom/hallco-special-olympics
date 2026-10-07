@@ -8,6 +8,7 @@ import { gallery } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { useDict } from "@/lib/i18n";
 import PageHero from "@/components/ui/PageHero";
+import PhotoSubmit from "./PhotoSubmit";
 
 const tags = ["All", ...Array.from(new Set(gallery.map((g) => g.tag)))];
 
@@ -76,6 +77,7 @@ export default function GalleryClient() {
         )}
       </AnimatePresence>
     </section>
+    <PhotoSubmit />
     </>
   );
 }

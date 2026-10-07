@@ -1,0 +1,38 @@
+{
+  "stories": [
+    {
+      "name": "Willie",
+      "role": "Athlete",
+      "sport": "Powerlifting · Athletics",
+      "quote": "When I lift, everybody in the gym is cheering for me. I used to be shy. Now I'm the one cheering for everyone else.",
+      "image": "/images/powerlifting.jpg",
+      "video": "dQw4w9WgXcQ",
+      "es": {
+        "role": "Atleta",
+        "quote": "Cuando levanto, todo el gimnasio me anima. Antes era tímido. Ahora soy yo el que anima a los demás."
+      }
+    },
+    {
+      "name": "Rachael",
+      "role": "Unified Partner",
+      "sport": "Flag Football · Bowling",
+      "quote": "I came to volunteer one Saturday and never left. These athletes are my teammates, and honestly, my best friends.",
+      "image": "/images/unified-partner-award.jpg",
+      "es": {
+        "role": "Compañera unificada",
+        "quote": "Vine a ser voluntaria un sábado y nunca me fui. Estos atletas son mis compañeros de equipo y, sinceramente, mis mejores amigos."
+      }
+    },
+    {
+      "name": "The King Family",
+      "role": "Athlete Family",
+      "sport": "Basketball",
+      "quote": "Janessa found her people here. Game days are the highlight of our week, and she's never missed a practice.",
+      "image": "/images/basketball-team.jpg",
+      "es": {
+        "role": "Familia de atleta",
+        "quote": "Janessa encontró a su gente aquí. Los días de partido son lo mejor de nuestra semana y nunca ha faltado a un entrenamiento."
+      }
+    }
+  ]
+}

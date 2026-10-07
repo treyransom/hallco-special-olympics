@@ -9,13 +9,17 @@ import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 import Campaign from "@/components/home/Campaign";
 import SponsorAthlete from "@/components/home/SponsorAthlete";
-import { givingLevels, site, fundraisers, sponsorTiers, loc } from "@/lib/data";
+import { givingLevels, site, fundraisers, sponsorTiers, loc, recurringLevels, matchingEmployers } from "@/lib/data";
+import { useState } from "react";
+import { Search, Repeat, Gift } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 export default function DonateClient() {
   const { lang, dict: d } = useLang();
   const x = d.donate;
   const uses = [[Bus, x.u1], [Shirt, x.u2], [Medal, x.u3], [ClipboardList, x.u4]] as const;
+  const [q, setQ] = useState("");
+  const employers = matchingEmployers.filter((e) => e.name.toLowerCase().includes(q.toLowerCase()));
   return (
     <>
       <PageHero curve="mist" eyebrow={x.eyebrow} title={x.title} image="/images/powerlifting.jpg" description={x.text} />
@@ -52,7 +56,32 @@ export default function DonateClient() {
         </div>
       </section>
 
+      <section id="monthly" className="scroll-mt-20 bg-mist py-24 sm:py-32">
+        <div className="container-x">
+          <SectionHeading align="center" eyebrow={d.recurring.eyebrow} title={d.recurring.title} description={d.recurring.text} />
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {recurringLevels.map((r, i) => (
+              <Reveal key={r.name} delay={i * 0.06} className={`flex flex-col rounded-3xl p-7 shadow-lg ${i === 3 ? "bg-gradient-to-br from-ink to-teal-deep text-white ring-4 ring-gold" : "bg-white text-ink"}`}>
+                <p className={`font-heading text-sm font-bold uppercase tracking-[0.2em] ${i === 3 ? "text-gold" : "text-red"}`}>{r.name}</p>
+                <p className="mt-2 font-heading text-5xl font-extrabold leading-none">${r.amount}<span className={`text-base font-bold ${i === 3 ? "text-white/60" : "text-ink-soft"}`}>{d.recurring.perMonth}</span></p>
+                <ul className={`mt-5 flex-1 space-y-2 text-sm ${i === 3 ? "text-white/85" : "text-ink-soft"}`}>{(lang === "es" ? r.es.perks : r.perks).map((p) => <li key={p} className="flex gap-2"><span className="text-teal-light">✓</span>{p}</li>)}</ul>
+                <a href={site.donateUrl} className={`focus-ring mt-6 inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 font-heading text-base font-bold uppercase tracking-wide ${i === 3 ? "bg-white text-ink hover:bg-gold" : "bg-teal text-white hover:bg-teal-dark"}`}><Repeat className="h-4 w-4" /> {d.recurring.join}</a>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <SponsorAthlete />
+
+      <section className="bg-dots bg-mist py-20">
+        <div className="container-x">
+          <Reveal className="flex flex-col items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-teal-deep to-teal p-8 text-white sm:flex-row sm:p-10">
+            <div><p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-gold">{d.wishlistPage.eyebrow}</p><h2 className="mt-1 text-3xl font-extrabold uppercase">{d.wishlistPage.title}</h2></div>
+            <Button href="/wishlist" variant="white"><Gift className="h-4 w-4" /> {d.nav.wishlist}</Button>
+          </Reveal>
+        </div>
+      </section>
 
       <section id="fundraisers" className="noise relative scroll-mt-20 overflow-hidden bg-ink py-24 text-white sm:py-32">
         <div className="bg-dots-light absolute inset-0" aria-hidden />
@@ -94,7 +123,29 @@ export default function DonateClient() {
         </div>
       </section>
 
-      <section className="bg-white py-24">
+      <section id="matching" className="scroll-mt-20 bg-white py-24 sm:py-32">
+        <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <SectionHeading eyebrow={d.matching.eyebrow} title={d.matching.title} description={d.matching.text} />
+          <Reveal delay={0.1} className="rounded-3xl bg-mist p-6 shadow-xl shadow-ink/5">
+            <label className="relative block">
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-teal" />
+              <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={d.matching.search} className="focus-ring w-full rounded-full border border-mist-dark bg-white py-3.5 pl-12 pr-4 text-ink" aria-label={d.matching.search} />
+            </label>
+            <p className="mt-2 text-xs font-bold uppercase tracking-wider text-ink-soft">{employers.length} {d.matching.found}</p>
+            <ul className="mt-3 max-h-80 divide-y divide-mist-dark overflow-y-auto rounded-2xl bg-white">
+              {employers.map((e) => (
+                <li key={e.name} className="flex items-center justify-between gap-3 px-4 py-3">
+                  <span className="font-heading text-lg font-bold uppercase text-ink">{e.url ? <a href={e.url} target="_blank" rel="noopener noreferrer" className="hover:text-teal">{e.name}</a> : e.name}</span>
+                  <span className="shrink-0 text-right text-xs text-ink-soft"><span className="rounded-full bg-teal px-2 py-0.5 font-bold text-white">{d.matching.ratio} {e.ratio}</span>{e.max && <span className="ml-2">{d.matching.max} {e.max}</span>}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm text-ink-soft">{d.matching.none}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-white pb-24">
         <div className="container-x grid gap-8 md:grid-cols-2">
           <Reveal className="rounded-3xl border border-mist-dark p-8">
             <h3 className="text-2xl font-extrabold uppercase text-ink">{x.honorT}</h3>

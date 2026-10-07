@@ -1,17 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import { Star, Mail } from "lucide-react";
+import { Star, Mail, Cake } from "lucide-react";
+import { useSyncExternalStore } from "react";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
-import { athleteOfMonth, formatDate, loc, team } from "@/lib/data";
+import { athleteOfMonth, formatDate, loc, team, birthdays } from "@/lib/data";
+
+const subscribe = () => () => {};
+const today = () => new Date().toISOString().slice(0, 10);
 import { useLang } from "@/lib/i18n";
 
 export default function AOMClient() {
   const { lang, dict: d } = useLang();
   const [current, ...past] = athleteOfMonth;
   const coachCoord = team.find((t) => t.role === "Coach Coordinator");
+  const base = useSyncExternalStore(subscribe, today, () => "");
+  const month = base ? Number(base.slice(5, 7)) : 0;
+  const day = base ? Number(base.slice(8, 10)) : 0;
+  const bdays = birthdays.filter((b) => b.month === month).sort((a, b) => a.day - b.day);
   return (
     <>
       <PageHero curve="gold" eyebrow={d.aom.eyebrow} title={current ? `${d.aom.title} ${current.name}.` : d.aom.eyebrow} image={current?.image ?? "/images/medals.jpg"} description={d.aom.pageText} />
@@ -25,6 +33,25 @@ export default function AOMClient() {
               <p className="font-semibold">{current.sport}</p>
               <p className="mt-4 max-w-2xl text-lg leading-relaxed">{loc(lang, current, "story")}</p>
             </Reveal>
+          </div>
+        </section>
+      )}
+      {base && (
+        <section className="bg-mist py-16">
+          <div className="container-x">
+            <SectionHeading eyebrow={d.birthdays.eyebrow} title={d.birthdays.title} description={d.birthdays.text} />
+            {bdays.length === 0 ? (
+              <p className="mt-6 text-ink-soft">{d.birthdays.none}</p>
+            ) : (
+              <ul className="mt-8 flex flex-wrap gap-3">
+                {bdays.map((b, i) => (
+                  <Reveal as="li" key={b.name} delay={i * 0.05} className={`flex items-center gap-3 rounded-2xl px-5 py-3 shadow-lg ${b.day === day ? "bg-red text-white" : i % 2 ? "bg-gold text-ink" : "bg-white text-ink"}`}>
+                    <Cake className="h-5 w-5" />
+                    <span><span className="block font-heading text-xl font-bold uppercase">{b.name}</span><span className="block text-xs opacity-80">{b.sport} · {formatDate(`${base.slice(0, 4)}-${String(b.month).padStart(2, "0")}-${String(b.day).padStart(2, "0")}`, { month: "short", day: "numeric" }, lang)}{b.day === day ? ` · ${d.birthdays.today}` : ""}</span></span>
+                  </Reveal>
+                ))}
+              </ul>
+            )}
           </div>
         </section>
       )}

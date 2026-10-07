@@ -1,0 +1,10 @@
+{
+  "active": true,
+  "text": "Winter season registration is open",
+  "textEs": "Las inscripciones para la temporada de invierno están abiertas",
+  "cta": {
+    "label": "Register now",
+    "labelEs": "Inscríbete",
+    "href": "/register"
+  }
+}

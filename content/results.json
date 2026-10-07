@@ -1,0 +1,122 @@
+{
+  "results": [
+    {
+      "slug": "fall-games-2025",
+      "competition": "State Fall Games",
+      "date": "2025-10-19",
+      "location": "Valdosta, GA",
+      "medals": {
+        "gold": 6,
+        "silver": 3,
+        "bronze": 4,
+        "ribbons": 5
+      },
+      "recap": "flag-football-season-recap",
+      "es": {
+        "competition": "Juegos Estatales de Otoño"
+      },
+      "highlights": [
+        {
+          "athlete": "Unified Flag Football",
+          "sport": "Flag Football",
+          "event": "Division 2",
+          "place": 1
+        },
+        {
+          "athlete": "Softball",
+          "sport": "Softball",
+          "event": "Division 3",
+          "place": 2
+        },
+        {
+          "athlete": "Chris B.",
+          "sport": "Softball",
+          "event": "Individual skills",
+          "place": 1
+        },
+        {
+          "athlete": "Willie M.",
+          "sport": "Flag Football",
+          "event": "MVP",
+          "place": 1
+        }
+      ]
+    },
+    {
+      "slug": "summer-games-2025",
+      "competition": "State Summer Games",
+      "date": "2025-05-18",
+      "location": "Emory University, Atlanta",
+      "medals": {
+        "gold": 9,
+        "silver": 7,
+        "bronze": 5,
+        "ribbons": 8
+      },
+      "es": {
+        "competition": "Juegos Estatales de Verano"
+      },
+      "highlights": [
+        {
+          "athlete": "Willie M.",
+          "sport": "Athletics",
+          "event": "100m dash",
+          "place": 1
+        },
+        {
+          "athlete": "Willie M.",
+          "sport": "Athletics",
+          "event": "Shot put",
+          "place": 1
+        },
+        {
+          "athlete": "Sam P.",
+          "sport": "Bocce",
+          "event": "Singles",
+          "place": 3
+        },
+        {
+          "athlete": "Maria G.",
+          "sport": "Swimming",
+          "event": "25m freestyle",
+          "place": 2
+        }
+      ]
+    },
+    {
+      "slug": "winter-games-2025",
+      "competition": "State Winter Games",
+      "date": "2025-01-26",
+      "location": "Marietta, GA",
+      "medals": {
+        "gold": 4,
+        "silver": 5,
+        "bronze": 2,
+        "ribbons": 6
+      },
+      "es": {
+        "competition": "Juegos Estatales de Invierno"
+      },
+      "highlights": [
+        {
+          "athlete": "Basketball",
+          "sport": "Basketball",
+          "event": "Division 4",
+          "place": 1
+        },
+        {
+          "athlete": "Janessa K.",
+          "sport": "Bowling",
+          "event": "Singles",
+          "place": 2
+        },
+        {
+          "athlete": "Alex D.",
+          "sport": "Bowling",
+          "event": "Singles",
+          "place": 3
+        }
+      ]
+    }
+  ]
+}

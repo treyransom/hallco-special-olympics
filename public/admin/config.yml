@@ -1,0 +1,217 @@
+# Decap CMS config. Editors sign in with GitHub and every save becomes a commit.
+# 1. Replace `repo` with the real GitHub repo (owner/name) once the site is pushed.
+# 2. For GitHub Pages / Cloudflare / Netlify hosting, enable the GitHub backend by
+#    creating a GitHub OAuth app and an auth proxy (Netlify Identity, or a free
+#    Cloudflare Worker such as decap-proxy). See README "Editing content".
+# 3. For local editing with no login: run `npx decap-server` in one terminal and
+#    `npm run dev` in another, then open http://localhost:3000/admin.
+backend:
+  name: github
+  repo: OWNER/hallco-special-olympics # PLACEHOLDER
+  branch: main
+local_backend: true
+media_folder: public/images/uploads
+public_folder: /images/uploads
+site_url: https://www.specialolympicshallcounty.org
+display_url: https://www.specialolympicshallcounty.org
+logo_url: /images/logo-horizontal.png
+
+collections:
+  - name: site
+    label: Site settings
+    files:
+      - name: announcement
+        label: Announcement bar
+        file: content/announcement.json
+        format: json
+        fields:
+          - { name: active, label: Show the bar, widget: boolean }
+          - { name: text, label: Text (English), widget: string }
+          - { name: textEs, label: Text (Spanish), widget: string }
+          - name: cta
+            label: Button
+            widget: object
+            fields:
+              - { name: label, label: Label (English), widget: string }
+              - { name: labelEs, label: Label (Spanish), widget: string }
+              - { name: href, label: Link, widget: string, hint: "e.g. /register" }
+      - name: campaign
+        label: Season fund
+        file: content/campaign.json
+        format: json
+        fields:
+          - { name: active, label: Show the thermometer, widget: boolean }
+          - { name: name, label: Name (English), widget: string }
+          - { name: nameEs, label: Name (Spanish), widget: string }
+          - { name: goal, label: Goal ($), widget: number, value_type: int }
+          - { name: raised, label: Raised so far ($), widget: number, value_type: int }
+          - { name: deadline, label: Deadline, widget: date, format: "YYYY-MM-DD" }
+          - { name: blurb, label: Blurb (English), widget: text }
+          - { name: blurbEs, label: Blurb (Spanish), widget: text }
+
+  - name: content
+    label: Content
+    files:
+      - name: events
+        label: Events
+        file: content/events.json
+        format: json
+        fields:
+          - name: events
+            label: Events
+            widget: list
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { name: slug, label: Slug, widget: string, hint: "Lowercase, hyphens, unique. e.g. fall-games-2027" }
+              - { name: title, label: Title, widget: string }
+              - { name: date, label: Date, widget: date, format: "YYYY-MM-DD" }
+              - { name: endDate, label: End date (multi-day only), widget: date, format: "YYYY-MM-DD", required: false }
+              - { name: time, label: Time, widget: string, hint: "e.g. 10:00 AM – 12:00 PM or All day" }
+              - { name: location, label: Location name, widget: string }
+              - { name: address, label: Street address, widget: string, required: false }
+              - { name: sport, label: Sports, widget: string, required: false, hint: "e.g. Basketball · Bowling" }
+              - { name: type, label: Type, widget: select, options: [Competition, Practice, Fundraiser, Community] }
+              - { name: description, label: Description, widget: text }
+              - { name: registerHref, label: Registration link, widget: string, required: false, hint: "e.g. /fundraisers/golf" }
+              - name: es
+                label: Spanish
+                widget: object
+                required: false
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: description, label: Description, widget: text }
+              - name: shifts
+                label: Volunteer shifts
+                widget: list
+                required: false
+                fields:
+                  - { name: role, label: Role, widget: string }
+                  - { name: time, label: Time, widget: string }
+                  - { name: needed, label: Volunteers needed, widget: number, value_type: int }
+                  - { name: filled, label: Already filled, widget: number, value_type: int }
+                  - name: es
+                    label: Spanish
+                    widget: object
+                    required: false
+                    fields:
+                      - { name: role, label: Role, widget: string }
+      - name: posts
+        label: News posts
+        file: content/posts.json
+        format: json
+        fields:
+          - name: posts
+            label: Posts
+            widget: list
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { name: slug, label: Slug, widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: date, label: Date, widget: date, format: "YYYY-MM-DD" }
+              - { name: excerpt, label: Excerpt, widget: text }
+              - { name: image, label: Image, widget: image }
+              - { name: video, label: YouTube video ID, widget: string, required: false }
+              - { name: body, label: Paragraphs, widget: list, field: { name: p, label: Paragraph, widget: text } }
+              - name: es
+                label: Spanish
+                widget: object
+                required: false
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: excerpt, label: Excerpt, widget: text }
+                  - { name: body, label: Paragraphs, widget: list, field: { name: p, label: Paragraph, widget: text } }
+      - name: athleteOfMonth
+        label: Athlete of the Month
+        file: content/athleteOfMonth.json
+        format: json
+        fields:
+          - name: athletes
+            label: Honorees (newest first)
+            widget: list
+            summary: "{{fields.month}} — {{fields.name}}"
+            fields:
+              - { name: month, label: Month, widget: string, hint: "YYYY-MM" }
+              - { name: name, label: First name, widget: string }
+              - { name: sport, label: Sports, widget: string }
+              - { name: image, label: Photo, widget: image }
+              - { name: story, label: Story, widget: text }
+              - name: es
+                label: Spanish
+                widget: object
+                required: false
+                fields:
+                  - { name: story, label: Story, widget: text }
+      - name: results
+        label: Results
+        file: content/results.json
+        format: json
+        fields:
+          - name: results
+            label: Competitions (newest first)
+            widget: list
+            summary: "{{fields.competition}} — {{fields.date}}"
+            fields:
+              - { name: slug, label: Slug, widget: string }
+              - { name: competition, label: Competition, widget: string }
+              - { name: date, label: Date, widget: date, format: "YYYY-MM-DD" }
+              - { name: location, label: Location, widget: string }
+              - { name: recap, label: News post slug for the recap, widget: string, required: false }
+              - name: medals
+                label: Medal count
+                widget: object
+                fields:
+                  - { name: gold, label: Gold, widget: number, value_type: int }
+                  - { name: silver, label: Silver, widget: number, value_type: int }
+                  - { name: bronze, label: Bronze, widget: number, value_type: int }
+                  - { name: ribbons, label: Ribbons, widget: number, value_type: int }
+              - name: highlights
+                label: Highlights
+                widget: list
+                fields:
+                  - { name: athlete, label: Athlete or team, widget: string }
+                  - { name: sport, label: Sport, widget: string }
+                  - { name: event, label: Event, widget: string }
+                  - { name: place, label: Place, widget: select, options: [{ label: Gold, value: 1 }, { label: Silver, value: 2 }, { label: Bronze, value: 3 }, { label: 4th, value: 4 }] }
+              - name: es
+                label: Spanish
+                widget: object
+                required: false
+                fields:
+                  - { name: competition, label: Competition, widget: string }
+      - name: stories
+        label: Athlete stories
+        file: content/stories.json
+        format: json
+        fields:
+          - name: stories
+            label: Stories
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Role, widget: string }
+              - { name: sport, label: Sports, widget: string }
+              - { name: quote, label: Quote, widget: text }
+              - { name: image, label: Photo, widget: image }
+              - { name: video, label: YouTube video ID, widget: string, required: false }
+              - name: es
+                label: Spanish
+                widget: object
+                required: false
+                fields:
+                  - { name: role, label: Role, widget: string }
+                  - { name: quote, label: Quote, widget: text }
+      - name: sponsors
+        label: Sponsors
+        file: content/sponsors.json
+        format: json
+        fields:
+          - name: sponsors
+            label: Sponsors
+            widget: list
+            summary: "{{fields.name}} ({{fields.tier}})"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: tier, label: Tier, widget: select, options: [Gold, Silver, Bronze, Partner] }
+              - { name: logo, label: Logo, widget: image, required: false }
+              - { name: url, label: Website, widget: string, required: false }

@@ -1,0 +1,34 @@
+{
+  "athletes": [
+    {
+      "month": "2026-10",
+      "name": "Willie",
+      "sport": "Powerlifting · Athletics",
+      "image": "/images/powerlifting.jpg",
+      "story": "Willie set a personal record in the deadlift at regionals and then spent the rest of the day spotting for his teammates. That's who he is.",
+      "es": {
+        "story": "Willie logró un récord personal en peso muerto en el regional y pasó el resto del día ayudando a sus compañeros. Así es él."
+      }
+    },
+    {
+      "month": "2026-09",
+      "name": "Janessa",
+      "sport": "Basketball · Bowling",
+      "image": "/images/basketball-team.jpg",
+      "story": "Our Athlete Representative hasn't missed a practice in three years and welcomed four new athletes this month.",
+      "es": {
+        "story": "Nuestra representante de atletas no ha faltado a un entrenamiento en tres años y recibió a cuatro nuevos atletas este mes."
+      }
+    },
+    {
+      "month": "2026-08",
+      "name": "Tyler",
+      "sport": "Flag Football",
+      "image": "/images/flag-football.jpg",
+      "story": "Tyler threw three touchdowns in his first game as a starting quarterback.",
+      "es": {
+        "story": "Tyler lanzó tres touchdowns en su primer partido como mariscal titular."
+      }
+    }
+  ]
+}

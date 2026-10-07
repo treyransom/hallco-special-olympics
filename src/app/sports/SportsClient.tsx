@@ -9,6 +9,7 @@ import SportIcon from "@/components/ui/SportIcon";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 import { sports, practices, loc } from "@/lib/data";
+import { DeadlineBadge } from "@/components/home/Deadlines";
 import { useLang } from "@/lib/i18n";
 
 const seasons = ["Winter", "Spring", "Summer", "Fall"] as const;
@@ -50,6 +51,7 @@ export default function SportsClient() {
                 <Reveal delay={0.1}>
                   <p className="inline-flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.2em] text-red"><span className="h-0.5 w-8 bg-red" /> {d.common.seasons[sp.season]} {s.season}</p>
                   <h2 className="mt-3 text-5xl font-extrabold uppercase text-ink sm:text-6xl">{loc(lang, sp, "name")}</h2>
+                  <div className="mt-3"><DeadlineBadge season={sp.season} /></div>
                   <p className="mt-4 text-lg text-ink-soft">{loc(lang, sp, "blurb")}</p>
                   <div className="mt-6 rounded-2xl bg-white p-4 shadow-lg shadow-ink/5">
                     <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-ink-soft"><CalendarDays className="h-4 w-4 text-teal" /> {s.practices} · <span className={`rounded-full px-2 py-0.5 ${seasonBg[sp.season]}`}>{sp.months}</span></p>

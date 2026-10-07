@@ -142,3 +142,27 @@ h1, h2, h3, h4, .font-heading {
   66% { transform: translate(-20px, 25px) scale(0.95); }
 }
 .animate-blob { animation: blob 14s ease-in-out infinite; }
+
+/* Dark mode: remap surface tokens, keep brand sections dark */
+.dark {
+  --color-white: #0f1b1a;
+  --color-mist: #152423;
+  --color-mist-dark: #2a3d3b;
+  --color-background: #0a1413;
+  --color-foreground: #eef3f2;
+  color-scheme: dark;
+}
+.dark .text-ink { color: #eef3f2; }
+.dark .text-ink-soft { color: #a9bab7; }
+.dark .border-ink { border-color: #eef3f2; }
+.dark .bg-gold .text-ink, .dark .bg-gold.text-ink, .dark .bg-gold .text-ink-soft, .dark .text-ink.bg-gold { color: #0d1f1e; }
+.dark .bg-ink { background-color: #06100f; }
+.dark .hover\:bg-ink:hover { background-color: #06100f; }
+.dark .text-outline { -webkit-text-stroke-color: rgba(255,255,255,0.4); }
+.dark .bg-dots { background-image: radial-gradient(rgba(25,179,171,0.18) 1.5px, transparent 1.5px); }
+.dark img.logo-light { filter: brightness(0) invert(1); }
+.dark ::-webkit-scrollbar-track { background: #152423; }
+.dark .shadow-ink\/5, .dark .shadow-ink\/10, .dark .shadow-ink\/15, .dark .shadow-ink\/20 { --tw-shadow-color: rgba(0,0,0,0.5); }
+
+/* Route progress */
+@keyframes progress { from { transform: scaleX(0); } to { transform: scaleX(0.9); } }

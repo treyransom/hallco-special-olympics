@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import Countdown from "@/components/home/Countdown";
+import Deadlines from "@/components/home/Deadlines";
 import Mission from "@/components/home/Mission";
 import Ticker from "@/components/home/Ticker";
 import SportsGrid from "@/components/home/SportsGrid";
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <Hero />
       <Countdown overlap />
+      <Deadlines />
       <Mission />
       <Ticker />
       <SportsGrid />

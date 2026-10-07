@@ -1,0 +1,212 @@
+{
+  "events": [
+    {
+      "slug": "fall-games-2026",
+      "title": "State Fall Games",
+      "date": "2026-10-17",
+      "endDate": "2026-10-18",
+      "time": "All day",
+      "location": "Valdosta, GA",
+      "address": "Valdosta State University, Valdosta, GA",
+      "sport": "Flag Football · Softball",
+      "type": "Competition",
+      "description": "Our flag football and softball teams travel to compete against programs from across Georgia.",
+      "es": {
+        "title": "Juegos Estatales de Otoño",
+        "description": "Nuestros equipos de fútbol bandera y sóftbol viajan para competir contra programas de todo Georgia."
+      },
+      "shifts": [
+        {
+          "role": "Chaperone (overnight)",
+          "time": "Fri 2 PM – Sun 6 PM",
+          "needed": 6,
+          "filled": 4,
+          "es": {
+            "role": "Acompañante (con pernocta)"
+          }
+        },
+        {
+          "role": "Bus loading crew",
+          "time": "Fri 1:00 – 2:30 PM",
+          "needed": 4,
+          "filled": 1,
+          "es": {
+            "role": "Equipo de carga del autobús"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "golf-tournament-2026",
+      "title": "Annual Golf Tournament",
+      "date": "2026-10-24",
+      "time": "8:00 AM shotgun start",
+      "location": "Chattahoochee Golf Club, Gainesville",
+      "address": "301 Tommy Aaron Dr, Gainesville, GA 30506",
+      "type": "Fundraiser",
+      "description": "Our biggest fundraiser of the year. Sponsorships, foursomes, and hole sponsors available.",
+      "registerHref": "/fundraisers/golf",
+      "es": {
+        "title": "Torneo Anual de Golf",
+        "description": "Nuestra recaudación de fondos más grande del año. Patrocinios, cuartetos y patrocinadores de hoyo disponibles."
+      },
+      "shifts": [
+        {
+          "role": "Check-in table",
+          "time": "6:30 – 9:00 AM",
+          "needed": 4,
+          "filled": 2,
+          "es": {
+            "role": "Mesa de registro"
+          }
+        },
+        {
+          "role": "Hole spotter",
+          "time": "8:00 AM – 1:00 PM",
+          "needed": 18,
+          "filled": 9,
+          "es": {
+            "role": "Observador de hoyo"
+          }
+        },
+        {
+          "role": "Lunch service",
+          "time": "12:00 – 2:30 PM",
+          "needed": 6,
+          "filled": 3,
+          "es": {
+            "role": "Servicio de almuerzo"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "basketball-tryouts",
+      "title": "Basketball Season Kickoff",
+      "date": "2026-11-07",
+      "time": "10:00 AM – 12:00 PM",
+      "location": "Hall County Gym",
+      "sport": "Basketball",
+      "type": "Practice",
+      "description": "First practice of the winter season. New athletes welcome — bring a water bottle and a smile.",
+      "es": {
+        "title": "Inicio de la temporada de baloncesto",
+        "description": "Primer entrenamiento de la temporada de invierno. Bienvenidos los nuevos atletas: traigan agua y una sonrisa."
+      },
+      "shifts": [
+        {
+          "role": "Registration help",
+          "time": "9:30 – 10:30 AM",
+          "needed": 3,
+          "filled": 0,
+          "es": {
+            "role": "Ayuda con inscripciones"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "holiday-dance",
+      "title": "Athlete Holiday Dance",
+      "date": "2026-12-12",
+      "time": "6:00 – 9:00 PM",
+      "location": "Community Center",
+      "type": "Community",
+      "description": "Music, dancing, and dinner for athletes, families, and volunteers.",
+      "es": {
+        "title": "Baile navideño de atletas",
+        "description": "Música, baile y cena para atletas, familias y voluntarios."
+      },
+      "shifts": [
+        {
+          "role": "Setup crew",
+          "time": "4:00 – 6:00 PM",
+          "needed": 8,
+          "filled": 5,
+          "es": {
+            "role": "Equipo de montaje"
+          }
+        },
+        {
+          "role": "Dance buddies",
+          "time": "6:00 – 9:00 PM",
+          "needed": 15,
+          "filled": 6,
+          "es": {
+            "role": "Compañeros de baile"
+          }
+        },
+        {
+          "role": "Cleanup",
+          "time": "9:00 – 10:00 PM",
+          "needed": 6,
+          "filled": 2,
+          "es": {
+            "role": "Limpieza"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "winter-games",
+      "title": "State Winter Games",
+      "date": "2027-01-23",
+      "endDate": "2027-01-24",
+      "time": "All day",
+      "location": "Marietta, GA",
+      "sport": "Basketball · Bowling",
+      "type": "Competition",
+      "description": "Statewide competition for basketball and bowling athletes.",
+      "es": {
+        "title": "Juegos Estatales de Invierno",
+        "description": "Competencia estatal para atletas de baloncesto y boliche."
+      },
+      "shifts": [
+        {
+          "role": "Chaperone (overnight)",
+          "time": "Fri 2 PM – Sun 6 PM",
+          "needed": 6,
+          "filled": 2,
+          "es": {
+            "role": "Acompañante (con pernocta)"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "polar-plunge",
+      "title": "Polar Plunge",
+      "date": "2027-02-06",
+      "time": "9:00 AM",
+      "location": "Lake Lanier Olympic Park",
+      "address": "3105 Clarks Bridge Rd, Gainesville, GA 30506",
+      "type": "Fundraiser",
+      "description": "Freezin' for a reason. Take the plunge into Lake Lanier to support our athletes.",
+      "registerHref": "/fundraisers/plunge",
+      "es": {
+        "title": "Zambullida Polar",
+        "description": "Congelados por una causa. Lánzate al lago Lanier para apoyar a nuestros atletas."
+      },
+      "shifts": [
+        {
+          "role": "Towel & warming tent",
+          "time": "8:00 – 11:00 AM",
+          "needed": 6,
+          "filled": 1,
+          "es": {
+            "role": "Toallas y carpa de calor"
+          }
+        },
+        {
+          "role": "Safety spotter (lifeguard cert.)",
+          "time": "8:30 – 10:30 AM",
+          "needed": 4,
+          "filled": 3,
+          "es": {
+            "role": "Vigilante de seguridad (certificado)"
+          }
+        }
+      ]
+    }
+  ]
+}

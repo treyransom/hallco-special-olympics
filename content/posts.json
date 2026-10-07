@@ -1,0 +1,62 @@
+{
+  "posts": [
+    {
+      "slug": "thank-you-healthcare-heroes",
+      "title": "100 Lunches for Our Healthcare Heroes",
+      "date": "2020-05-01",
+      "excerpt": "Our athletes delivered about 100 lunches to the staff at Northeast Georgia Medical Center as a token of our love for them.",
+      "image": "/images/lunch-delivery.jpg",
+      "body": [
+        "Our athletes and families wanted to say thank you to the people who have been taking care of our community. So we packed up roughly 100 lunches and delivered them to the staff at Northeast Georgia Medical Center.",
+        "Every bag carried a hand-made card from one of our athletes. It was a small token of our love for the healthcare workers who show up every single day."
+      ],
+      "es": {
+        "title": "100 almuerzos para nuestros héroes de la salud",
+        "excerpt": "Nuestros atletas entregaron unos 100 almuerzos al personal del Northeast Georgia Medical Center como muestra de cariño.",
+        "body": [
+          "Nuestros atletas y familias querían agradecer a quienes cuidan de nuestra comunidad. Así que preparamos unos 100 almuerzos y los entregamos al personal del Northeast Georgia Medical Center.",
+          "Cada bolsa llevaba una tarjeta hecha a mano por uno de nuestros atletas. Fue una pequeña muestra de cariño para el personal de salud que se presenta cada día."
+        ]
+      }
+    },
+    {
+      "slug": "flag-football-season-recap",
+      "title": "Flag Football Team Brings Home Gold",
+      "date": "2025-10-20",
+      "excerpt": "Our unified flag football team finished the State Fall Games undefeated. Here's how the weekend went.",
+      "image": "/images/flag-football.jpg",
+      "video": "dQw4w9WgXcQ",
+      "body": [
+        "What a weekend. Our unified flag football team went undefeated at the State Fall Games and came home with gold medals around their necks.",
+        "Thank you to every coach, partner, parent, and volunteer who made the trip. This is what Hall County looks like when we work together toward the same goal."
+      ],
+      "es": {
+        "title": "El equipo de fútbol bandera trae el oro a casa",
+        "excerpt": "Nuestro equipo unificado terminó invicto los Juegos Estatales de Otoño. Así fue el fin de semana.",
+        "body": [
+          "Qué fin de semana. Nuestro equipo unificado de fútbol bandera terminó invicto en los Juegos Estatales de Otoño y volvió a casa con medallas de oro.",
+          "Gracias a cada entrenador, compañero, padre y voluntario que hizo el viaje. Así se ve Hall County cuando trabajamos juntos hacia la misma meta."
+        ]
+      }
+    },
+    {
+      "slug": "unified-partner-of-the-year",
+      "title": "Rachael Named Outstanding Unified Partner",
+      "date": "2025-06-02",
+      "excerpt": "Special Olympics Georgia honored one of our own with the Outstanding Unified Partner award.",
+      "image": "/images/unified-partner-award.jpg",
+      "body": [
+        "We could not be prouder. Rachael has spent years on the court, the field, and the lanes alongside our athletes, and Special Olympics Georgia noticed.",
+        "Unified partners compete side by side with our athletes. They are the heart of what makes our program feel like a family."
+      ],
+      "es": {
+        "title": "Rachael nombrada Compañera Unificada Destacada",
+        "excerpt": "Special Olympics Georgia reconoció a una de las nuestras con el premio a la Compañera Unificada Destacada.",
+        "body": [
+          "No podríamos estar más orgullosos. Rachael ha pasado años en la cancha, el campo y las pistas junto a nuestros atletas, y Special Olympics Georgia lo notó.",
+          "Los compañeros unificados compiten codo a codo con nuestros atletas. Son el corazón de lo que hace que nuestro programa se sienta como una familia."
+        ]
+      }
+    }
+  ]
+}

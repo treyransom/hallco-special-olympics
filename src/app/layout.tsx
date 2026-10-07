@@ -9,6 +9,9 @@ import BackToTop from "@/components/layout/BackToTop";
 import AccessibilityWidget from "@/components/layout/AccessibilityWidget";
 import StructuredData from "@/components/layout/StructuredData";
 import SkipLink from "@/components/layout/SkipLink";
+import AlertBanner from "@/components/layout/AlertBanner";
+import RouteProgress from "@/components/layout/RouteProgress";
+import SWRegister from "@/components/layout/SWRegister";
 import { site } from "@/lib/data";
 
 const barlow = Barlow_Condensed({ variable: "--font-barlow-condensed", subsets: ["latin"], weight: ["500", "600", "700", "800"], display: "swap" });
@@ -24,20 +27,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${barlow.variable} ${dmSans.variable} h-full`}>
+    <html lang="en" className={`${barlow.variable} ${dmSans.variable} h-full`} suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#00958f" />
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem("sohc-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}` }} />
         <StructuredData />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <I18nProvider>
           <SkipLink />
+          <RouteProgress />
+          <AlertBanner />
           <AnnouncementBar />
           <Navbar />
           <main id="main" className="flex-1">{children}</main>
           <Footer />
           <BackToTop />
           <AccessibilityWidget />
+          <SWRegister />
         </I18nProvider>
       </body>
     </html>

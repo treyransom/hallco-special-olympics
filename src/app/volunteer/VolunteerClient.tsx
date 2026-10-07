@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Clock, MapPin, HandHeart, Send, CheckCircle2, X } from "lucide-react";
+import { Clock, MapPin, HandHeart, Send, CheckCircle2, X, ClipboardCheck, Timer } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
@@ -32,6 +32,10 @@ export default function VolunteerClient() {
       <PageHero curve="mist" eyebrow={v.eyebrow} title={v.title} image="/images/coaches.jpg" description={v.text} />
       <section className="bg-dots bg-mist py-20 sm:py-28">
         <div className="container-x space-y-10">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Button href="/volunteer/checklists" variant="secondary" className="justify-start"><ClipboardCheck className="h-5 w-5" /> {d.nav.checklists}</Button>
+            <Button href="/volunteer/hours" variant="outline" className="justify-start"><Timer className="h-5 w-5" /> {d.nav.hours}</Button>
+          </div>
           {list.length === 0 && <p className="text-ink-soft">{v.noShifts}</p>}
           {list.map((e, i) => (
             <Reveal key={e.slug} delay={i * 0.05} className="scroll-mt-28 overflow-hidden rounded-3xl bg-white shadow-sm">

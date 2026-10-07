@@ -6,7 +6,10 @@ import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
-import { sports, coaches, rosters, practices, loc } from "@/lib/data";
+import { sports, coaches, rosters, practices, loc, certifications, certStatus } from "@/lib/data";
+import AlertBanner from "@/components/layout/AlertBanner";
+import { DeadlineBadge } from "@/components/home/Deadlines";
+import { Award, ShieldCheck, ShieldAlert, ShieldX } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 export default function TeamClient({ slug }: { slug: string }) {
@@ -16,12 +19,22 @@ export default function TeamClient({ slug }: { slug: string }) {
   const roster = rosters.find((r) => r.sport === slug);
   const pr = practices.filter((p) => p.sport === slug);
   const name = loc(lang, s, "name");
+  const year = new Date().getFullYear();
+  const milestone = (since: number) => {
+    const n = Math.max(1, year - since + 1);
+    const label = n >= 10 ? d.milestones.legend : n >= 5 ? d.milestones.veteran : n <= 1 ? d.milestones.newAthlete : null;
+    const color = n >= 10 ? "bg-gold text-ink" : n >= 5 ? "bg-teal text-white" : "bg-red text-white";
+    return { n, label, color };
+  };
+  const certIcon = { valid: ShieldCheck, expiring: ShieldAlert, expired: ShieldX, missing: ShieldX };
+  const certColor = { valid: "text-teal", expiring: "text-gold", expired: "text-red", missing: "text-ink-soft" };
   return (
     <>
       <PageHero eyebrow={`${d.teams.eyebrow} · ${d.common.seasons[s.season]}`} title={name} image={s.image} description={loc(lang, s, "blurb")} />
       <section className="bg-white py-20 sm:py-28">
         <div className="container-x">
-          <Link href="/teams" className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-ink-soft hover:text-teal"><ArrowLeft className="h-4 w-4" /> {d.teams.allTeams}</Link>
+          <Link href="/teams" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-ink-soft hover:text-teal"><ArrowLeft className="h-4 w-4" /> {d.teams.allTeams}</Link>
+          <div className="mb-8 flex flex-wrap items-center gap-3"><AlertBanner inline sport={slug} /><DeadlineBadge season={s.season} /></div>
           <div className="grid gap-12 lg:grid-cols-[1fr_22rem]">
             <div className="space-y-16">
               <div>
@@ -42,6 +55,20 @@ export default function TeamClient({ slug }: { slug: string }) {
                         <h3 className="text-2xl font-extrabold uppercase text-ink">{c.name}</h3>
                         <p className="mt-1 text-sm text-ink-soft">{c.bio}</p>
                         {c.email && <a href={`mailto:${c.email}`} className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-teal hover:underline"><Mail className="h-3.5 w-3.5" /> {c.email}</a>}
+                        {(() => {
+                          const ct = certifications.find((x) => x.coach === c.name);
+                          if (!ct) return null;
+                          const keys = [["classA", d.coachesPage.classA], ["protectiveBehaviors", d.coachesPage.protective], ["concussion", d.coachesPage.concussion]] as const;
+                          return (
+                            <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                              {keys.map(([k, l]) => {
+                                const st = certStatus(ct[k]);
+                                const Icon = certIcon[st];
+                                return <li key={k} className={`inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider ${certColor[st]}`}><Icon className="h-3.5 w-3.5" /> {l}</li>;
+                              })}
+                            </ul>
+                          );
+                        })()}
                       </div>
                     </Reveal>
                   ))}
@@ -54,10 +81,19 @@ export default function TeamClient({ slug }: { slug: string }) {
                     {roster.athletes.map((a, i) => (
                       <Reveal as="li" key={a.name} delay={i * 0.04} className="flex items-center gap-3 rounded-2xl border border-mist-dark p-4">
                         <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-heading text-lg font-bold ${["bg-gold text-ink", "bg-teal text-white", "bg-red text-white"][i % 3]}`}>{a.name[0]}</span>
-                        <span className="min-w-0">
+                        <span className="min-w-0 flex-1">
                           <span className="block font-heading text-xl font-bold uppercase text-ink">{a.name}</span>
                           <span className="block text-xs text-ink-soft">{d.common.since} {a.since}{a.also?.length ? ` · ${d.teams.also} ${a.also.join(", ")}` : ""}</span>
                         </span>
+                        {(() => {
+                          const m = milestone(a.since);
+                          return (
+                            <span className={`inline-flex shrink-0 flex-col items-center rounded-xl px-2 py-1 ${m.color}`} title={m.label ?? undefined}>
+                              <span className="inline-flex items-center gap-0.5 font-heading text-lg font-extrabold leading-none"><Award className="h-3.5 w-3.5" />{m.n}</span>
+                              <span className="text-[9px] font-bold uppercase tracking-wider opacity-80">{m.label ?? d.milestones.seasons}</span>
+                            </span>
+                          );
+                        })()}
                       </Reveal>
                     ))}
                   </ul>

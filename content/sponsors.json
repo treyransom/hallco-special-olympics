@@ -1,0 +1,37 @@
+{
+  "sponsors": [
+    {
+      "name": "Northeast Georgia Health System",
+      "tier": "Gold",
+      "url": "https://www.nghs.com/"
+    },
+    {
+      "name": "Publix",
+      "tier": "Gold"
+    },
+    {
+      "name": "Hall County Schools",
+      "tier": "Silver"
+    },
+    {
+      "name": "Chattahoochee Golf Club",
+      "tier": "Silver"
+    },
+    {
+      "name": "Lanier Technical College",
+      "tier": "Bronze"
+    },
+    {
+      "name": "Gainesville Rotary",
+      "tier": "Bronze"
+    },
+    {
+      "name": "Stars and Strikes",
+      "tier": "Partner"
+    },
+    {
+      "name": "Hall County Sheriff's Office",
+      "tier": "Partner"
+    }
+  ]
+}

@@ -2,6 +2,15 @@
 // real details from the Hall County program before launch.
 // Optional `es` objects hold Spanish versions of user-facing text.
 
+import announcementJson from "../../content/announcement.json";
+import campaignJson from "../../content/campaign.json";
+import eventsJson from "../../content/events.json";
+import postsJson from "../../content/posts.json";
+import aomJson from "../../content/athleteOfMonth.json";
+import resultsJson from "../../content/results.json";
+import storiesJson from "../../content/stories.json";
+import sponsorsJson from "../../content/sponsors.json";
+
 export type Lang = "en" | "es";
 
 export const site = {
@@ -35,13 +44,8 @@ export function isPlaceholderUrl(u: string) {
   return !u || u === "#" || /^https?:\/\/(www\.)?(facebook|instagram|youtube)\.com\/?$/.test(u);
 }
 
-// Shown in a bar above the navigation. Set `active: false` to hide it.
-export const announcement = {
-  active: true,
-  text: "Winter season registration is open", // PLACEHOLDER
-  textEs: "Las inscripciones para la temporada de invierno están abiertas",
-  cta: { label: "Register now", labelEs: "Inscríbete", href: "/register" },
-};
+// Shown in a bar above the navigation. Edit in content/announcement.json (or the CMS at /admin).
+export const announcement = announcementJson as { active: boolean; text: string; textEs: string; cta: { label: string; labelEs: string; href: string } };
 
 /* ------------------------------------------------------------------ */
 /* Sports, practices, teams                                            */
@@ -143,15 +147,8 @@ export type Event = {
   es?: { title: string; description: string };
 };
 
-// PLACEHOLDER events — replace with the real season schedule
-export const events: Event[] = [
-  { slug: "fall-games-2026", title: "State Fall Games", date: "2026-10-17", endDate: "2026-10-18", time: "All day", location: "Valdosta, GA", address: "Valdosta State University, Valdosta, GA", sport: "Flag Football · Softball", type: "Competition", description: "Our flag football and softball teams travel to compete against programs from across Georgia.", es: { title: "Juegos Estatales de Otoño", description: "Nuestros equipos de fútbol bandera y sóftbol viajan para competir contra programas de todo Georgia." }, shifts: [{ role: "Chaperone (overnight)", time: "Fri 2 PM – Sun 6 PM", needed: 6, filled: 4, es: { role: "Acompañante (con pernocta)" } }, { role: "Bus loading crew", time: "Fri 1:00 – 2:30 PM", needed: 4, filled: 1, es: { role: "Equipo de carga del autobús" } }] },
-  { slug: "golf-tournament-2026", title: "Annual Golf Tournament", date: "2026-10-24", time: "8:00 AM shotgun start", location: "Chattahoochee Golf Club, Gainesville", address: "301 Tommy Aaron Dr, Gainesville, GA 30506", type: "Fundraiser", description: "Our biggest fundraiser of the year. Sponsorships, foursomes, and hole sponsors available.", registerHref: "/fundraisers/golf", es: { title: "Torneo Anual de Golf", description: "Nuestra recaudación de fondos más grande del año. Patrocinios, cuartetos y patrocinadores de hoyo disponibles." }, shifts: [{ role: "Check-in table", time: "6:30 – 9:00 AM", needed: 4, filled: 2, es: { role: "Mesa de registro" } }, { role: "Hole spotter", time: "8:00 AM – 1:00 PM", needed: 18, filled: 9, es: { role: "Observador de hoyo" } }, { role: "Lunch service", time: "12:00 – 2:30 PM", needed: 6, filled: 3, es: { role: "Servicio de almuerzo" } }] },
-  { slug: "basketball-tryouts", title: "Basketball Season Kickoff", date: "2026-11-07", time: "10:00 AM – 12:00 PM", location: "Hall County Gym", sport: "Basketball", type: "Practice", description: "First practice of the winter season. New athletes welcome — bring a water bottle and a smile.", es: { title: "Inicio de la temporada de baloncesto", description: "Primer entrenamiento de la temporada de invierno. Bienvenidos los nuevos atletas: traigan agua y una sonrisa." }, shifts: [{ role: "Registration help", time: "9:30 – 10:30 AM", needed: 3, filled: 0, es: { role: "Ayuda con inscripciones" } }] },
-  { slug: "holiday-dance", title: "Athlete Holiday Dance", date: "2026-12-12", time: "6:00 – 9:00 PM", location: "Community Center", type: "Community", description: "Music, dancing, and dinner for athletes, families, and volunteers.", es: { title: "Baile navideño de atletas", description: "Música, baile y cena para atletas, familias y voluntarios." }, shifts: [{ role: "Setup crew", time: "4:00 – 6:00 PM", needed: 8, filled: 5, es: { role: "Equipo de montaje" } }, { role: "Dance buddies", time: "6:00 – 9:00 PM", needed: 15, filled: 6, es: { role: "Compañeros de baile" } }, { role: "Cleanup", time: "9:00 – 10:00 PM", needed: 6, filled: 2, es: { role: "Limpieza" } }] },
-  { slug: "winter-games", title: "State Winter Games", date: "2027-01-23", endDate: "2027-01-24", time: "All day", location: "Marietta, GA", sport: "Basketball · Bowling", type: "Competition", description: "Statewide competition for basketball and bowling athletes.", es: { title: "Juegos Estatales de Invierno", description: "Competencia estatal para atletas de baloncesto y boliche." }, shifts: [{ role: "Chaperone (overnight)", time: "Fri 2 PM – Sun 6 PM", needed: 6, filled: 2, es: { role: "Acompañante (con pernocta)" } }] },
-  { slug: "polar-plunge", title: "Polar Plunge", date: "2027-02-06", time: "9:00 AM", location: "Lake Lanier Olympic Park", address: "3105 Clarks Bridge Rd, Gainesville, GA 30506", type: "Fundraiser", description: "Freezin' for a reason. Take the plunge into Lake Lanier to support our athletes.", registerHref: "/fundraisers/plunge", es: { title: "Zambullida Polar", description: "Congelados por una causa. Lánzate al lago Lanier para apoyar a nuestros atletas." }, shifts: [{ role: "Towel & warming tent", time: "8:00 – 11:00 AM", needed: 6, filled: 1, es: { role: "Toallas y carpa de calor" } }, { role: "Safety spotter (lifeguard cert.)", time: "8:30 – 10:30 AM", needed: 4, filled: 3, es: { role: "Vigilante de seguridad (certificado)" } }] },
-];
+// Edit in content/events.json (or the CMS at /admin)
+export const events: Event[] = eventsJson.events as Event[];
 
 export type FundraiserOption = { id: string; label: string; price: number; desc: string; max?: number; es?: { label: string; desc: string } };
 
@@ -227,16 +224,7 @@ export const fundraisers: Fundraiser[] = [
   },
 ];
 
-export const campaign = {
-  active: true,
-  name: "2026–27 Season Fund", // PLACEHOLDER
-  nameEs: "Fondo de la temporada 2026–27",
-  goal: 25000,
-  raised: 14350,
-  deadline: "2027-06-30",
-  blurb: "Covers uniforms, equipment, and travel for every athlete this season.",
-  blurbEs: "Cubre uniformes, equipo y viajes de cada atleta esta temporada.",
-};
+export const campaign = campaignJson as { active: boolean; name: string; nameEs: string; goal: number; raised: number; deadline: string; blurb: string; blurbEs: string };
 
 export type AthleteSponsorship = { name: string; sport: string; image: string; need: string; amount: number; funded: boolean; es?: { need: string } };
 
@@ -255,17 +243,8 @@ export const athleteSponsorships: AthleteSponsorship[] = [
 export type SponsorTier = "Gold" | "Silver" | "Bronze" | "Partner";
 export type Sponsor = { name: string; tier: SponsorTier; logo?: string; url?: string };
 
-// PLACEHOLDER sponsors. Add a logo path (e.g. /images/sponsors/x.png) to show a logo instead of text.
-export const sponsors: Sponsor[] = [
-  { name: "Northeast Georgia Health System", tier: "Gold", url: "https://www.nghs.com/" },
-  { name: "Publix", tier: "Gold" },
-  { name: "Hall County Schools", tier: "Silver" },
-  { name: "Chattahoochee Golf Club", tier: "Silver" },
-  { name: "Lanier Technical College", tier: "Bronze" },
-  { name: "Gainesville Rotary", tier: "Bronze" },
-  { name: "Stars and Strikes", tier: "Partner" },
-  { name: "Hall County Sheriff's Office", tier: "Partner" },
-];
+// Edit in content/sponsors.json. Add a logo path (e.g. /images/sponsors/x.png) to show a logo instead of text.
+export const sponsors: Sponsor[] = sponsorsJson.sponsors as Sponsor[];
 
 export const sponsorTiers: { name: SponsorTier; amount: string; perks: string[]; es: { perks: string[] } }[] = [
   { name: "Bronze", amount: "$500", perks: ["Logo on event banner", "Social media thank-you", "Listing on this website"], es: { perks: ["Logo en la pancarta del evento", "Agradecimiento en redes sociales", "Mención en este sitio web"] } },
@@ -279,64 +258,18 @@ export const sponsorTiers: { name: SponsorTier; amount: string; perks: string[];
 
 export type Story = { name: string; role: string; sport: string; quote: string; image: string; video?: string; es?: { role: string; quote: string } };
 
-// PLACEHOLDER athlete and volunteer stories. `video` is a YouTube video ID.
-export const stories: Story[] = [
-  { name: "Willie", role: "Athlete", sport: "Powerlifting · Athletics", quote: "When I lift, everybody in the gym is cheering for me. I used to be shy. Now I'm the one cheering for everyone else.", image: "/images/powerlifting.jpg", video: "dQw4w9WgXcQ", es: { role: "Atleta", quote: "Cuando levanto, todo el gimnasio me anima. Antes era tímido. Ahora soy yo el que anima a los demás." } },
-  { name: "Rachael", role: "Unified Partner", sport: "Flag Football · Bowling", quote: "I came to volunteer one Saturday and never left. These athletes are my teammates, and honestly, my best friends.", image: "/images/unified-partner-award.jpg", es: { role: "Compañera unificada", quote: "Vine a ser voluntaria un sábado y nunca me fui. Estos atletas son mis compañeros de equipo y, sinceramente, mis mejores amigos." } },
-  { name: "The King Family", role: "Athlete Family", sport: "Basketball", quote: "Janessa found her people here. Game days are the highlight of our week, and she's never missed a practice.", image: "/images/basketball-team.jpg", es: { role: "Familia de atleta", quote: "Janessa encontró a su gente aquí. Los días de partido son lo mejor de nuestra semana y nunca ha faltado a un entrenamiento." } },
-];
+// Edit in content/stories.json. `video` is a YouTube video ID.
+export const stories: Story[] = storiesJson.stories as Story[];
 
 export type Post = { slug: string; title: string; date: string; excerpt: string; image: string; body: string[]; video?: string; es?: { title: string; excerpt: string; body: string[] } };
 
-export const posts: Post[] = [
-  {
-    slug: "thank-you-healthcare-heroes",
-    title: "100 Lunches for Our Healthcare Heroes",
-    date: "2020-05-01",
-    excerpt: "Our athletes delivered about 100 lunches to the staff at Northeast Georgia Medical Center as a token of our love for them.",
-    image: "/images/lunch-delivery.jpg",
-    body: [
-      "Our athletes and families wanted to say thank you to the people who have been taking care of our community. So we packed up roughly 100 lunches and delivered them to the staff at Northeast Georgia Medical Center.",
-      "Every bag carried a hand-made card from one of our athletes. It was a small token of our love for the healthcare workers who show up every single day.",
-    ],
-    es: { title: "100 almuerzos para nuestros héroes de la salud", excerpt: "Nuestros atletas entregaron unos 100 almuerzos al personal del Northeast Georgia Medical Center como muestra de cariño.", body: ["Nuestros atletas y familias querían agradecer a quienes cuidan de nuestra comunidad. Así que preparamos unos 100 almuerzos y los entregamos al personal del Northeast Georgia Medical Center.", "Cada bolsa llevaba una tarjeta hecha a mano por uno de nuestros atletas. Fue una pequeña muestra de cariño para el personal de salud que se presenta cada día."] },
-  },
-  // PLACEHOLDER posts below
-  {
-    slug: "flag-football-season-recap",
-    title: "Flag Football Team Brings Home Gold",
-    date: "2025-10-20",
-    excerpt: "Our unified flag football team finished the State Fall Games undefeated. Here's how the weekend went.",
-    image: "/images/flag-football.jpg",
-    video: "dQw4w9WgXcQ",
-    body: [
-      "What a weekend. Our unified flag football team went undefeated at the State Fall Games and came home with gold medals around their necks.",
-      "Thank you to every coach, partner, parent, and volunteer who made the trip. This is what Hall County looks like when we work together toward the same goal.",
-    ],
-    es: { title: "El equipo de fútbol bandera trae el oro a casa", excerpt: "Nuestro equipo unificado terminó invicto los Juegos Estatales de Otoño. Así fue el fin de semana.", body: ["Qué fin de semana. Nuestro equipo unificado de fútbol bandera terminó invicto en los Juegos Estatales de Otoño y volvió a casa con medallas de oro.", "Gracias a cada entrenador, compañero, padre y voluntario que hizo el viaje. Así se ve Hall County cuando trabajamos juntos hacia la misma meta."] },
-  },
-  {
-    slug: "unified-partner-of-the-year",
-    title: "Rachael Named Outstanding Unified Partner",
-    date: "2025-06-02",
-    excerpt: "Special Olympics Georgia honored one of our own with the Outstanding Unified Partner award.",
-    image: "/images/unified-partner-award.jpg",
-    body: [
-      "We could not be prouder. Rachael has spent years on the court, the field, and the lanes alongside our athletes, and Special Olympics Georgia noticed.",
-      "Unified partners compete side by side with our athletes. They are the heart of what makes our program feel like a family.",
-    ],
-    es: { title: "Rachael nombrada Compañera Unificada Destacada", excerpt: "Special Olympics Georgia reconoció a una de las nuestras con el premio a la Compañera Unificada Destacada.", body: ["No podríamos estar más orgullosos. Rachael ha pasado años en la cancha, el campo y las pistas junto a nuestros atletas, y Special Olympics Georgia lo notó.", "Los compañeros unificados compiten codo a codo con nuestros atletas. Son el corazón de lo que hace que nuestro programa se sienta como una familia."] },
-  },
-];
+// Edit in content/posts.json
+export const posts: Post[] = postsJson.posts as Post[];
 
 export type AthleteOfMonth = { month: string; name: string; sport: string; image: string; story: string; es?: { story: string } };
 
-// PLACEHOLDER athlete of the month archive (most recent first)
-export const athleteOfMonth: AthleteOfMonth[] = [
-  { month: "2026-10", name: "Willie", sport: "Powerlifting · Athletics", image: "/images/powerlifting.jpg", story: "Willie set a personal record in the deadlift at regionals and then spent the rest of the day spotting for his teammates. That's who he is.", es: { story: "Willie logró un récord personal en peso muerto en el regional y pasó el resto del día ayudando a sus compañeros. Así es él." } },
-  { month: "2026-09", name: "Janessa", sport: "Basketball · Bowling", image: "/images/basketball-team.jpg", story: "Our Athlete Representative hasn't missed a practice in three years and welcomed four new athletes this month.", es: { story: "Nuestra representante de atletas no ha faltado a un entrenamiento en tres años y recibió a cuatro nuevos atletas este mes." } },
-  { month: "2026-08", name: "Tyler", sport: "Flag Football", image: "/images/flag-football.jpg", story: "Tyler threw three touchdowns in his first game as a starting quarterback.", es: { story: "Tyler lanzó tres touchdowns en su primer partido como mariscal titular." } },
-];
+// Edit in content/athleteOfMonth.json (most recent first)
+export const athleteOfMonth: AthleteOfMonth[] = aomJson.athletes as AthleteOfMonth[];
 
 export type Result = {
   slug: string;
@@ -349,12 +282,8 @@ export type Result = {
   es?: { competition: string };
 };
 
-// PLACEHOLDER results (most recent first)
-export const results: Result[] = [
-  { slug: "fall-games-2025", competition: "State Fall Games", date: "2025-10-19", location: "Valdosta, GA", medals: { gold: 6, silver: 3, bronze: 4, ribbons: 5 }, recap: "flag-football-season-recap", es: { competition: "Juegos Estatales de Otoño" }, highlights: [{ athlete: "Unified Flag Football", sport: "Flag Football", event: "Division 2", place: 1 }, { athlete: "Softball", sport: "Softball", event: "Division 3", place: 2 }, { athlete: "Chris B.", sport: "Softball", event: "Individual skills", place: 1 }, { athlete: "Willie M.", sport: "Flag Football", event: "MVP", place: 1 }] },
-  { slug: "summer-games-2025", competition: "State Summer Games", date: "2025-05-18", location: "Emory University, Atlanta", medals: { gold: 9, silver: 7, bronze: 5, ribbons: 8 }, es: { competition: "Juegos Estatales de Verano" }, highlights: [{ athlete: "Willie M.", sport: "Athletics", event: "100m dash", place: 1 }, { athlete: "Willie M.", sport: "Athletics", event: "Shot put", place: 1 }, { athlete: "Sam P.", sport: "Bocce", event: "Singles", place: 3 }, { athlete: "Maria G.", sport: "Swimming", event: "25m freestyle", place: 2 }] },
-  { slug: "winter-games-2025", competition: "State Winter Games", date: "2025-01-26", location: "Marietta, GA", medals: { gold: 4, silver: 5, bronze: 2, ribbons: 6 }, es: { competition: "Juegos Estatales de Invierno" }, highlights: [{ athlete: "Basketball", sport: "Basketball", event: "Division 4", place: 1 }, { athlete: "Janessa K.", sport: "Bowling", event: "Singles", place: 2 }, { athlete: "Alex D.", sport: "Bowling", event: "Singles", place: 3 }] },
-];
+// Edit in content/results.json (most recent first)
+export const results: Result[] = resultsJson.results as Result[];
 
 /* ------------------------------------------------------------------ */
 /* Team, giving, locations                                             */
@@ -465,6 +394,172 @@ export const competitionGuide = {
     { title: "Sunday: home", text: "We're usually back at the gym by 6 PM. We'll text families when we're 30 minutes out.", es: { title: "Domingo: regreso", text: "Normalmente llegamos al gimnasio a las 6 PM. Enviamos un mensaje a las familias 30 minutos antes." } },
   ],
 };
+
+
+/* ------------------------------------------------------------------ */
+/* Registration windows, alerts, birthdays, carpools                   */
+/* ------------------------------------------------------------------ */
+
+export type RegistrationWindow = { season: Sport["season"]; opens: string; closes: string; href: string };
+
+// PLACEHOLDER registration deadlines (ISO dates)
+export const registrationWindows: RegistrationWindow[] = [
+  { season: "Winter", opens: "2026-10-01", closes: "2026-10-31", href: "/register" },
+  { season: "Spring", opens: "2027-01-15", closes: "2027-02-28", href: "/register" },
+  { season: "Summer", opens: "2027-04-01", closes: "2027-05-15", href: "/register" },
+  { season: "Fall", opens: "2027-07-01", closes: "2027-08-10", href: "/register" },
+];
+
+// Weather / cancellation alert. Flip `active` and edit the text when needed.
+export const alert = {
+  active: true, // PLACEHOLDER — set false when there is no alert
+  level: "warning" as "info" | "warning" | "cancel",
+  text: "Saturday flag football moves indoors to the Hall County Gym due to lightning risk.",
+  textEs: "El fútbol bandera del sábado se traslada al gimnasio de Hall County por riesgo de tormentas.",
+  sports: ["flag-football"], // sport slugs affected; empty = everyone
+  updated: "2026-10-07",
+};
+
+export type Birthday = { name: string; month: number; day: number; sport: string };
+
+// PLACEHOLDER birthdays (first names only, with family permission)
+export const birthdays: Birthday[] = [
+  { name: "Willie", month: 10, day: 12, sport: "Powerlifting" },
+  { name: "Janessa", month: 10, day: 23, sport: "Basketball" },
+  { name: "Tyler", month: 11, day: 4, sport: "Flag Football" },
+  { name: "Maria", month: 10, day: 30, sport: "Bowling" },
+  { name: "Sam", month: 12, day: 15, sport: "Bocce" },
+  { name: "Alex", month: 11, day: 19, sport: "Bowling" },
+];
+
+export type Carpool = { type: "offer" | "request"; from: string; to: string; when: string; seats?: number; contact: string; note?: string };
+
+// PLACEHOLDER carpool board. New entries come in by email and get added here.
+export const carpools: Carpool[] = [
+  { type: "offer", from: "Flowery Branch", to: "State Fall Games (Valdosta)", when: "Fri Oct 16, 1:00 PM", seats: 3, contact: "the King family", note: "Minivan, room for one wheelchair." },
+  { type: "offer", from: "Oakwood", to: "Saturday basketball practice", when: "Every Saturday 9:30 AM", seats: 2, contact: "Coach Bobbie" },
+  { type: "request", from: "Lula", to: "Thursday bowling", when: "Thursdays 4:00 PM", contact: "Maria's mom", note: "Happy to split gas." },
+];
+
+/* ------------------------------------------------------------------ */
+/* Volunteers, coaches, checklists                                     */
+/* ------------------------------------------------------------------ */
+
+export type VolunteerHours = { name: string; hours: number; role: string };
+
+// PLACEHOLDER volunteer hours for the current season
+export const volunteerHours: VolunteerHours[] = [
+  { name: "Lisa S.", hours: 142, role: "Volunteer Coordinator" },
+  { name: "Bobbie Y.", hours: 128, role: "Head Coach" },
+  { name: "Dave K.", hours: 96, role: "Head Coach" },
+  { name: "Rachael D.", hours: 88, role: "Unified Partner" },
+  { name: "Marcus L.", hours: 64, role: "Assistant Coach" },
+  { name: "The Nguyen family", hours: 52, role: "Event volunteers" },
+  { name: "Gainesville HS Beta Club", hours: 40, role: "Event volunteers" },
+  { name: "April B.", hours: 38, role: "Chairperson" },
+];
+
+export type Certification = { coach: string; protectiveBehaviors?: string; concussion?: string; classA?: string };
+export const CERT_VALID_YEARS = 3;
+
+// PLACEHOLDER certification dates (ISO). Each is valid for CERT_VALID_YEARS.
+export const certifications: Certification[] = [
+  { coach: "Bobbie Young", protectiveBehaviors: "2025-08-10", concussion: "2025-08-10", classA: "2024-09-01" },
+  { coach: "Marcus Lee", protectiveBehaviors: "2023-09-02", concussion: "2024-01-15", classA: "2023-09-02" },
+  { coach: "Lisa Shows", protectiveBehaviors: "2026-01-20", concussion: "2026-01-20", classA: "2026-01-20" },
+  { coach: "Dave King", protectiveBehaviors: "2024-07-30", concussion: "2023-06-11", classA: "2024-07-30" },
+  { coach: "Heather Gamble", protectiveBehaviors: "2025-03-05", concussion: "2025-03-05", classA: "2025-03-05" },
+  { coach: "April Baldwin", protectiveBehaviors: "2024-11-12", concussion: "2024-11-12", classA: "2024-11-12" },
+  { coach: "Randi Brooks", protectiveBehaviors: "2023-08-01", concussion: "2023-08-01", classA: "2023-08-01" },
+];
+
+export type CoachResource = { sport: string | "all"; title: string; type: "Practice plan" | "Drills" | "Rules" | "Divisioning" | "Safety"; href: string; desc: string; es?: { title: string; desc: string } };
+
+// PLACEHOLDER coach resources
+export const coachResources: CoachResource[] = [
+  { sport: "all", title: "Special Olympics Coaching Guides", type: "Rules", href: "https://resources.specialolympics.org/sports-essentials/sport-rules", desc: "Official rules and coaching guides for every sport.", es: { title: "Guías de entrenamiento de Special Olympics", desc: "Reglas oficiales y guías de entrenamiento de cada deporte." } },
+  { sport: "all", title: "Divisioning 101", type: "Divisioning", href: "https://www.specialolympicsga.org/", desc: "How athletes are grouped so everyone competes against similar ability.", es: { title: "Divisiones 101", desc: "Cómo se agrupan los atletas para competir contra habilidad similar." } },
+  { sport: "all", title: "Heat, hydration, and weather policy", type: "Safety", href: "https://www.specialolympicsga.org/", desc: "When to move indoors, cancel, or add water breaks.", es: { title: "Calor, hidratación y clima", desc: "Cuándo trasladarse bajo techo, cancelar o agregar pausas de agua." } },
+  { sport: "basketball", title: "8-week basketball practice plan", type: "Practice plan", href: "#", desc: "Warm-up, skills stations, scrimmage, and cool-down for a 90-minute practice.", es: { title: "Plan de 8 semanas de baloncesto", desc: "Calentamiento, estaciones, partido y enfriamiento para 90 minutos." } },
+  { sport: "basketball", title: "Individual skills contest drills", type: "Drills", href: "#", desc: "Target pass, 10-meter dribble, and spot shot practice.", es: { title: "Ejercicios de habilidades individuales", desc: "Pase a objetivo, dribbling de 10 metros y tiro desde puntos." } },
+  { sport: "bowling", title: "Ramp and bumper guidelines", type: "Rules", href: "#", desc: "Who qualifies for ramps and how divisions handle them.", es: { title: "Guía de rampas y barandas", desc: "Quién califica para rampas y cómo las manejan las divisiones." } },
+  { sport: "athletics", title: "Track meet warm-up routine", type: "Drills", href: "#", desc: "A 15-minute dynamic warm-up for sprints and relays.", es: { title: "Calentamiento para pista", desc: "Calentamiento dinámico de 15 minutos para velocidad y relevos." } },
+  { sport: "swimming", title: "Pool safety checklist", type: "Safety", href: "#", desc: "Lifeguard ratios, lane etiquette, and flotation rules.", es: { title: "Lista de seguridad en piscina", desc: "Proporción de salvavidas, reglas de carril y flotación." } },
+  { sport: "flag-football", title: "Unified flag football playbook", type: "Practice plan", href: "#", desc: "Ten plays that work with mixed-ability lineups.", es: { title: "Libro de jugadas de fútbol bandera", desc: "Diez jugadas que funcionan con alineaciones mixtas." } },
+  { sport: "bocce", title: "Bocce scoring and court setup", type: "Rules", href: "#", desc: "Court dimensions and how to score a frame.", es: { title: "Puntuación y cancha de bochas", desc: "Dimensiones de la cancha y cómo puntuar." } },
+  { sport: "softball", title: "Softball skills stations", type: "Drills", href: "#", desc: "Throwing, fielding, hitting, and base-running stations.", es: { title: "Estaciones de sóftbol", desc: "Estaciones de lanzar, fildear, batear y correr bases." } },
+];
+
+export type Checklist = { role: string; es: string; items: { text: string; es: string }[] };
+
+// Day-of-event checklists by volunteer role
+export const checklists: Checklist[] = [
+  { role: "Check-in table", es: "Mesa de registro", items: [{ text: "Pick up the roster, lanyards, and pens from the coordinator", es: "Recoge la lista, gafetes y bolígrafos con la coordinadora" }, { text: "Set up two lines: athletes and volunteers", es: "Arma dos filas: atletas y voluntarios" }, { text: "Check each athlete's name against the roster and hand out a lanyard", es: "Verifica cada nombre en la lista y entrega un gafete" }, { text: "Collect any new medical forms and put them in the red folder", es: "Recibe formularios médicos nuevos y guárdalos en la carpeta roja" }, { text: "Point families to the restrooms, water, and the schedule board", es: "Indica a las familias los baños, el agua y el tablero de horarios" }, { text: "Return the roster to the coordinator when the line closes", es: "Devuelve la lista a la coordinadora al cerrar" }] },
+  { role: "Chaperone", es: "Acompañante", items: [{ text: "Confirm your athlete group and their medical forms", es: "Confirma tu grupo de atletas y sus formularios médicos" }, { text: "Count heads at every transition: bus, venue, meals, hotel", es: "Cuenta a todos en cada transición: autobús, sede, comidas, hotel" }, { text: "Keep medications in the original bottles with the coordinator", es: "Mantén los medicamentos en sus frascos originales con la coordinadora" }, { text: "Never be alone with a single athlete (two-deep rule)", es: "Nunca estés a solas con un solo atleta (regla de dos adultos)" }, { text: "Text the family group at departure and arrival", es: "Avisa al grupo de familias al salir y al llegar" }, { text: "Lights out at 10 PM; hallway check at 10:30", es: "Luces apagadas a las 10 PM; revisión del pasillo a las 10:30" }] },
+  { role: "Hole spotter", es: "Observador de hoyo", items: [{ text: "Arrive by 7:30 AM and find your hole on the map", es: "Llega a las 7:30 AM y ubica tu hoyo en el mapa" }, { text: "Bring sunscreen, a chair, and water", es: "Trae protector solar, silla y agua" }, { text: "Watch each drive and mark where balls land", es: "Observa cada golpe y marca dónde caen las bolas" }, { text: "Run the closest-to-the-pin or long-drive measurement if assigned", es: "Mide el tiro más cercano o el más largo si te lo asignan" }, { text: "Radio the clubhouse if a group falls more than one hole behind", es: "Avisa por radio si un grupo se retrasa más de un hoyo" }] },
+  { role: "Setup / cleanup crew", es: "Equipo de montaje / limpieza", items: [{ text: "Unload tables, chairs, banners, and the sound system", es: "Descarga mesas, sillas, pancartas y el equipo de sonido" }, { text: "Hang the Hall County banner where photos will be taken", es: "Cuelga la pancarta de Hall County donde se tomarán fotos" }, { text: "Set out water and snacks in the volunteer area", es: "Coloca agua y bocadillos en el área de voluntarios" }, { text: "Bag trash and recycling separately", es: "Separa basura y reciclaje" }, { text: "Do a final sweep for lost items and medals", es: "Revisa por última vez objetos perdidos y medallas" }] },
+  { role: "Dance buddy", es: "Compañero de baile", items: [{ text: "Introduce yourself to two athletes you don't know", es: "Preséntate a dos atletas que no conozcas" }, { text: "Invite anyone sitting alone onto the floor", es: "Invita a bailar a quien esté sentado solo" }, { text: "Respect a 'no thanks' the first time", es: "Respeta un 'no, gracias' a la primera" }, { text: "Help with plates and drinks at dinner", es: "Ayuda con platos y bebidas en la cena" }, { text: "Stay until the last family has left", es: "Quédate hasta que se vaya la última familia" }] },
+];
+
+/* ------------------------------------------------------------------ */
+/* Giving: recurring, wish list, matching gifts                        */
+/* ------------------------------------------------------------------ */
+
+export const recurringLevels = [
+  { name: "Teammate", amount: 10, perks: ["Monthly photo update", "Name on the website"], es: { perks: ["Foto mensual", "Nombre en el sitio web"] } },
+  { name: "Starter", amount: 25, perks: ["Everything in Teammate", "Season results email", "Hall County T-shirt"], es: { perks: ["Todo lo de Teammate", "Correo con resultados", "Camiseta de Hall County"] } },
+  { name: "Captain", amount: 50, perks: ["Everything in Starter", "Invite to the end-of-season banquet"], es: { perks: ["Todo lo de Starter", "Invitación al banquete de fin de temporada"] } },
+  { name: "MVP", amount: 100, perks: ["Everything in Captain", "Sponsor one athlete's full season each year"], es: { perks: ["Todo lo de Captain", "Patrocina la temporada completa de un atleta cada año"] } },
+];
+
+export type WishItem = { item: string; es: string; qty: number; price: number; sport: string; claimed: number; url?: string };
+
+// PLACEHOLDER wish list. `claimed` counts how many units donors have covered.
+export const wishlist: WishItem[] = [
+  { item: "Bowling balls (8–12 lb)", es: "Bolas de boliche (8–12 lb)", qty: 12, price: 40, sport: "Bowling", claimed: 5 },
+  { item: "Reversible practice jerseys", es: "Camisetas reversibles de entrenamiento", qty: 30, price: 18, sport: "Basketball", claimed: 30 },
+  { item: "Bocce ball sets", es: "Juegos de bochas", qty: 4, price: 65, sport: "Bocce", claimed: 1 },
+  { item: "Flag football belts (set of 12)", es: "Cinturones de fútbol bandera (12)", qty: 3, price: 55, sport: "Flag Football", claimed: 0 },
+  { item: "Pop-up canopy tent for outdoor events", es: "Carpa plegable para eventos", qty: 2, price: 180, sport: "Events", claimed: 1 },
+  { item: "Kickboards and pull buoys", es: "Tablas y boyas de natación", qty: 10, price: 15, sport: "Swimming", claimed: 0 },
+  { item: "Shot put (6 lb and 8 lb)", es: "Balas (6 y 8 lb)", qty: 4, price: 35, sport: "Athletics", claimed: 2 },
+  { item: "First-aid kits", es: "Botiquines", qty: 5, price: 45, sport: "Events", claimed: 3 },
+];
+
+export type MatchingEmployer = { name: string; ratio: string; max?: string; url?: string };
+
+// PLACEHOLDER matching-gift employers in and around Hall County
+export const matchingEmployers: MatchingEmployer[] = [
+  { name: "Northeast Georgia Health System", ratio: "1:1", max: "$2,500" },
+  { name: "Publix", ratio: "1:1", max: "$5,000" },
+  { name: "Kubota Manufacturing of America", ratio: "1:1", max: "$1,000" },
+  { name: "Fieldale Farms", ratio: "1:1" },
+  { name: "Home Depot", ratio: "1:1", max: "$5,000", url: "https://corporate.homedepot.com/" },
+  { name: "Coca-Cola", ratio: "2:1", max: "$10,000" },
+  { name: "Georgia Power / Southern Company", ratio: "1:1", max: "$10,000" },
+  { name: "Wells Fargo", ratio: "1:1", max: "$5,000" },
+  { name: "Bank of America", ratio: "1:1", max: "$5,000" },
+  { name: "Microsoft", ratio: "1:1", max: "$15,000" },
+  { name: "Apple", ratio: "1:1", max: "$10,000" },
+  { name: "Delta Air Lines", ratio: "1:1" },
+  { name: "UPS", ratio: "1:1" },
+  { name: "State Farm", ratio: "1:1" },
+];
+
+export function certStatus(iso?: string, today = new Date()): "valid" | "expiring" | "expired" | "missing" {
+  if (!iso) return "missing";
+  const exp = new Date(iso + "T00:00:00");
+  exp.setFullYear(exp.getFullYear() + CERT_VALID_YEARS);
+  const days = (exp.getTime() - today.getTime()) / 86400000;
+  if (days < 0) return "expired";
+  if (days < 90) return "expiring";
+  return "valid";
+}
+
+export function daysUntil(iso: string, from = new Date()) {
+  const t = new Date(iso + "T23:59:59").getTime() - from.getTime();
+  return Math.ceil(t / 86400000);
+}
 
 /* ------------------------------------------------------------------ */
 /* Helpers                                                             */

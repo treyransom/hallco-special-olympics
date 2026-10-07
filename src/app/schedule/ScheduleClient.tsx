@@ -10,6 +10,7 @@ import SportIcon from "@/components/ui/SportIcon";
 import ThisWeek from "@/components/home/ThisWeek";
 import Countdown from "@/components/home/Countdown";
 import { practices, sports, loc } from "@/lib/data";
+import AlertBanner from "@/components/layout/AlertBanner";
 import { useLang } from "@/lib/i18n";
 
 export default function ScheduleClient() {
@@ -19,6 +20,7 @@ export default function ScheduleClient() {
     <>
       <PageHero curve="mist" eyebrow={d.schedulePage.eyebrow} title={d.schedulePage.title} image="/images/basketball-action.jpg" description={d.schedulePage.text} />
       <Countdown compact />
+      <div className="container-x -mt-2 mb-2"><AlertBanner inline /></div>
       <ThisWeek />
       <section className="bg-mist py-20 sm:py-28">
         <div className="container-x">
