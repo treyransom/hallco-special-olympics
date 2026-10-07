@@ -52,7 +52,7 @@ export default function ThisWeek() {
         {items.length === 0 ? (
           <Reveal className="mt-10 rounded-3xl bg-mist p-8 text-ink-soft">{d.thisWeek.none}</Reveal>
         ) : (
-          <ul className="mt-10 flex gap-4 overflow-x-auto pb-4 [scrollbar-width:thin]">
+          <ul className="mt-10 flex min-w-0 gap-4 overflow-x-auto pb-4 [scrollbar-width:thin]">
             {items.map((it, i) => {
               const isToday = localISO(it.date) === base;
               const tomorrow = new Date(base + "T12:00:00");

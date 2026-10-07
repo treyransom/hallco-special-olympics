@@ -43,13 +43,13 @@ export default function HoursClient() {
             <SectionHeading eyebrow={h.eyebrow} title={h.leaderboard} />
             <ol className="mt-8 space-y-2">
               {sorted.map((v, i) => (
-                <Reveal as="li" key={v.name} delay={i * 0.04} className="flex items-center gap-4 rounded-2xl border border-mist-dark bg-white p-4 shadow-sm">
+                <Reveal as="li" key={v.name} delay={i * 0.04} className="flex min-w-0 flex-wrap items-center gap-3 rounded-2xl border border-mist-dark bg-white p-4 shadow-sm sm:flex-nowrap sm:gap-4">
                   <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-heading text-xl font-extrabold ${medal[i] ?? "bg-mist text-ink-soft"}`}>{i < 3 ? <Trophy className="h-5 w-5" /> : i + 1}</span>
                   <div className="min-w-0 flex-1">
                     <p className="font-heading text-2xl font-bold uppercase text-ink">{v.name}</p>
                     <p className="text-sm text-ink-soft">{v.role}</p>
                   </div>
-                  <div className="w-32">
+                  <div className="w-full sm:w-32">
                     <div className="h-2 overflow-hidden rounded-full bg-mist"><div className="h-full rounded-full bg-teal" style={{ width: `${Math.round((v.hours / sorted[0].hours) * 100)}%` }} /></div>
                     <p className="mt-1 text-right font-heading text-xl font-bold text-ink">{v.hours}<span className="text-xs text-ink-soft"> h</span></p>
                   </div>

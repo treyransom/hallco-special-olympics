@@ -15,7 +15,7 @@ export default function PhotoMosaic() {
   const items = picks.map((src) => gallery.find((g) => g.src === src)!).filter(Boolean);
   return (
     <section className="bg-stripes relative overflow-hidden bg-mist py-16 sm:py-20">
-      <div className="flex items-end justify-center gap-4 px-4 sm:gap-6">
+      <div className="flex items-end gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] sm:justify-center sm:gap-6 sm:overflow-visible">
         {items.map((g, i) => (
           <motion.div
             key={g.src}

@@ -48,7 +48,7 @@ export default function PageHero({
           <span className="h-2 w-2 rounded-full bg-red" />
           {eyebrow}
         </motion.p>
-        <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="max-w-4xl text-balance text-5xl font-extrabold uppercase leading-[0.95] sm:text-6xl lg:text-8xl">
+        <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="max-w-4xl text-balance text-4xl font-extrabold uppercase leading-[0.95] sm:text-6xl lg:text-8xl">
           {words.join(" ")} <span className="bg-gradient-to-r from-teal-light to-gold bg-clip-text text-transparent">{last}</span>
         </motion.h1>
         {description && (

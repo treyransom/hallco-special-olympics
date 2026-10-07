@@ -57,12 +57,12 @@ export default function AboutClient() {
           <SectionHeading eyebrow={a.teamE} title={a.teamT} description={a.teamX} />
           <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((m, i) => (
-              <Reveal as="li" key={m.name} delay={i * 0.06} className="flex items-center gap-5 rounded-2xl border border-mist-dark bg-mist p-5 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-lg">
+              <Reveal as="li" key={m.name} delay={i * 0.06} className="flex min-w-0 items-center gap-4 rounded-2xl border border-mist-dark bg-mist p-4 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-lg sm:gap-5 sm:p-5">
                 <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full font-heading text-2xl font-bold text-white shadow-lg ${avatar[i % avatar.length]}`}>{m.name.split(" ").map((n) => n[0]).join("")}</div>
                 <div className="min-w-0">
                   <h3 className="text-2xl font-extrabold uppercase text-ink">{m.name}</h3>
                   <p className="text-sm font-semibold text-teal">{lang === "es" && m.roleEs ? m.roleEs : m.role}</p>
-                  {m.email && <a href={`mailto:${m.email}`} className="mt-1 inline-flex items-center gap-1.5 truncate text-sm text-ink-soft hover:text-teal"><Mail className="h-3.5 w-3.5 shrink-0" /> {m.email}</a>}
+                  {m.email && <a href={`mailto:${m.email}`} className="mt-1 inline-flex max-w-full items-center gap-1.5 break-all text-sm text-ink-soft hover:text-teal"><Mail className="h-3.5 w-3.5 shrink-0" /> {m.email}</a>}
                 </div>
               </Reveal>
             ))}

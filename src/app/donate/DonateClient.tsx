@@ -39,7 +39,7 @@ export default function DonateClient() {
     <>
       <PageHero curve="mist" eyebrow={x.eyebrow} title={x.title} image="/images/powerlifting.jpg" description={x.text} />
       <Campaign />
-      <div className="sticky top-20 z-30 border-b border-mist-dark bg-white/95 backdrop-blur">
+      <div className="sticky top-16 z-30 border-b border-mist-dark bg-white/95 backdrop-blur sm:top-20">
         <div className="container-x flex gap-1 overflow-x-auto py-2" role="tablist" aria-label={d.nav.donate}>
           {tabs.map(([k, l]) => (
             <button key={k} type="button" role="tab" aria-selected={tab === k} onClick={() => { setTab(k); window.scrollTo({ top: 0, behavior: "smooth" }); }} className={cn("focus-ring shrink-0 rounded-full px-5 py-2 font-heading text-lg font-bold uppercase tracking-wide transition", tab === k ? "bg-ink text-white" : "text-ink hover:bg-mist")}>{l}</button>

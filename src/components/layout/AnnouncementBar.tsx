@@ -24,9 +24,9 @@ export default function AnnouncementBar() {
 
   return (
     <div className="relative z-[60] bg-ink text-white">
-      <div className="container-x flex items-center justify-center gap-3 py-2.5 pr-12 text-sm sm:text-base">
+      <div className="container-x flex items-center justify-center gap-2 py-2 pr-10 text-xs sm:gap-3 sm:py-2.5 sm:text-base">
         <Megaphone className="hidden h-4 w-4 shrink-0 text-gold sm:block" aria-hidden />
-        <p className="font-medium">{lang === "es" ? announcement.textEs : announcement.text}</p>
+        <p className="font-medium leading-tight">{lang === "es" ? announcement.textEs : announcement.text}</p>
         <Link href={announcement.cta.href} className="focus-ring inline-flex shrink-0 items-center gap-1 rounded-full bg-gold px-3 py-1 font-heading text-sm font-bold uppercase tracking-wide text-ink hover:bg-white">
           {lang === "es" ? announcement.cta.labelEs : announcement.cta.label} <ArrowRight className="h-3.5 w-3.5" />
         </Link>

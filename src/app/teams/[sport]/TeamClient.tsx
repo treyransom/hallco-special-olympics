@@ -48,13 +48,13 @@ export default function TeamClient({ slug }: { slug: string }) {
                     </li>
                   )}
                   {cs.map((c, i) => (
-                    <Reveal as="li" key={c.name} delay={i * 0.06} className="flex gap-5 rounded-3xl border border-mist-dark bg-mist p-6">
+                    <Reveal as="li" key={c.name} delay={i * 0.06} className="flex min-w-0 gap-4 rounded-3xl border border-mist-dark bg-mist p-5 sm:gap-5 sm:p-6">
                       <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full font-heading text-2xl font-bold text-white shadow-lg ${i % 2 ? "bg-red" : "bg-teal"}`}>{c.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}</div>
                       <div className="min-w-0">
                         <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-red">{c.role === "Head Coach" ? d.common.headCoach : c.role}{c.since ? ` · ${d.common.since} ${c.since}` : ""}</p>
                         <h3 className="text-2xl font-extrabold uppercase text-ink">{c.name}</h3>
                         <p className="mt-1 text-sm text-ink-soft">{c.bio}</p>
-                        {c.email && <a href={`mailto:${c.email}`} className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-teal hover:underline"><Mail className="h-3.5 w-3.5" /> {c.email}</a>}
+                        {c.email && <a href={`mailto:${c.email}`} className="mt-2 inline-flex max-w-full items-center gap-1.5 break-all text-sm font-semibold text-teal hover:underline"><Mail className="h-3.5 w-3.5 shrink-0" /> {c.email}</a>}
                         {(() => {
                           const ct = certifications.find((x) => x.coach === c.name);
                           if (!ct) return null;

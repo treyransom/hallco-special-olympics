@@ -157,9 +157,9 @@ export default function Navbar() {
   return (
     <header className={cn("sticky top-0 z-50 transition-all duration-300", scrolled ? "bg-white/95 shadow-md shadow-ink/5 backdrop-blur" : "bg-white")}>
       <div className="h-1.5 w-full bg-gradient-to-r from-teal via-teal to-red" />
-      <div className="container-x flex h-20 items-center justify-between gap-4">
+      <div className="container-x flex h-16 items-center justify-between gap-2 sm:h-20 sm:gap-4">
         <Link href="/" className="focus-ring flex shrink-0 items-center rounded" aria-label="Special Olympics Hall County">
-          <Image src="/images/logo-horizontal.png" alt="Special Olympics Hall County" width={1254} height={220} priority className="h-10 w-auto sm:h-14" />
+          <Image src="/images/logo-horizontal.png" alt="Special Olympics Hall County" width={1254} height={220} priority className="h-8 w-auto sm:h-11 md:h-14" />
         </Link>
 
         <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
@@ -236,8 +236,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          <ThemeToggle />
+        <div className="flex shrink-0 items-center gap-0.5 sm:gap-2">
+          <div className="hidden sm:block"><ThemeToggle /></div>
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
@@ -250,7 +250,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setLang(lang === "en" ? "es" : "en")}
             aria-label={n.langLabel}
-            className="focus-ring inline-flex h-11 items-center gap-1.5 rounded-full px-3 font-heading text-base font-bold uppercase tracking-wide text-ink hover:bg-mist"
+            className="focus-ring hidden h-11 items-center gap-1.5 rounded-full px-3 font-heading text-base font-bold uppercase tracking-wide text-ink hover:bg-mist sm:inline-flex"
           >
             <Globe className="h-4 w-4 text-teal" aria-hidden />
             {lang === "en" ? "ES" : "EN"}
@@ -284,7 +284,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="max-h-[calc(100dvh-5.5rem)] overflow-y-auto border-t border-mist-dark bg-white xl:hidden"
+            className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-mist-dark bg-white xl:hidden"
           >
             <ul className="container-x flex flex-col py-4">
               {groups.map((g, i) => (
@@ -321,7 +321,13 @@ export default function Navbar() {
                   )}
                 </motion.li>
               ))}
-              <li className="pt-4">
+              <li className="flex items-center justify-between gap-3 py-4 sm:hidden">
+                <button type="button" onClick={() => setLang(lang === "en" ? "es" : "en")} className="focus-ring inline-flex items-center gap-2 rounded-full bg-mist px-4 py-2.5 font-heading text-lg font-bold uppercase tracking-wide text-ink">
+                  <Globe className="h-4 w-4 text-teal" /> {n.lang}
+                </button>
+                <ThemeToggle />
+              </li>
+              <li className="pt-2">
                 <Link href="/donate" className="flex items-center justify-center gap-2 rounded-full bg-red px-5 py-4 font-heading text-xl font-bold uppercase text-white">
                   <Heart className="h-5 w-5 fill-current" aria-hidden /> {n.donate}
                 </Link>

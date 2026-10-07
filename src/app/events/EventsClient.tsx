@@ -120,8 +120,8 @@ export default function EventsClient() {
             {list.length === 0 && <p className="text-ink-soft">{d.events.none}</p>}
           </div>
 
-          <div id="subscribe" className="mt-16 scroll-mt-28 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl bg-teal-deep p-8 text-white sm:p-10">
+          <div id="subscribe" className="mt-16 grid min-w-0 scroll-mt-28 gap-6 lg:grid-cols-2">
+            <div className="min-w-0 overflow-hidden rounded-3xl bg-teal-deep p-6 text-white sm:p-10">
               <p className="inline-flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.2em] text-gold"><CalendarCheck className="h-4 w-4" /> {d.events.subscribe}</p>
               <p className="mt-3 text-white/85">{d.events.subscribeText}</p>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -130,7 +130,7 @@ export default function EventsClient() {
               </div>
               <p className="mt-5 text-xs text-white/60">{d.events.subscribeHow}</p>
               <div className="mt-2 flex items-center gap-2">
-                <code className="min-w-0 flex-1 truncate rounded-lg bg-white/10 px-3 py-2 text-xs">{icsUrl}</code>
+                <code className="min-w-0 flex-1 break-all rounded-lg bg-white/10 px-3 py-2 text-xs">{icsUrl}</code>
                 <button
                   type="button"
                   onClick={() => {

@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="animate-blob absolute -left-40 top-20 -z-0 h-[32rem] w-[32rem] rounded-full bg-teal/30 blur-3xl" aria-hidden />
       <div className="animate-blob absolute -right-32 bottom-10 h-[28rem] w-[28rem] rounded-full bg-red/25 blur-3xl [animation-delay:-7s]" aria-hidden />
 
-      <p aria-hidden className="text-outline pointer-events-none absolute -right-6 top-28 select-none font-heading text-[9rem] font-extrabold uppercase leading-none text-white/10 sm:text-[13rem] lg:top-24 lg:text-[18rem]">
+      <p aria-hidden className="text-outline pointer-events-none absolute -right-6 top-28 select-none font-heading text-[6rem] font-extrabold uppercase leading-none text-white/10 sm:text-[13rem] lg:top-24 lg:text-[18rem]">
         Hall
         <br />
         County
@@ -38,7 +38,7 @@ export default function Hero() {
             <span className="h-2 w-2 animate-pulse rounded-full bg-red" />
             {d.hero.badge}
           </motion.p>
-          <h1 className="max-w-5xl text-balance text-6xl font-extrabold uppercase leading-[0.92] sm:text-7xl lg:text-[7rem]">
+          <h1 className="max-w-5xl text-balance text-5xl font-extrabold uppercase leading-[0.92] sm:text-7xl lg:text-[7rem]">
             {lines.map((line, i) => (
               <span key={line} className="block overflow-hidden">
                 <motion.span initial={{ y: "110%" }} animate={{ y: 0 }} transition={{ duration: 0.8, delay: 0.3 + i * 0.12, ease: [0.22, 1, 0.36, 1] }} className={`block ${i === 2 ? "bg-gradient-to-r from-teal-light to-gold bg-clip-text text-transparent" : ""}`}>

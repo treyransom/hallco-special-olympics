@@ -42,8 +42,8 @@ export default function Countdown({ compact = false, overlap = false }: { compac
       <div className="relative flex flex-col items-center gap-5 sm:flex-row">
         <div className="grid grid-cols-4 gap-2 sm:gap-3" aria-live="polite">
           {cells.map(([v, l]) => (
-            <div key={l} className="flex w-16 flex-col items-center rounded-2xl bg-white/10 py-3 backdrop-blur sm:w-20">
-              <span className="font-heading text-4xl font-extrabold leading-none tabular-nums sm:text-5xl">{typeof v === "number" ? String(v).padStart(2, "0") : v}</span>
+            <div key={l} className="flex w-14 flex-col items-center rounded-2xl bg-white/10 py-3 backdrop-blur sm:w-20">
+              <span className="font-heading text-3xl font-extrabold leading-none tabular-nums sm:text-5xl">{typeof v === "number" ? String(v).padStart(2, "0") : v}</span>
               <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-white/70">{l}</span>
             </div>
           ))}

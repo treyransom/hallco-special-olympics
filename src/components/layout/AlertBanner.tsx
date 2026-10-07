@@ -27,12 +27,12 @@ export default function AlertBanner({ inline = false, sport }: { inline?: boolea
   const Icon = icons[alert.level];
   return (
     <div className={`relative z-[61] ${styles[alert.level]} ${inline ? "rounded-2xl" : ""}`} role="status">
-      <div className={`${inline ? "px-5" : "container-x pr-12"} flex items-start gap-3 py-3 text-sm sm:items-center sm:text-base`}>
+      <div className={`${inline ? "px-5" : "container-x pr-10"} flex items-start gap-2 py-2 text-xs sm:items-center sm:gap-3 sm:py-3 sm:text-base`}>
         <Icon className="mt-0.5 h-5 w-5 shrink-0 sm:mt-0" aria-hidden />
         <p>
           <span className="font-heading text-base font-bold uppercase tracking-wide">{d.alert[alert.level]}:</span> {lang === "es" ? alert.textEs : alert.text}
-          {alert.sports.length > 0 && <span className="opacity-80"> · {d.alert.affects} {alert.sports.map((s) => sportName(s, lang)).join(", ")}</span>}
-          <span className="opacity-70"> · {d.alert.updated} {formatDate(alert.updated, { month: "short", day: "numeric" }, lang)}</span>
+          {alert.sports.length > 0 && <span className="hidden opacity-80 sm:inline"> · {d.alert.affects} {alert.sports.map((s) => sportName(s, lang)).join(", ")}</span>}
+          <span className="hidden opacity-70 sm:inline"> · {d.alert.updated} {formatDate(alert.updated, { month: "short", day: "numeric" }, lang)}</span>
         </p>
       </div>
       {!inline && (

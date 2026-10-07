@@ -41,8 +41,8 @@ export default function ChecklistsClient() {
     <>
       <PageHero curve="mist" eyebrow={c.eyebrow} title={c.title} image="/images/lunch-delivery.jpg" description={c.text} />
       <section className="bg-dots bg-mist py-16 sm:py-24">
-        <div className="container-x grid gap-8 lg:grid-cols-[18rem_1fr]">
-          <div>
+        <div className="container-x grid min-w-0 gap-8 lg:grid-cols-[18rem_1fr]">
+          <div className="min-w-0">
             <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-red">{c.pickRole}</p>
             <ul className="mt-3 flex gap-2 overflow-x-auto pb-2 lg:flex-col" role="tablist">
               {checklists.map((cl, i) => {
@@ -58,7 +58,7 @@ export default function ChecklistsClient() {
               })}
             </ul>
           </div>
-          <div className="rounded-3xl bg-white p-6 shadow-xl shadow-ink/5 sm:p-8">
+          <div className="min-w-0 rounded-3xl bg-white p-5 shadow-xl shadow-ink/5 sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <h2 className="flex items-center gap-2 text-3xl font-extrabold uppercase text-ink"><ClipboardCheck className="h-7 w-7 text-teal" /> {lang === "es" ? list.es : list.role}</h2>
               <button type="button" onClick={() => save({ ...state, [list.role]: [] })} className="focus-ring inline-flex items-center gap-1.5 text-sm font-semibold text-ink-soft hover:text-teal"><RotateCcw className="h-3.5 w-3.5" /> {c.reset}</button>
