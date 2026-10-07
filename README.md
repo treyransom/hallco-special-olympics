@@ -16,7 +16,11 @@ Home, About, Athlete Stories, Sports, Teams (+ one page per sport), Events, Prac
 The homepage is intentionally short: hero, countdown, mission, sports, get-involved, upcoming events, and an Explore grid that links to everything else.
 
 ## Deploying
-Every push to `main` builds and deploys to GitHub Pages via `.github/workflows/deploy.yml`. The workflow sets `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SITE_URL` so links, images, the manifest, and the service worker work under the repository subpath. For the real domain, point a host like Vercel, Netlify, or Cloudflare Pages at the repo (build: `npm run build`, output: `out`) and leave both variables unset.
+Preview site: https://treyransom.github.io/hallco-special-olympics/
+
+`npm run deploy` builds with `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SITE_URL` set for the repo subpath and pushes `out/` to the `gh-pages` branch, which GitHub Pages serves. To make this automatic on every push, run `gh auth refresh -s workflow` once, move `docs/github-pages-workflow.yml` to `.github/workflows/deploy.yml`, push, and switch the Pages source to "GitHub Actions" in the repo settings.
+
+For the real domain, point a host like Vercel, Netlify, or Cloudflare Pages at the repo (build: `npm run build`, output: `out`) and leave both variables unset.
 
 ## Editing content
 Events, news, Athlete of the Month, results, stories, sponsors, the announcement bar, and the season fund live in `content/*.json`. Edit the JSON directly, or use the CMS at `/admin`:
