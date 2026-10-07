@@ -10,15 +10,19 @@ export NEXT_PUBLIC_SITE_URL="https://$OWNER.github.io/$REPO_NAME"
 echo "Building for $NEXT_PUBLIC_SITE_URL"
 npm run build
 touch out/.nojekyll
+git worktree prune
+git branch -D deploy-tmp >/dev/null 2>&1 || true
 WORKTREE=$(mktemp -d)
 git worktree add --detach "$WORKTREE" >/dev/null
+ROOT=$(pwd)
 cd "$WORKTREE"
-git checkout --orphan gh-pages >/dev/null 2>&1
+git checkout --orphan deploy-tmp
 git rm -rfq . >/dev/null 2>&1 || true
-cp -R "$OLDPWD/out/." .
+cp -R "$ROOT/out/." .
 git add -A
 git -c user.name="deploy" -c user.email="deploy@local" commit -qm "Deploy $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-git push -f origin gh-pages
-cd "$OLDPWD"
+git push -f origin HEAD:gh-pages
+cd "$ROOT"
 git worktree remove --force "$WORKTREE"
+git branch -D deploy-tmp >/dev/null 2>&1 || true
 echo "Deployed to $NEXT_PUBLIC_SITE_URL/"
