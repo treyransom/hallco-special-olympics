@@ -16,7 +16,7 @@ export default function Hero() {
       <motion.div initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={{ duration: 2.2, ease: "easeOut" }} className="absolute inset-0">
         <Image src="/images/flag-football.jpg" alt="" fill priority loading="eager" sizes="100vw" className="object-cover object-[center_35%]" />
         {site.heroVideo && (
-          <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline poster="/images/flag-football.jpg" aria-hidden>
+          <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline poster={`${site.basePath}/images/flag-football.jpg`} aria-hidden>
             <source src={site.heroVideo} type="video/mp4" />
           </video>
         )}

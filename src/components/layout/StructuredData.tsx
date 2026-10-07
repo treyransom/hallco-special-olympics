@@ -5,8 +5,8 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "NGO",
     name: site.name,
-    url: "https://www.specialolympicshallcounty.org",
-    logo: "https://www.specialolympicshallcounty.org/images/logo.png",
+    url: site.url,
+    logo: `${site.url}/images/logo.png`,
     email: site.email,
     telephone: site.phone,
     address: {

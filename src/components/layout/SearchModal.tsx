@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Search, X, ArrowRight } from "lucide-react";
 import { useLang } from "@/lib/i18n";
@@ -12,6 +13,7 @@ export default function SearchModal({ open, onClose, initialQuery = "" }: { open
   const { lang, dict: d } = useLang();
   const [q, setQ] = useState("");
   const [cursor, setCursor] = useState(0);
+  const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   useFocusTrap(panelRef, open);
@@ -69,7 +71,8 @@ export default function SearchModal({ open, onClose, initialQuery = "" }: { open
       e.preventDefault();
       setCursor((c) => Math.max(c - 1, 0));
     } else if (e.key === "Enter" && results[cursor]) {
-      window.location.href = results[cursor].href;
+      router.push(results[cursor].href);
+      onClose();
     } else if (e.key === "Escape") onClose();
   }
 

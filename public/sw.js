@@ -1,5 +1,6 @@
-const VERSION = "sohc-v1";
-const PRECACHE = ["/", "/schedule", "/competition-guide", "/offline", "/images/logo-horizontal.png", "/images/logo.png"];
+const VERSION = "sohc-v2";
+const BASE = new URL(self.registration.scope).pathname.replace(/\/$/, "");
+const PRECACHE = ["/", "/schedule", "/competition-guide", "/offline", "/images/logo-horizontal.png", "/images/logo.png"].map((p) => BASE + p);
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
@@ -21,7 +22,7 @@ self.addEventListener("fetch", (e) => {
       .catch(async () => {
         const cached = await caches.match(req, { ignoreSearch: true });
         if (cached) return cached;
-        if (isPage) return caches.match("/offline");
+        if (isPage) return caches.match(BASE + "/offline");
         return Response.error();
       }),
   );

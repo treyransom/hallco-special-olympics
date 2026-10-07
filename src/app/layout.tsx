@@ -31,7 +31,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${barlow.variable} ${dmSans.variable} h-full`} suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#00958f" />
-        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+        <link rel="apple-touch-icon" href={`${site.basePath}/icons/icon-192.png`} />
         <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem("sohc-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}` }} />
         <StructuredData />
       </head>

@@ -36,7 +36,8 @@ export const site = {
   shopUrl: "", // PLACEHOLDER — merch store URL (leave empty to hide)
   heroVideo: "", // PLACEHOLDER — optional MP4 URL for the homepage hero background
   ein: "", // PLACEHOLDER — tax ID shown on the donate page
-  url: "https://www.specialolympicshallcounty.org",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.specialolympicshallcounty.org",
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   parentOrg: { name: "Special Olympics Georgia", url: "https://www.specialolympicsga.org/" },
 };
 

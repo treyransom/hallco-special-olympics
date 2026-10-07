@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
-import { posts, sports, fundraisers, events } from "@/lib/data";
+import { posts, sports, fundraisers, events, site } from "@/lib/data";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.specialolympicshallcounty.org";
+  const base = site.url;
   const pages = ["", "/about", "/sports", "/events", "/get-involved", "/register", "/volunteer", "/news", "/donate", "/sponsor", "/contact", "/faq", "/resources", "/gallery", "/teams", "/results", "/athlete-of-the-month", "/competition-guide", "/schedule", "/locations", "/stories", "/newsletter", "/sponsors", "/season-fund", "/carpool", "/volunteer/hours", "/volunteer/checklists", "/coaches", "/wishlist", "/impact"];
   return [
     ...pages.map((p) => ({ url: base + p, lastModified: new Date(), changeFrequency: "monthly" as const, priority: p === "" ? 1 : 0.7 })),
