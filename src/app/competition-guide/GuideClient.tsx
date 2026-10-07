@@ -22,7 +22,7 @@ export default function GuideClient() {
   });
   return (
     <>
-      <div className="print:hidden"><PageHero eyebrow={d.guide.eyebrow} title={d.guide.title} image="/images/bus-trip.jpg" description={d.guide.text} /></div>
+      <div className="print:hidden"><PageHero curve="mist" eyebrow={d.guide.eyebrow} title={d.guide.title} image="/images/bus-trip.jpg" description={d.guide.text} /></div>
       <div className="print:hidden"><Countdown compact /></div>
       <section className="bg-white py-20 sm:py-28 print:py-0">
         <div className="container-x grid gap-14 lg:grid-cols-2">

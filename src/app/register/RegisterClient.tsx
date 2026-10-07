@@ -111,8 +111,8 @@ export default function RegisterClient() {
 
   return (
     <>
-      <PageHero eyebrow={r.eyebrow} title={r.title} image="/images/basketball-team.jpg" description={r.text} />
-      <section className="bg-mist py-16 sm:py-24">
+      <PageHero curve="mist" eyebrow={r.eyebrow} title={r.title} image="/images/basketball-team.jpg" description={r.text} />
+      <section className="bg-dots bg-mist py-16 sm:py-24">
         <div className="container-x max-w-4xl">
           <ol className="flex items-center gap-2 sm:gap-4" aria-label="Progress">
             {steps.map((s, i) => (
@@ -132,7 +132,7 @@ export default function RegisterClient() {
             </p>
           )}
 
-          <div className="mt-8 rounded-3xl bg-white p-6 shadow-sm sm:p-10">
+          <div className="mt-8 rounded-[2rem] bg-white p-6 shadow-xl shadow-ink/5 sm:p-10">
             {sent ? (
               <div className="text-center">
                 <CheckCircle2 className="mx-auto h-16 w-16 text-teal" />

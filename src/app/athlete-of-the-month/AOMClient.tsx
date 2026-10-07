@@ -14,7 +14,7 @@ export default function AOMClient() {
   const coachCoord = team.find((t) => t.role === "Coach Coordinator");
   return (
     <>
-      <PageHero eyebrow={d.aom.eyebrow} title={current ? `${d.aom.title} ${current.name}.` : d.aom.eyebrow} image={current?.image ?? "/images/medals.jpg"} description={d.aom.pageText} />
+      <PageHero curve="gold" eyebrow={d.aom.eyebrow} title={current ? `${d.aom.title} ${current.name}.` : d.aom.eyebrow} image={current?.image ?? "/images/medals.jpg"} description={d.aom.pageText} />
       {current && (
         <section className="bg-gold py-20 text-ink sm:py-24">
           <div className="container-x grid items-center gap-10 lg:grid-cols-[20rem_1fr]">
@@ -28,7 +28,7 @@ export default function AOMClient() {
           </div>
         </section>
       )}
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-dots bg-white py-20 sm:py-28">
         <div className="container-x">
           <SectionHeading eyebrow={d.aom.eyebrow} title={d.aom.archive} />
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

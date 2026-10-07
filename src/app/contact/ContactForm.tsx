@@ -19,7 +19,7 @@ export default function ContactForm() {
   }
   const field = "focus-ring w-full rounded-2xl border border-mist-dark bg-mist px-4 py-3 text-ink placeholder:text-ink-soft/60 focus:border-teal focus:bg-white";
   return (
-    <form onSubmit={onSubmit} className="rounded-3xl bg-mist p-8 sm:p-10">
+    <form onSubmit={onSubmit} className="rounded-[2rem] border border-mist-dark bg-mist p-8 shadow-xl shadow-ink/5 sm:p-10">
       <h2 className="text-4xl font-extrabold uppercase text-ink">{c.formT}</h2>
       <p className="mt-2 text-sm text-ink-soft">{c.formX}</p>
       <div className="mt-8 grid gap-5 sm:grid-cols-2">

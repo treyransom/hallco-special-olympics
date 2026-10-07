@@ -22,11 +22,11 @@ export default function GetInvolvedClient() {
   return (
     <>
       <PageHero eyebrow={v.pageEyebrow} title={v.pageTitle} image="/images/team-outside.jpg" description={v.pageText} />
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-dots bg-white py-24 sm:py-32">
         <div className="container-x space-y-28">
           {roles.map((r, i) => (
             <article key={r.id} id={r.id} className="scroll-mt-28 grid items-center gap-12 lg:grid-cols-2">
-              <Reveal className={`relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl shadow-ink/15 ${i % 2 ? "lg:order-2" : ""}`}>
+              <Reveal className={`relative aspect-[4/3] overflow-hidden rounded-[2rem] border-8 border-white shadow-2xl shadow-ink/20 ${i % 2 ? "lg:order-2 -rotate-1" : "rotate-1"}`}>
                 <Image src={r.image} alt="" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
               </Reveal>
               <div>
@@ -35,7 +35,7 @@ export default function GetInvolvedClient() {
                   <ol className="mt-8 space-y-4">
                     {r.steps.map((s, n) => (
                       <li key={s} className="flex gap-4">
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-teal font-heading text-lg font-bold text-white">{n + 1}</span>
+                        <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-heading text-lg font-bold shadow-lg ${["bg-teal text-white", "bg-gold text-ink", "bg-red text-white"][n]}`}>{n + 1}</span>
                         <p className="pt-1.5 text-ink-soft">{s}</p>
                       </li>
                     ))}
@@ -50,8 +50,9 @@ export default function GetInvolvedClient() {
           ))}
         </div>
       </section>
-      <section id="families" className="scroll-mt-20 bg-teal-deep py-24 text-white sm:py-32">
-        <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section id="families" className="noise relative scroll-mt-20 overflow-hidden bg-gradient-to-br from-teal-deep via-teal-dark to-teal py-24 text-white sm:py-32">
+        <div className="bg-dots-light absolute inset-0" aria-hidden />
+        <div className="container-x relative grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeading light eyebrow={v.famE} title={v.famT} description={v.famX} />
             <Reveal delay={0.1} className="mt-6"><Button href="/competition-guide" variant="white">{v.famCta}</Button></Reveal>

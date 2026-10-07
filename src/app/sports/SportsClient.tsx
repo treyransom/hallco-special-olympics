@@ -12,6 +12,7 @@ import { sports, practices, loc } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
 
 const seasons = ["Winter", "Spring", "Summer", "Fall"] as const;
+const seasonBg: Record<string, string> = { Winter: "bg-teal text-white", Spring: "bg-gold text-ink", Summer: "bg-red text-white", Fall: "bg-ink text-white" };
 
 export default function SportsClient() {
   const { lang, dict: d } = useLang();
@@ -23,11 +24,11 @@ export default function SportsClient() {
         <div className="container-x">
           <Reveal className="grid gap-3 sm:grid-cols-4">
             {seasons.map((se) => (
-              <div key={se} className="rounded-2xl border border-mist-dark bg-mist p-5">
-                <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-red">{d.common.seasons[se]}</p>
+              <div key={se} className={`rounded-3xl p-5 shadow-lg ${seasonBg[se]}`}>
+                <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] opacity-80">{d.common.seasons[se]}</p>
                 <ul className="mt-2 space-y-1">
                   {sports.filter((x) => x.season === se).map((x) => (
-                    <li key={x.slug}><a href={`#${x.slug}`} className="font-heading text-2xl font-bold uppercase text-ink hover:text-teal">{loc(lang, x, "name")}</a></li>
+                    <li key={x.slug}><a href={`#${x.slug}`} className="font-heading text-2xl font-bold uppercase underline-offset-4 hover:underline">{loc(lang, x, "name")}</a></li>
                   ))}
                 </ul>
               </div>
@@ -35,13 +36,14 @@ export default function SportsClient() {
           </Reveal>
         </div>
       </section>
-      <section className="bg-mist py-24 sm:py-32">
-        <div className="container-x space-y-20">
+      <section className="bg-dots bg-mist py-24 sm:py-32">
+        <div className="container-x space-y-24">
           {sports.map((sp, i) => {
             const pr = practices.filter((p) => p.sport === sp.slug);
             return (
-              <article key={sp.slug} id={sp.slug} className="scroll-mt-28 grid items-center gap-10 lg:grid-cols-2">
-                <Reveal className={`relative aspect-[4/3] overflow-hidden rounded-3xl shadow-xl shadow-ink/10 ${i % 2 ? "lg:order-2" : ""}`}>
+              <article key={sp.slug} id={sp.slug} className="relative scroll-mt-28 grid items-center gap-10 lg:grid-cols-2">
+                <span aria-hidden className={`text-outline pointer-events-none absolute -top-10 select-none font-heading text-[10rem] font-extrabold leading-none text-ink/5 ${i % 2 ? "right-0" : "left-0"}`}>{String(i + 1).padStart(2, "0")}</span>
+                <Reveal className={`relative aspect-[4/3] overflow-hidden rounded-[2rem] border-8 border-white shadow-2xl shadow-ink/15 ${i % 2 ? "lg:order-2 -rotate-1" : "rotate-1"}`}>
                   <Image src={sp.image} alt={loc(lang, sp, "name")} fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
                   <div className="absolute left-5 top-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-teal text-white shadow-lg"><SportIcon icon={sp.icon} className="h-7 w-7" /></div>
                 </Reveal>
@@ -49,8 +51,8 @@ export default function SportsClient() {
                   <p className="inline-flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.2em] text-red"><span className="h-0.5 w-8 bg-red" /> {d.common.seasons[sp.season]} {s.season}</p>
                   <h2 className="mt-3 text-5xl font-extrabold uppercase text-ink sm:text-6xl">{loc(lang, sp, "name")}</h2>
                   <p className="mt-4 text-lg text-ink-soft">{loc(lang, sp, "blurb")}</p>
-                  <div className="mt-6 rounded-2xl bg-white p-4">
-                    <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-ink-soft"><CalendarDays className="h-4 w-4 text-teal" /> {s.practices} · {sp.months}</p>
+                  <div className="mt-6 rounded-2xl bg-white p-4 shadow-lg shadow-ink/5">
+                    <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-ink-soft"><CalendarDays className="h-4 w-4 text-teal" /> {s.practices} · <span className={`rounded-full px-2 py-0.5 ${seasonBg[sp.season]}`}>{sp.months}</span></p>
                     {pr.length === 0 ? (
                       <p className="mt-2 text-sm text-ink-soft">{s.noPractices}</p>
                     ) : (

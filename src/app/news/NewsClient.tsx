@@ -16,8 +16,8 @@ export default function NewsClient() {
   const fbReal = !isPlaceholderUrl(site.social.facebook);
   return (
     <>
-      <PageHero eyebrow={d.news.eyebrow} title={d.news.title} image="/images/lunch-hospital.jpg" description={d.news.pageText} />
-      <section className="bg-mist py-20 sm:py-28">
+      <PageHero curve="mist" eyebrow={d.news.eyebrow} title={d.news.title} image="/images/lunch-hospital.jpg" description={d.news.pageText} />
+      <section className="bg-dots bg-mist py-20 sm:py-28">
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_22rem]">
           <div className="grid gap-8 md:grid-cols-2">
             {sorted.map((p, i) => (

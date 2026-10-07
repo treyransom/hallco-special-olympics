@@ -12,7 +12,7 @@ export default function LocationsClient() {
   const { lang, dict: d } = useLang();
   return (
     <>
-      <PageHero eyebrow={d.locationsPage.eyebrow} title={d.locationsPage.title} image="/images/team-outside.jpg" description={d.locationsPage.text} />
+      <PageHero curve="mist" eyebrow={d.locationsPage.eyebrow} title={d.locationsPage.title} image="/images/team-outside.jpg" description={d.locationsPage.text} />
       <PracticeMap />
       <section className="bg-white py-20 sm:py-28">
         <div className="container-x grid gap-6 md:grid-cols-2 lg:grid-cols-3">

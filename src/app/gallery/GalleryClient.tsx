@@ -37,7 +37,7 @@ export default function GalleryClient() {
 
   return (
     <>
-    <PageHero eyebrow={d.gallery.eyebrow} title={d.gallery.title} image="/images/medals.jpg" description={d.gallery.text} />
+    <PageHero curve="mist" eyebrow={d.gallery.eyebrow} title={d.gallery.title} image="/images/medals.jpg" description={d.gallery.text} />
     <section className="bg-mist py-16 sm:py-24">
       <div className="container-x">
         <div className="flex flex-wrap gap-2" role="tablist" aria-label={d.gallery.filter}>

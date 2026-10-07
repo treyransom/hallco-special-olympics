@@ -14,7 +14,7 @@ export default function ContactClient() {
   return (
     <>
       <PageHero eyebrow={c.eyebrow} title={c.title} image="/images/dance-partners.jpg" description={c.text} />
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-dots bg-white py-24 sm:py-32">
         <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-10">
             <Reveal>

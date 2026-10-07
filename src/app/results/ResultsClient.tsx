@@ -23,9 +23,10 @@ export default function ResultsClient() {
   ];
   return (
     <>
-      <PageHero eyebrow={r.eyebrow} title={r.title} image="/images/medals.jpg" description={r.pageText} />
-      <section className="bg-ink py-16 text-white">
-        <div className="container-x flex flex-col items-center gap-6 lg:flex-row lg:justify-between">
+      <PageHero curve="ink" eyebrow={r.eyebrow} title={r.title} image="/images/medals.jpg" description={r.pageText} />
+      <section className="noise relative overflow-hidden bg-ink py-16 text-white">
+        <div className="bg-dots-light absolute inset-0" aria-hidden />
+        <div className="container-x relative flex flex-col items-center gap-6 lg:flex-row lg:justify-between">
           <p className="inline-flex items-center gap-2 font-heading text-2xl font-bold uppercase"><Medal className="h-6 w-6 text-gold" /> {r.allTime}</p>
           <div className="grid grid-cols-4 gap-3">
             {cells(totals).map((c) => (
@@ -37,10 +38,10 @@ export default function ResultsClient() {
           </div>
         </div>
       </section>
-      <section className="bg-mist py-20 sm:py-28">
+      <section className="bg-dots bg-mist py-20 sm:py-28">
         <div className="container-x space-y-10">
           {results.map((res, i) => (
-            <Reveal key={res.slug} delay={i * 0.05} className="overflow-hidden rounded-3xl bg-white shadow-sm">
+            <Reveal key={res.slug} delay={i * 0.05} className="overflow-hidden rounded-3xl bg-white shadow-xl shadow-ink/5">
               <div className="flex flex-col gap-6 border-b border-mist-dark p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-red">{formatDate(res.date, { month: "long", year: "numeric" }, lang)} · {res.location}</p>

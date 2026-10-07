@@ -16,7 +16,7 @@ export default function FAQClient() {
   return (
     <>
       <PageHero eyebrow={d.faq.eyebrow} title={d.faq.title} image="/images/coaches.jpg" description={d.faq.text} />
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-dots bg-white py-20 sm:py-28">
         <div className="container-x grid gap-12 lg:grid-cols-[1fr_20rem]">
           <div className="divide-y divide-mist-dark">
             {faqs.map((f, i) => {
@@ -24,7 +24,7 @@ export default function FAQClient() {
               return (
                 <div key={f.q}>
                   <button type="button" onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen} aria-controls={`faq-${i}`} className="focus-ring flex w-full items-center justify-between gap-6 py-6 text-left">
-                    <span className="font-heading text-2xl font-bold uppercase text-ink sm:text-3xl">{loc(lang, f, "q")}</span>
+                    <span className="flex items-center gap-4 font-heading text-2xl font-bold uppercase text-ink sm:text-3xl"><span className={`hidden h-9 w-9 shrink-0 items-center justify-center rounded-full font-heading text-base sm:flex ${isOpen ? "bg-teal text-white" : "bg-mist text-ink-soft"}`}>{String(i + 1).padStart(2, "0")}</span>{loc(lang, f, "q")}</span>
                     <span className={cn("flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-ink text-ink transition", isOpen && "rotate-45 bg-ink text-white")}><Plus className="h-5 w-5" /></span>
                   </button>
                   <AnimatePresence initial={false}>
@@ -38,7 +38,7 @@ export default function FAQClient() {
               );
             })}
           </div>
-          <Reveal delay={0.1} className="h-fit rounded-3xl bg-teal-deep p-8 text-white lg:sticky lg:top-28">
+          <Reveal delay={0.1} className="noise relative h-fit overflow-hidden rounded-3xl bg-gradient-to-br from-teal-deep to-teal p-8 text-white shadow-xl shadow-teal/20 lg:sticky lg:top-28">
             <h2 className="text-3xl font-extrabold uppercase">{d.faq.stillT}</h2>
             <p className="mt-2 text-white/80">{d.faq.stillX}</p>
             <Button href="/contact" variant="white" className="mt-6 w-full">{d.common.contactUs}</Button>

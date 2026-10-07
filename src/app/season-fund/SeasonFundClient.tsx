@@ -11,7 +11,7 @@ export default function SeasonFundClient() {
   const { lang, dict: d } = useLang();
   return (
     <>
-      <PageHero eyebrow={d.nav.seasonFund} title={lang === "es" ? campaign.nameEs : campaign.name} image="/images/medals.jpg" description={lang === "es" ? campaign.blurbEs : campaign.blurb} />
+      <PageHero curve="mist" eyebrow={d.nav.seasonFund} title={lang === "es" ? campaign.nameEs : campaign.name} image="/images/medals.jpg" description={lang === "es" ? campaign.blurbEs : campaign.blurb} />
       <Campaign />
       <SponsorAthlete />
       <WaysToSupport />

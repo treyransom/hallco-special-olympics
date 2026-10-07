@@ -14,6 +14,7 @@ import { useLang } from "@/lib/i18n";
 
 const types = ["All", "Competition", "Practice", "Fundraiser", "Community"] as const;
 const typeColor: Record<Event["type"], string> = { Competition: "bg-teal text-white", Practice: "bg-gold text-ink", Fundraiser: "bg-red text-white", Community: "bg-ink text-white" };
+const dateColor: Record<Event["type"], string> = { Competition: "bg-teal text-white", Practice: "bg-gold text-ink", Fundraiser: "bg-red text-white", Community: "bg-ink text-white" };
 
 export default function EventsClient() {
   const { lang, dict: d } = useLang();
@@ -30,8 +31,8 @@ export default function EventsClient() {
 
   return (
     <>
-      <PageHero eyebrow={d.events.pageEyebrow} title={d.events.pageTitle} image="/images/golf-group.jpg" description={d.events.pageText} />
-      <section className="bg-mist py-20 sm:py-28">
+      <PageHero curve="mist" eyebrow={d.events.pageEyebrow} title={d.events.pageTitle} image="/images/golf-group.jpg" description={d.events.pageText} />
+      <section className="bg-dots bg-mist py-20 sm:py-28">
         <div className="container-x">
           <div className="flex flex-wrap gap-2" role="tablist">
             {types.map((t) => (
@@ -44,17 +45,17 @@ export default function EventsClient() {
             <AnimatePresence mode="popLayout">
               {Object.entries(byMonth).map(([month, items]) => (
                 <motion.div key={month} layout initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-                  <h2 className="text-3xl font-extrabold uppercase text-ink">{month}</h2>
+                  <h2 className="flex items-center gap-4 text-3xl font-extrabold uppercase text-ink"><span className="text-teal">{month}</span><span className="h-px flex-1 bg-mist-dark" /></h2>
                   <ol className="mt-5 grid gap-5 md:grid-cols-2">
                     {items.map((e) => {
                       const open = e.shifts?.reduce((n, s) => n + Math.max(0, s.needed - s.filled), 0) ?? 0;
                       return (
                         <li key={e.slug} id={e.slug} className="scroll-mt-28">
-                          <article className="flex h-full gap-5 rounded-3xl bg-white p-6 shadow-sm transition hover:shadow-lg hover:shadow-ink/5">
-                            <div className="flex w-16 shrink-0 flex-col items-center rounded-2xl bg-teal-deep py-3 text-white">
+                          <article className="flex h-full gap-5 rounded-3xl bg-white p-6 shadow-lg shadow-ink/5 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-ink/10">
+                            <div className={`flex w-16 shrink-0 flex-col items-center rounded-2xl py-3 ${dateColor[e.type]}`}>
                               <span className="font-heading text-3xl font-extrabold leading-none">{formatDate(e.date, { day: "numeric" }, lang)}</span>
                               <span className="font-heading text-sm font-bold uppercase">{formatDate(e.date, { month: "short" }, lang)}</span>
-                              {e.endDate && <span className="mt-1 text-[10px] font-semibold text-white/70">– {formatDate(e.endDate, { day: "numeric" }, lang)}</span>}
+                              {e.endDate && <span className="mt-1 text-[10px] font-semibold opacity-70">– {formatDate(e.endDate, { day: "numeric" }, lang)}</span>}
                             </div>
                             <div className="min-w-0 flex-1">
                               <span className={cn("inline-block rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider", typeColor[e.type])}>{d.common.types[e.type]}</span>

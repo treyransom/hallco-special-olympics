@@ -13,8 +13,8 @@ export default function TeamsClient() {
   const { lang, dict: d } = useLang();
   return (
     <>
-      <PageHero eyebrow={d.teams.eyebrow} title={d.teams.title} image="/images/coaches.jpg" description={d.teams.pageText} />
-      <section className="bg-mist py-20 sm:py-28">
+      <PageHero curve="mist" eyebrow={d.teams.eyebrow} title={d.teams.title} image="/images/coaches.jpg" description={d.teams.pageText} />
+      <section className="bg-dots bg-mist py-20 sm:py-28">
         <div className="container-x grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {sports.map((s, i) => {
             const head = coaches.find((c) => c.sport === s.slug && c.role === "Head Coach");

@@ -18,17 +18,17 @@ export default function DonateClient() {
   const uses = [[Bus, x.u1], [Shirt, x.u2], [Medal, x.u3], [ClipboardList, x.u4]] as const;
   return (
     <>
-      <PageHero eyebrow={x.eyebrow} title={x.title} image="/images/powerlifting.jpg" description={x.text} />
+      <PageHero curve="mist" eyebrow={x.eyebrow} title={x.title} image="/images/powerlifting.jpg" description={x.text} />
       <Campaign />
-      <section className="bg-white py-24 sm:py-32">
+      <section className="bg-dots bg-white py-24 sm:py-32">
         <div className="container-x grid gap-14 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <SectionHeading eyebrow={x.pickE} title={x.pickT} description={x.pickX} />
             <Reveal delay={0.1} className="mt-10 grid gap-4 sm:grid-cols-2">
-              {givingLevels.map((g) => (
-                <a key={g.amount} href={site.donateUrl} className="focus-ring group rounded-3xl border-2 border-mist-dark p-6 transition hover:-translate-y-1 hover:border-teal hover:shadow-xl hover:shadow-teal/10">
-                  <p className="font-heading text-5xl font-extrabold text-teal">${g.amount}</p>
-                  <p className="mt-2 text-sm text-ink-soft">{lang === "es" ? g.labelEs : g.label}</p>
+              {givingLevels.map((g, i) => (
+                <a key={g.amount} href={site.donateUrl} className={`focus-ring group rounded-3xl p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl ${["bg-mist text-ink", "bg-teal text-white", "bg-gold text-ink", "bg-ink text-white"][i]}`}>
+                  <p className="font-heading text-6xl font-extrabold leading-none">${g.amount}</p>
+                  <p className="mt-3 text-sm opacity-80">{lang === "es" ? g.labelEs : g.label}</p>
                 </a>
               ))}
             </Reveal>
@@ -38,7 +38,7 @@ export default function DonateClient() {
             </Reveal>
           </div>
           <Reveal delay={0.15} className="space-y-6">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl"><Image src="/images/bus-trip.jpg" alt={x.busAlt} fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover object-top" /></div>
+            <div className="relative aspect-[4/3] rotate-1 overflow-hidden rounded-[2rem] border-8 border-white shadow-2xl shadow-ink/15"><Image src="/images/bus-trip.jpg" alt={x.busAlt} fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover object-top" /></div>
             <div className="rounded-3xl bg-mist p-7">
               <h3 className="text-2xl font-extrabold uppercase text-ink">{x.where}</h3>
               <ul className="mt-4 grid grid-cols-2 gap-3">
@@ -54,8 +54,9 @@ export default function DonateClient() {
 
       <SponsorAthlete />
 
-      <section id="fundraisers" className="scroll-mt-20 bg-ink py-24 text-white sm:py-32">
-        <div className="container-x">
+      <section id="fundraisers" className="noise relative scroll-mt-20 overflow-hidden bg-ink py-24 text-white sm:py-32">
+        <div className="bg-dots-light absolute inset-0" aria-hidden />
+        <div className="container-x relative">
           <SectionHeading light eyebrow={x.fundE} title={x.fundT} description={x.fundX} />
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {fundraisers.map((f, i) => (
@@ -80,7 +81,7 @@ export default function DonateClient() {
           <SectionHeading align="center" eyebrow={x.sponsorE} title={x.sponsorT} description={x.sponsorX} />
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {sponsorTiers.map((t, i) => (
-              <Reveal key={t.name} delay={i * 0.08} className={`rounded-3xl p-8 ${i === 2 ? "bg-ink text-white" : "bg-white text-ink"}`}>
+              <Reveal key={t.name} delay={i * 0.08} className={`relative rounded-3xl p-8 shadow-lg transition hover:-translate-y-1 ${i === 2 ? "bg-gradient-to-br from-ink to-teal-deep text-white ring-4 ring-gold" : "bg-white text-ink"}`}>
                 <p className={`font-heading text-sm font-bold uppercase tracking-[0.2em] ${i === 2 ? "text-gold" : "text-red"}`}>{d.common.tiers[t.name]}</p>
                 <p className="mt-2 font-heading text-5xl font-extrabold">{t.amount}</p>
                 <ul className={`mt-6 space-y-2 text-sm ${i === 2 ? "text-white/80" : "text-ink-soft"}`}>

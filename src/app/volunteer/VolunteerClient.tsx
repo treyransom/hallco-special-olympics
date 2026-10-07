@@ -29,8 +29,8 @@ export default function VolunteerClient() {
 
   return (
     <>
-      <PageHero eyebrow={v.eyebrow} title={v.title} image="/images/coaches.jpg" description={v.text} />
-      <section className="bg-mist py-20 sm:py-28">
+      <PageHero curve="mist" eyebrow={v.eyebrow} title={v.title} image="/images/coaches.jpg" description={v.text} />
+      <section className="bg-dots bg-mist py-20 sm:py-28">
         <div className="container-x space-y-10">
           {list.length === 0 && <p className="text-ink-soft">{v.noShifts}</p>}
           {list.map((e, i) => (

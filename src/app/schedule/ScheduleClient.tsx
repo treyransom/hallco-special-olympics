@@ -17,7 +17,7 @@ export default function ScheduleClient() {
   const days = [1, 2, 3, 4, 5, 6, 0] as const;
   return (
     <>
-      <PageHero eyebrow={d.schedulePage.eyebrow} title={d.schedulePage.title} image="/images/basketball-action.jpg" description={d.schedulePage.text} />
+      <PageHero curve="mist" eyebrow={d.schedulePage.eyebrow} title={d.schedulePage.title} image="/images/basketball-action.jpg" description={d.schedulePage.text} />
       <Countdown compact />
       <ThisWeek />
       <section className="bg-mist py-20 sm:py-28">
