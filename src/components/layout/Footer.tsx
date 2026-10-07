@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="h-1.5 w-full bg-gradient-to-r from-red via-teal to-teal" />
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="lg:col-span-1">
-          <Image src="/images/logo.png" alt="Special Olympics Hall County" width={200} height={108} className="h-16 w-auto rounded bg-white p-2" />
+          <Image src="/images/logo-horizontal.png" alt="Special Olympics Hall County" width={1254} height={220} className="h-14 w-auto rounded-xl bg-white px-4 py-3" />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">{site.tagline}</p>
           <div className="mt-5 flex gap-3">
             <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="focus-ring rounded-full bg-white/10 p-2.5 transition hover:bg-teal">

@@ -113,7 +113,7 @@ export default function Navbar() {
       <div className="h-1.5 w-full bg-gradient-to-r from-teal via-teal to-red" />
       <div className="container-x flex h-20 items-center justify-between gap-6">
         <Link href="/" className="focus-ring flex shrink-0 items-center rounded" aria-label="Special Olympics Hall County home">
-          <Image src="/images/logo.png" alt="Special Olympics Hall County" width={170} height={92} priority className="h-14 w-auto" />
+          <Image src="/images/logo-horizontal.png" alt="Special Olympics Hall County" width={1254} height={220} priority className="h-11 w-auto sm:h-14" />
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
