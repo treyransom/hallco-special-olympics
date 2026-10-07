@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { site } from "@/lib/data";
 
 export default function Hero() {
   return (
@@ -15,6 +16,11 @@ export default function Hero() {
         className="absolute inset-0"
       >
         <Image src="/images/flag-football.jpg" alt="" fill priority loading="eager" sizes="100vw" className="object-cover object-[center_35%]" />
+        {site.heroVideo && (
+          <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline poster="/images/flag-football.jpg" aria-hidden>
+            <source src={site.heroVideo} type="video/mp4" />
+          </video>
+        )}
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent" />

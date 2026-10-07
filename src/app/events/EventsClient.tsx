@@ -4,8 +4,9 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Clock, MapPin, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { events, formatDate, type Event } from "@/lib/data";
+import { events, formatDate, site, type Event } from "@/lib/data";
 import Button from "@/components/ui/Button";
+import AddToCalendar from "@/components/ui/AddToCalendar";
 
 const types = ["All", "Competition", "Practice", "Fundraiser", "Community"] as const;
 const typeColor: Record<Event["type"], string> = {
@@ -68,6 +69,7 @@ export default function EventsClient() {
                             <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-teal" />{e.location}</li>
                             {e.sport && <li className="flex items-center gap-2"><Trophy className="h-4 w-4 text-teal" />{e.sport}</li>}
                           </ul>
+                          <AddToCalendar event={e} className="mt-4" />
                         </div>
                       </article>
                     </li>
@@ -83,7 +85,7 @@ export default function EventsClient() {
           <h2 className="text-3xl font-extrabold uppercase text-ink">Never miss a game</h2>
           <p className="mx-auto mt-2 max-w-xl text-ink-soft">Follow us on Facebook for practice reminders, weather updates, and photos from every event.</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Button href="https://www.facebook.com/" external variant="secondary">Follow on Facebook</Button>
+            <Button href={site.social.facebook} external variant="secondary">Follow on Facebook</Button>
             <Button href="/contact" variant="outline">Ask a question</Button>
           </div>
         </div>

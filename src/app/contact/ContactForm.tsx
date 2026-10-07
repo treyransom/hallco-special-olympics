@@ -34,7 +34,7 @@ export default function ContactForm() {
           <input name="email" type="email" required className={`${field} mt-1.5`} placeholder="you@example.com" />
         </label>
         <label className="block text-sm font-semibold text-ink sm:col-span-2">
-          I'm asking about
+          I’m asking about
           <select name="topic" className={`${field} mt-1.5`}>
             {topics.map((t) => <option key={t}>{t}</option>)}
           </select>

@@ -5,7 +5,8 @@ import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
-import { givingLevels, site } from "@/lib/data";
+import { givingLevels, site, fundraisers } from "@/lib/data";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -50,7 +51,7 @@ export default function DonatePage() {
               <Button href={site.donateUrl} size="lg">
                 <Heart className="h-5 w-5 fill-current" /> Donate any amount
               </Button>
-              <p className="text-sm text-ink-soft">Secure online giving. Tax-deductible to the extent allowed by law.</p>
+              <p className="text-sm text-ink-soft">Secure online giving. Tax-deductible to the extent allowed by law.{site.ein && ` EIN ${site.ein}.`}</p>
             </Reveal>
           </div>
 
@@ -70,6 +71,27 @@ export default function DonatePage() {
               <p className="mt-5 text-sm text-ink-soft">100% of your gift stays in Hall County. Our leadership team is entirely volunteer.</p>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section id="fundraisers" className="scroll-mt-20 bg-ink py-24 text-white sm:py-32">
+        <div className="container-x">
+          <SectionHeading light eyebrow="Signature events" title="Fundraisers you'll actually want to attend." description="We receive no state or national funding. These events, plus your gifts, cover every uniform, bus, and entry fee." />
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {fundraisers.map((f, i) => (
+              <Reveal key={f.slug} delay={i * 0.08}>
+                <Link href={f.href} className="focus-ring group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-teal-deep">
+                  <Image src={f.image} alt="" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover opacity-70 transition duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-gold">{f.when}</p>
+                    <h3 className="mt-1 text-3xl font-extrabold uppercase">{f.name}</h3>
+                    <p className="mt-2 text-sm text-white/80">{f.blurb}</p>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -98,7 +120,7 @@ export default function DonatePage() {
           <Reveal className="rounded-3xl border border-mist-dark p-8">
             <h3 className="text-2xl font-extrabold uppercase text-ink">Give in honor or memory</h3>
             <p className="mt-3 text-ink-soft">
-              Giving in someone's honor? Add their name on the second line of your billing address at checkout, or email us the details and we'll send an acknowledgment.
+              Giving in someone’s honor? Add their name on the second line of your billing address at checkout, or email us the details and we’ll send an acknowledgment.
             </p>
             <a href={`mailto:${site.email}`} className="mt-4 inline-flex items-center gap-2 font-semibold text-teal hover:underline">
               <Mail className="h-4 w-4" /> {site.email}

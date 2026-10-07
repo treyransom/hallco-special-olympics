@@ -18,7 +18,18 @@ export const site = {
     instagram: "https://www.instagram.com/", // PLACEHOLDER
   },
   donateUrl: "#", // PLACEHOLDER — link to payment processor
+  newsletterUrl: "", // PLACEHOLDER — Mailchimp/Constant Contact form action URL
+  shopUrl: "", // PLACEHOLDER — merch store URL (leave empty to hide)
+  heroVideo: "", // PLACEHOLDER — optional MP4 URL for the homepage hero background
+  ein: "", // PLACEHOLDER — tax ID shown on the donate page
   parentOrg: { name: "Special Olympics Georgia", url: "https://www.specialolympicsga.org/" },
+};
+
+// Shown in a bar above the navigation. Set `active: false` to hide it.
+export const announcement = {
+  active: true,
+  text: "Winter season registration opens October 1", // PLACEHOLDER
+  cta: { label: "Register now", href: "/get-involved#athletes" },
 };
 
 export type Sport = {
@@ -255,15 +266,119 @@ export const sponsors = [
   "Publix",
 ];
 
-export const gallery = [
-  { src: "/images/flag-football.jpg", alt: "Unified flag football team on the field" },
-  { src: "/images/medals.jpg", alt: "Athlete showing off two gold medals" },
-  { src: "/images/basketball-action.jpg", alt: "Basketball game in progress" },
-  { src: "/images/powerlifting.jpg", alt: "Athlete celebrating a lift" },
-  { src: "/images/golf-group.jpg", alt: "Golfers at the annual golf tournament" },
-  { src: "/images/bus-trip.jpg", alt: "Athletes on the bus to State Games" },
-  { src: "/images/basketball-team.jpg", alt: "Basketball team photo" },
-  { src: "/images/holiday-dance.jpg", alt: "Athletes at the holiday dance" },
+export type GalleryImage = { src: string; alt: string; w: number; h: number; tag: string };
+
+export const gallery: GalleryImage[] = [
+  { src: "/images/flag-football.jpg", alt: "Unified flag football team on the field", w: 1800, h: 1350, tag: "Flag Football" },
+  { src: "/images/medals.jpg", alt: "Athlete showing off two gold medals", w: 640, h: 428, tag: "Athletics" },
+  { src: "/images/basketball-action.jpg", alt: "Basketball game in progress", w: 960, h: 720, tag: "Basketball" },
+  { src: "/images/powerlifting.jpg", alt: "Athlete celebrating a lift", w: 1500, h: 1098, tag: "Powerlifting" },
+  { src: "/images/golf-group.jpg", alt: "Golfers at the annual golf tournament", w: 957, h: 495, tag: "Fundraisers" },
+  { src: "/images/bus-trip.jpg", alt: "Athletes on the bus to State Games", w: 720, h: 960, tag: "State Games" },
+  { src: "/images/basketball-team.jpg", alt: "Basketball team photo", w: 640, h: 516, tag: "Basketball" },
+  { src: "/images/holiday-dance.jpg", alt: "Athletes at the holiday dance", w: 480, h: 640, tag: "Community" },
+  { src: "/images/team-polos.jpg", alt: "Team in blue polos at State Games", w: 1500, h: 1125, tag: "State Games" },
+  { src: "/images/athletes-flags.jpg", alt: "Athletes in front of Special Olympics flags", w: 640, h: 480, tag: "Competition" },
+  { src: "/images/unified-partner-award.jpg", alt: "Rachael with her Outstanding Unified Partner award", w: 720, h: 960, tag: "Awards" },
+  { src: "/images/team-bleachers.jpg", alt: "Bowling team on the bleachers", w: 480, h: 640, tag: "Bowling" },
+  { src: "/images/team-outside.jpg", alt: "Team photo outside the gym", w: 480, h: 640, tag: "Community" },
+  { src: "/images/coaches.jpg", alt: "Coaches at a competition", w: 480, h: 640, tag: "Coaches" },
+  { src: "/images/lunch-delivery.jpg", alt: "Delivering lunches to healthcare workers", w: 800, h: 600, tag: "Community" },
+  { src: "/images/lunch-hospital.jpg", alt: "Lunch drop-off at Northeast Georgia Medical Center", w: 800, h: 600, tag: "Community" },
+  { src: "/images/dance-partners.jpg", alt: "Dance partners at the holiday dance", w: 480, h: 640, tag: "Community" },
+  { src: "/images/healthcare-collage.jpg", alt: "Athletes holding thank-you signs for healthcare workers", w: 640, h: 800, tag: "Community" },
+  { src: "/images/golf-sponsors.jpg", alt: "Golf tournament sponsor banner", w: 720, h: 960, tag: "Fundraisers" },
+  { src: "/images/golf-tent.jpg", alt: "Golfers at the registration tent", w: 960, h: 540, tag: "Fundraisers" },
+];
+
+export type Location = {
+  name: string;
+  address: string;
+  sports: string[];
+  mapQuery: string;
+};
+
+// PLACEHOLDER practice locations
+export const locations: Location[] = [
+  { name: "Hall County Gym", address: "Gainesville, GA 30501", sports: ["Basketball"], mapQuery: "Gainesville GA" },
+  { name: "Frances Meadows Aquatic Center", address: "1545 Community Way NE, Gainesville, GA 30501", sports: ["Swimming"], mapQuery: "Frances Meadows Aquatic Center Gainesville GA" },
+  { name: "Stars and Strikes Gainesville", address: "Gainesville, GA", sports: ["Bowling"], mapQuery: "Stars and Strikes Gainesville GA" },
+  { name: "Allen Creek Soccer Complex", address: "Gainesville, GA", sports: ["Flag Football", "Bocce"], mapQuery: "Allen Creek Soccer Complex Gainesville GA" },
+  { name: "Lanier Point Athletic Complex", address: "Gainesville, GA", sports: ["Softball", "Athletics"], mapQuery: "Lanier Point Athletic Complex Gainesville GA" },
+];
+
+export type Story = {
+  name: string;
+  role: string;
+  sport: string;
+  quote: string;
+  image: string;
+};
+
+// PLACEHOLDER athlete and volunteer stories
+export const stories: Story[] = [
+  {
+    name: "Willie",
+    role: "Athlete",
+    sport: "Powerlifting · Athletics",
+    quote: "When I lift, everybody in the gym is cheering for me. I used to be shy. Now I'm the one cheering for everyone else.",
+    image: "/images/powerlifting.jpg",
+  },
+  {
+    name: "Rachael",
+    role: "Unified Partner",
+    sport: "Flag Football · Bowling",
+    quote: "I came to volunteer one Saturday and never left. These athletes are my teammates, and honestly, my best friends.",
+    image: "/images/unified-partner-award.jpg",
+  },
+  {
+    name: "The King Family",
+    role: "Athlete Family",
+    sport: "Basketball",
+    quote: "Janessa found her people here. Game days are the highlight of our week, and she's never missed a practice.",
+    image: "/images/basketball-team.jpg",
+  },
+];
+
+export type Fundraiser = {
+  slug: string;
+  name: string;
+  when: string;
+  blurb: string;
+  image: string;
+  href: string;
+};
+
+// PLACEHOLDER signature fundraisers
+export const fundraisers: Fundraiser[] = [
+  { slug: "golf", name: "Annual Golf Tournament", when: "Every October", blurb: "Our biggest fundraiser. Foursomes, hole sponsors, and a lunch with the athletes.", image: "/images/golf-group.jpg", href: "/events#golf-tournament-2026" },
+  { slug: "plunge", name: "Polar Plunge", when: "Every February", blurb: "Freezin' for a reason. Jump into Lake Lanier and raise money for our athletes.", image: "/images/athletes-flags.jpg", href: "/events#polar-plunge" },
+  { slug: "tip-a-cop", name: "Tip-A-Cop Night", when: "Spring", blurb: "Local law enforcement wait tables for the Torch Run. Tips go to our program.", image: "/images/team-polos.jpg", href: "/events" },
+];
+
+export const faqs = [
+  { q: "Who is eligible to be an athlete?", a: "Anyone age 8 or older with an intellectual disability, cognitive delay, or a closely related developmental disability. There is no upper age limit, and no prior sports experience is needed." },
+  { q: "How much does it cost?", a: "Nothing. Training, uniforms, equipment, competition registration, travel, and lodging for State Games are all covered by our fundraising and sponsors." },
+  { q: "How do I register my athlete?", a: "Complete the Special Olympics Georgia athlete registration and medical form, have a physician sign the medical section, and email it to our Local Coordinator. Forms are on our Resources page. The medical form is valid for three years." },
+  { q: "Can my athlete play more than one sport?", a: "Yes. Most of our athletes play two or three sports across the year. Seasons are staggered so they rarely overlap." },
+  { q: "What is a Unified Partner?", a: "A teammate without an intellectual disability who trains and competes alongside our athletes on the same team. Partners are matched by age and ability." },
+  { q: "Do volunteers need a background check?", a: "Coaches and any volunteer with regular contact with athletes complete a free Class A volunteer form and background check through Special Olympics Georgia. Day-of-event volunteers do not." },
+  { q: "Where do you practice?", a: "Practices happen at gyms, pools, fields, and bowling centers around Gainesville and Hall County. See the Where We Practice map on the homepage. Locations are confirmed by email before each season." },
+  { q: "Is my donation tax-deductible?", a: "Yes. Special Olympics Hall County is a local program of Special Olympics Georgia, a 501(c)(3) nonprofit. We'll send a receipt for every gift." },
+];
+
+export type Resource = { title: string; description: string; href: string; group: "Athletes" | "Volunteers & Coaches" | "Families" | "Policies" };
+
+// PLACEHOLDER links — point these at the real PDFs when available
+export const resources: Resource[] = [
+  { group: "Athletes", title: "Athlete Registration & Medical Form", description: "Required for every new athlete. Valid for three years once signed by a physician.", href: "https://www.specialolympicsga.org/" },
+  { group: "Athletes", title: "Athlete Code of Conduct", description: "Expectations for athletes at practices, competitions, and travel.", href: "https://www.specialolympicsga.org/" },
+  { group: "Volunteers & Coaches", title: "Class A Volunteer Form", description: "For coaches, chaperones, and unified partners. Includes background check consent.", href: "https://www.specialolympicsga.org/" },
+  { group: "Volunteers & Coaches", title: "Protective Behaviors Training", description: "Free online course required every three years for Class A volunteers.", href: "https://www.specialolympicsga.org/" },
+  { group: "Volunteers & Coaches", title: "Concussion Awareness Training", description: "Free online course required for all coaches.", href: "https://www.specialolympicsga.org/" },
+  { group: "Families", title: "What to Pack for State Games", description: "A checklist for overnight competition trips.", href: "#" },
+  { group: "Families", title: "Season Calendar (PDF)", description: "Practice days, competition dates, and deadlines for the current season.", href: "#" },
+  { group: "Policies", title: "Special Olympics Georgia Policies", description: "Eligibility, divisioning, and participation policies from our state office.", href: "https://www.specialolympicsga.org/" },
 ];
 
 export function formatDate(iso: string, opts: Intl.DateTimeFormatOptions = { month: "short", day: "numeric", year: "numeric" }) {

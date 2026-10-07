@@ -3,6 +3,10 @@ import { Barlow_Condensed, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import AnnouncementBar from "@/components/layout/AnnouncementBar";
+import BackToTop from "@/components/layout/BackToTop";
+import AccessibilityWidget from "@/components/layout/AccessibilityWidget";
+import StructuredData from "@/components/layout/StructuredData";
 import { site } from "@/lib/data";
 
 const barlow = Barlow_Condensed({
@@ -35,11 +39,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${barlow.variable} ${dmSans.variable} h-full`}>
       <head>
         <meta name="theme-color" content="#00958f" />
+        <StructuredData />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <a
@@ -48,9 +53,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <AnnouncementBar />
         <Navbar />
         <main id="main" className="flex-1">{children}</main>
         <Footer />
+        <BackToTop />
+        <AccessibilityWidget />
       </body>
     </html>
   );

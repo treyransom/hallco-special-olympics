@@ -74,3 +74,22 @@ h1, h2, h3, h4, .font-heading {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* Accessibility widget modes */
+.a11y-reduce-motion *, .a11y-reduce-motion *::before, .a11y-reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+.a11y-contrast {
+  --color-ink-soft: #0d1f1e;
+  --color-teal: #00635f;
+  --color-teal-light: #00726d;
+  --color-red: #b8001f;
+  --color-gold: #ffd166;
+  --color-mist: #ffffff;
+  --color-mist-dark: #0d1f1e;
+}
+.a11y-contrast a { text-decoration: underline; }
+.a11y-contrast img { filter: contrast(1.15); }

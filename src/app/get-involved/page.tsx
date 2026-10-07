@@ -97,7 +97,7 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section className="bg-teal-deep py-24 text-white sm:py-32">
+      <section id="families" className="scroll-mt-20 bg-teal-deep py-24 text-white sm:py-32">
         <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionHeading light eyebrow="Families" title="Parents and caregivers, we've got you." description="You know your athlete best. We'll keep you in the loop on practices, travel, and what to pack, and we'll never ask you to pay a dime." />
           <Reveal delay={0.1}>

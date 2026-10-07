@@ -3,12 +3,16 @@ import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/BrandIcons";
 import { site, sports } from "@/lib/data";
+import Newsletter from "@/components/home/Newsletter";
 
 const quick = [
   { href: "/about", label: "About Us" },
   { href: "/events", label: "Event Calendar" },
-  { href: "/get-involved", label: "Volunteer" },
   { href: "/get-involved#athletes", label: "Become an Athlete" },
+  { href: "/get-involved#volunteer", label: "Volunteer" },
+  { href: "/resources", label: "Forms & Resources" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/gallery", label: "Photo Gallery" },
   { href: "/news", label: "News & Updates" },
   { href: "/donate", label: "Donate" },
 ];
@@ -64,6 +68,15 @@ export default function Footer() {
             An accredited local program of{" "}
             <a href={site.parentOrg.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-white">{site.parentOrg.name}</a>.
           </p>
+        </div>
+      </div>
+      <div className="border-t border-white/10">
+        <div className="container-x flex flex-col gap-4 py-8 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="font-heading text-xl font-bold uppercase tracking-wide text-gold">Newsletter</p>
+            <p className="text-sm text-white/70">Season updates, once or twice a month.</p>
+          </div>
+          <Newsletter compact />
         </div>
       </div>
       <div className="border-t border-white/10">
