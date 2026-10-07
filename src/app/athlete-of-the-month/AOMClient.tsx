@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import { Star, Mail, Cake } from "lucide-react";
 import { useSyncExternalStore } from "react";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
-import { athleteOfMonth, formatDate, loc, team, birthdays } from "@/lib/data";
+import { athleteOfMonth, formatDate, loc, team, birthdays, localISO } from "@/lib/data";
 
 const subscribe = () => () => {};
-const today = () => new Date().toISOString().slice(0, 10);
+const today = () => localISO();
 import { useLang } from "@/lib/i18n";
 
 export default function AOMClient() {

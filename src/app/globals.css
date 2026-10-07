@@ -9,6 +9,7 @@
   --color-red: #f50e30;
   --color-red-dark: #c70a26;
   --color-gold: #f2b134;
+  --color-gold-text: #8a5a00;
   --color-ink: #0d1f1e;
   --color-ink-soft: #3b4a49;
   --color-mist: #f4f8f7;
@@ -166,3 +167,13 @@ h1, h2, h3, h4, .font-heading {
 
 /* Route progress */
 @keyframes progress { from { transform: scaleX(0); } to { transform: scaleX(0.9); } }
+
+/* Duotone photo treatment */
+.duotone { position: relative; isolation: isolate; }
+.duotone > img { filter: grayscale(1) contrast(1.1); mix-blend-mode: luminosity; }
+.duotone::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--color-teal-deep), var(--color-teal)); }
+.duotone-red::before { background: linear-gradient(135deg, #3b0a12, var(--color-red-dark)); }
+
+/* Mobile bottom bar spacing */
+@media (max-width: 1279px) { body { padding-bottom: 4.5rem; } }
+@media print { body { padding-bottom: 0; } }

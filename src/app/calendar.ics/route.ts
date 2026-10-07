@@ -1,4 +1,4 @@
-import { events, practices, sports, site } from "@/lib/data";
+import { events, practices, sports, site, localISO } from "@/lib/data";
 
 export const dynamic = "force-static";
 
@@ -8,7 +8,7 @@ const ymd = (iso: string) => iso.replaceAll("-", "");
 const nextDay = (iso: string) => {
   const d = new Date(iso + "T12:00:00");
   d.setDate(d.getDate() + 1);
-  return d.toISOString().slice(0, 10).replaceAll("-", "");
+  return localISO(d).replaceAll("-", "");
 };
 const stamp = () => new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
 
@@ -54,7 +54,7 @@ export function GET() {
     // first occurrence on/after p.start matching the weekday
     const first = new Date(p.start + "T12:00:00");
     while (first.getDay() !== p.day) first.setDate(first.getDate() + 1);
-    const firstIso = first.toISOString().slice(0, 10);
+    const firstIso = localISO(first);
     lines.push(
       "BEGIN:VEVENT",
       `UID:practice-${p.sport}-${p.day}-${p.start}@specialolympicshallcounty.org`,

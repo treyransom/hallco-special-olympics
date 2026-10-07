@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function PageHero({
   eyebrow,
@@ -14,6 +15,7 @@ export default function PageHero({
   children,
   watermark,
   curve = "white",
+  crumbs = true,
 }: {
   eyebrow: string;
   title: string;
@@ -23,6 +25,7 @@ export default function PageHero({
   children?: ReactNode;
   watermark?: string;
   curve?: "white" | "mist" | "ink" | "gold";
+  crumbs?: boolean;
 }) {
   const curveColor = { white: "text-white", mist: "text-mist", ink: "text-ink", gold: "text-gold" }[curve];
   const words = title.split(" ");
@@ -30,8 +33,8 @@ export default function PageHero({
   const mark = (watermark ?? eyebrow).split(" ")[0];
   return (
     <section className={cn("noise relative isolate overflow-hidden bg-ink text-white", className)}>
-      <motion.div initial={{ scale: 1.08 }} animate={{ scale: 1 }} transition={{ duration: 1.8, ease: "easeOut" }} className="absolute inset-0">
-        <Image src={image} alt="" fill priority loading="eager" className="object-cover opacity-45" sizes="100vw" />
+      <motion.div initial={{ scale: 1.08 }} animate={{ scale: 1 }} transition={{ duration: 1.8, ease: "easeOut" }} className="duotone absolute inset-0">
+        <Image src={image} alt="" fill priority loading="eager" className="object-cover opacity-60" sizes="100vw" />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
@@ -40,6 +43,7 @@ export default function PageHero({
       <p aria-hidden className="text-outline pointer-events-none absolute -right-4 bottom-6 select-none font-heading text-[7rem] font-extrabold uppercase leading-none text-white/10 sm:text-[11rem] lg:text-[15rem]">{mark}</p>
 
       <div className="container-x relative py-24 sm:py-32 lg:py-36">
+        {crumbs && <Breadcrumbs current={eyebrow} />}
         <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} className="mb-5 inline-flex w-fit items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-heading text-sm font-bold uppercase tracking-[0.2em] text-gold backdrop-blur">
           <span className="h-2 w-2 rounded-full bg-red" />
           {eyebrow}

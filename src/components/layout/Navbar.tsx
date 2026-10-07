@@ -1,19 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Heart, ChevronDown, Search, Globe } from "lucide-react";
+import { Menu, X, Heart, ChevronDown, Search, Globe, BookOpen, Quote, Users, Trophy, Star, Newspaper, Camera, HelpCircle, CalendarDays, Dumbbell, MapPin, Luggage, HandHeart, Ticket, UserPlus, Users2, Home, Car, Timer, ClipboardCheck, GraduationCap, FileText, HandCoins, Target, Building2, Award, Gift, Repeat, Percent, BarChart3, Mail, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
 import SearchModal from "./SearchModal";
 import ThemeToggle from "./ThemeToggle";
 
-type Item = { href: string; label: string; desc?: string };
-type Group = { label: string; href: string; items?: Item[] };
+type Item = { href: string; label: string; desc?: string; icon?: LucideIcon };
+type Group = { label: string; href: string; items?: Item[]; featured?: { href: string; label: string; desc: string; image: string } };
+const iconFor: Record<string, LucideIcon> = { "/about": BookOpen, "/stories": Quote, "/about#team": Users, "/teams": Trophy, "/athlete-of-the-month": Star, "/results": Award, "/news": Newspaper, "/gallery": Camera, "/faq": HelpCircle, "/events": CalendarDays, "/schedule": Dumbbell, "/locations": MapPin, "/competition-guide": Luggage, "/volunteer": HandHeart, "/donate#fundraisers": Ticket, "/register": UserPlus, "/get-involved#volunteer": HandHeart, "/get-involved#unified": Users2, "/get-involved#families": Home, "/carpool": Car, "/volunteer/hours": Timer, "/volunteer/checklists": ClipboardCheck, "/coaches": GraduationCap, "/resources": FileText, "/donate": HandCoins, "/season-fund": Target, "/sponsor": Building2, "/sponsors": Award, "/donate#sponsor-an-athlete": Star, "/donate#monthly": Repeat, "/wishlist": Gift, "/donate#matching": Percent, "/impact": BarChart3, "/newsletter": Mail };
 
 export default function Navbar() {
   const { lang, setLang, dict: d } = useLang();
@@ -34,6 +35,7 @@ export default function Navbar() {
         { href: "/gallery", label: n.gallery, desc: n.galleryD },
         { href: "/faq", label: n.faq, desc: n.faqD },
       ],
+      featured: { href: "/stories", label: n.stories, desc: n.storiesD, image: "/images/unified-partner-award.jpg" },
     },
     { label: n.sports, href: "/sports" },
     {
@@ -47,6 +49,7 @@ export default function Navbar() {
         { href: "/volunteer", label: n.volunteerShifts, desc: n.volunteerShiftsD },
         { href: "/donate#fundraisers", label: n.fundraiserEvents, desc: n.fundraiserEventsD },
       ],
+      featured: { href: "/schedule", label: n.schedule, desc: n.scheduleD, image: "/images/basketball-action.jpg" },
     },
     {
       label: n.getInvolved,
@@ -62,6 +65,7 @@ export default function Navbar() {
         { href: "/coaches", label: n.coaches, desc: n.coachesD },
         { href: "/resources", label: n.resources, desc: n.resourcesD },
       ],
+      featured: { href: "/register", label: n.register, desc: n.registerD, image: "/images/basketball-team.jpg" },
     },
     {
       label: n.support,
@@ -86,6 +90,7 @@ export default function Navbar() {
 
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [initialQuery, setInitialQuery] = useState("");
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [mobileGroup, setMobileGroup] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -125,8 +130,16 @@ export default function Navbar() {
         setSearchOpen((s) => !s);
       }
     };
+    const onSearch = (e: Event) => {
+      setInitialQuery(String((e as CustomEvent).detail ?? ""));
+      setSearchOpen(true);
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("sohc:search", onSearch);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("sohc:search", onSearch);
+    };
   }, []);
 
   const isActive = (g: Group) => {
@@ -177,22 +190,44 @@ export default function Navbar() {
                       onBlur={(e) => {
                         if (!e.currentTarget.contains(e.relatedTarget as Node)) hide();
                       }}
-                      className="absolute left-0 top-full z-50 mt-2 max-h-[70vh] w-80 overflow-y-auto rounded-2xl border border-mist-dark bg-white p-2 shadow-2xl shadow-ink/15"
+                      className="absolute left-1/2 top-full z-50 mt-2 w-[min(44rem,calc(100vw-2rem))] -translate-x-1/2 overflow-hidden rounded-3xl border border-mist-dark bg-white shadow-2xl shadow-ink/15"
                     >
-                      {g.items.map((it) => (
-                        <Link
-                          key={it.href}
-                          href={it.href}
-                          role="menuitem"
-                          target={it.href.startsWith("http") ? "_blank" : undefined}
-                          rel={it.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          onClick={() => setOpenGroup(null)}
-                          className="focus-ring block rounded-xl px-4 py-2.5 transition hover:bg-mist"
-                        >
-                          <span className="block font-heading text-lg font-bold uppercase text-ink">{it.label}</span>
-                          {it.desc && <span className="block text-sm text-ink-soft">{it.desc}</span>}
-                        </Link>
-                      ))}
+                      <div className="grid sm:grid-cols-[1fr_15rem]">
+                        <ul className="grid gap-0.5 p-3 sm:grid-cols-2">
+                          {g.items.map((it) => {
+                            const Icon = iconFor[it.href] ?? BookOpen;
+                            return (
+                              <li key={it.href}>
+                                <Link
+                                  href={it.href}
+                                  role="menuitem"
+                                  target={it.href.startsWith("http") ? "_blank" : undefined}
+                                  rel={it.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                  onClick={() => setOpenGroup(null)}
+                                  className="focus-ring group/i flex items-start gap-3 rounded-2xl p-3 transition hover:bg-mist"
+                                >
+                                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-mist text-teal transition group-hover/i:bg-teal group-hover/i:text-white"><Icon className="h-4.5 w-4.5" /></span>
+                                  <span className="min-w-0">
+                                    <span className="block font-heading text-lg font-bold uppercase leading-tight text-ink">{it.label}</span>
+                                    {it.desc && <span className="block text-xs text-ink-soft">{it.desc}</span>}
+                                  </span>
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                        {g.featured && (
+                          <Link href={g.featured.href} onClick={() => setOpenGroup(null)} className="focus-ring group/f relative hidden min-h-[14rem] overflow-hidden bg-ink text-white sm:block">
+                            <Image src={g.featured.image} alt="" fill sizes="15rem" className="object-cover opacity-60 transition duration-500 group-hover/f:scale-105" />
+                            <span className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+                            <span className="absolute inset-x-0 bottom-0 p-4">
+                              <span className="block font-heading text-sm font-bold uppercase tracking-[0.2em] text-gold">{d.explore.eyebrow}</span>
+                              <span className="block text-2xl font-extrabold uppercase leading-tight">{g.featured.label}</span>
+                              <span className="block text-xs text-white/75">{g.featured.desc}</span>
+                            </span>
+                          </Link>
+                        )}
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -296,7 +331,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <SearchModal open={searchOpen} onClose={() => { setSearchOpen(false); setInitialQuery(""); }} initialQuery={initialQuery} />
     </header>
   );
 }

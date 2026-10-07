@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { site, sports, loc } from "@/lib/data";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/BrandIcons";

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { Printer, ArrowLeft, Clock, MapPin } from "lucide-react";
 import { events, site, formatDate, loc, fundraisers } from "@/lib/data";
@@ -14,7 +14,7 @@ export default function FlyerClient({ slug, qrSvg }: { slug: string; qrSvg: stri
   return (
     <div className="bg-mist py-10 print:bg-white print:py-0">
       <div className="container-x mb-6 flex items-center justify-between print:hidden">
-        <Link href={`/events#${e.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-ink-soft hover:text-teal"><ArrowLeft className="h-4 w-4" /> {d.flyer.back}</Link>
+        <Link href={`/events/${e.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-ink-soft hover:text-teal"><ArrowLeft className="h-4 w-4" /> {d.flyer.back}</Link>
         <button type="button" onClick={() => window.print()} className="focus-ring inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 font-heading text-lg font-bold uppercase tracking-wide text-white hover:bg-teal-deep"><Printer className="h-4 w-4" /> {d.flyer.print}</button>
       </div>
       <article className="relative mx-auto flex max-w-[8.5in] flex-col overflow-hidden bg-white shadow-xl print:max-w-none print:shadow-none" style={{ minHeight: "11in" }}>

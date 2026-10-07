@@ -556,6 +556,11 @@ export function certStatus(iso?: string, today = new Date()): "valid" | "expirin
   return "valid";
 }
 
+/** Local calendar date as YYYY-MM-DD (never shifts by timezone like toISOString does). */
+export function localISO(d = new Date()) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
 export function daysUntil(iso: string, from = new Date()) {
   const t = new Date(iso + "T23:59:59").getTime() - from.getTime();
   return Math.ceil(t / 86400000);

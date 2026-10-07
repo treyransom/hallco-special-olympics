@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { ArrowRight, Quote } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
@@ -13,7 +13,7 @@ export default function QuoteBand() {
   if (!s) return null;
   return (
     <section className="relative isolate overflow-hidden bg-ink py-24 text-white sm:py-32">
-      <Image src={s.image} alt="" fill sizes="100vw" className="object-cover object-top opacity-25" />
+      <div className="duotone duotone-red absolute inset-0"><Image src={s.image} alt="" fill sizes="100vw" className="object-cover object-top opacity-35" /></div>
       <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/40" />
       <div className="container-x relative max-w-5xl">
         <Reveal>

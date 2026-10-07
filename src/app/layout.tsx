@@ -12,6 +12,7 @@ import SkipLink from "@/components/layout/SkipLink";
 import AlertBanner from "@/components/layout/AlertBanner";
 import RouteProgress from "@/components/layout/RouteProgress";
 import SWRegister from "@/components/layout/SWRegister";
+import MobileBar from "@/components/layout/MobileBar";
 import { site } from "@/lib/data";
 
 const barlow = Barlow_Condensed({ variable: "--font-barlow-condensed", subsets: ["latin"], weight: ["500", "600", "700", "800"], display: "swap" });
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <main id="main" className="flex-1">{children}</main>
           <Footer />
           <BackToTop />
+          <MobileBar />
           <AccessibilityWidget />
           <SWRegister />
         </I18nProvider>

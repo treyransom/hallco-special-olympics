@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 import { AnimatePresence, motion } from "framer-motion";
 import { Clock, MapPin, HandHeart, Send, CheckCircle2, X, ClipboardCheck, Timer } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
@@ -17,6 +18,8 @@ export default function VolunteerClient() {
   const list = [...events].filter((e) => e.shifts?.length).sort((a, b) => a.date.localeCompare(b.date));
   const [pick, setPick] = useState<{ e: Event; s: Shift } | null>(null);
   const [sent, setSent] = useState(false);
+  const dialogRef = useRef<HTMLFormElement>(null);
+  useFocusTrap(dialogRef, !!pick);
 
   function submit(ev: React.FormEvent<HTMLFormElement>) {
     ev.preventDefault();
@@ -82,7 +85,7 @@ export default function VolunteerClient() {
       <AnimatePresence>
         {pick && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[80] flex items-end justify-center bg-ink/70 p-4 sm:items-center" onClick={() => setPick(null)} role="dialog" aria-modal="true" aria-label={v.form}>
-            <motion.form initial={{ y: 40 }} animate={{ y: 0 }} exit={{ y: 40 }} onSubmit={submit} onClick={(ev) => ev.stopPropagation()} className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
+            <motion.form ref={dialogRef} initial={{ y: 40 }} animate={{ y: 0 }} exit={{ y: 40 }} onSubmit={submit} onClick={(ev) => ev.stopPropagation()} className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-red">{v.form}</p>

@@ -6,18 +6,21 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Search, X, ArrowRight } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { buildIndex, type IndexEntry } from "@/lib/search";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
-export default function SearchModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+export default function SearchModal({ open, onClose, initialQuery = "" }: { open: boolean; onClose: () => void; initialQuery?: string }) {
   const { lang, dict: d } = useLang();
   const [q, setQ] = useState("");
   const [cursor, setCursor] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, open);
   const index = useMemo(() => buildIndex(lang, d), [lang, d]);
   const [prevOpen, setPrevOpen] = useState(open);
   if (prevOpen !== open) {
     setPrevOpen(open);
     if (open) {
-      setQ("");
+      setQ(initialQuery);
       setCursor(0);
     }
   }
@@ -39,7 +42,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
       })
       .filter((x): x is { e: IndexEntry; score: number } => !!x)
       .sort((a, b) => b.score - a.score)
-      .slice(0, 10)
+      .slice(0, 12)
       .map((x) => x.e);
   }, [q, index]);
 
@@ -74,7 +77,7 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
     <AnimatePresence>
       {open && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[90] bg-ink/70 p-4 pt-[10vh] backdrop-blur-sm" onClick={onClose} role="dialog" aria-modal="true" aria-label={d.nav.search}>
-          <motion.div initial={{ y: -12, scale: 0.98 }} animate={{ y: 0, scale: 1 }} exit={{ y: -12, scale: 0.98 }} className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-white shadow-2xl" onClick={(e) => e.stopPropagation()}>
+          <motion.div ref={panelRef} initial={{ y: -12, scale: 0.98 }} animate={{ y: 0, scale: 1 }} exit={{ y: -12, scale: 0.98 }} className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-white shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center gap-3 border-b border-mist-dark px-5">
               <Search className="h-5 w-5 shrink-0 text-teal" />
               <input
@@ -100,25 +103,31 @@ export default function SearchModal({ open, onClose }: { open: boolean; onClose:
                   {d.search.none} “{q}”.
                 </p>
               )}
-              <ul>
-                {results.map((r, i) => (
-                  <li key={r.href + r.title}>
-                    <Link
-                      href={r.href}
-                      onClick={onClose}
-                      onMouseEnter={() => setCursor(i)}
-                      className={`flex items-center gap-4 rounded-2xl px-4 py-3 transition ${i === cursor ? "bg-mist" : "hover:bg-mist"}`}
-                    >
-                      <span className="w-20 shrink-0 rounded-full bg-teal/10 px-2 py-0.5 text-center text-[11px] font-bold uppercase tracking-wider text-teal-dark">{d.search.categories[r.type]}</span>
-                      <span className="min-w-0 flex-1">
-                        <span className="block truncate font-heading text-lg font-bold uppercase text-ink">{r.title}</span>
-                        <span className="block truncate text-sm text-ink-soft">{r.text}</span>
-                      </span>
-                      <ArrowRight className="h-4 w-4 shrink-0 text-ink-soft" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              {(["page", "sport", "event", "team", "faq", "post", "resource", "fundraiser"] as const).map((type) => {
+                const group = results.filter((r) => r.type === type);
+                if (!group.length) return null;
+                return (
+                  <div key={type}>
+                    <p className="px-4 pb-1 pt-3 text-[11px] font-bold uppercase tracking-[0.2em] text-ink-soft">{d.searchGroups[type]}</p>
+                    <ul>
+                      {group.map((r) => {
+                        const i = results.indexOf(r);
+                        return (
+                          <li key={r.href + r.title}>
+                            <Link href={r.href} onClick={onClose} onMouseEnter={() => setCursor(i)} className={`flex items-center gap-4 rounded-2xl px-4 py-2.5 transition ${i === cursor ? "bg-mist" : "hover:bg-mist"}`}>
+                              <span className="min-w-0 flex-1">
+                                <span className="block truncate font-heading text-lg font-bold uppercase text-ink">{r.title}</span>
+                                <span className="block truncate text-sm text-ink-soft">{r.text}</span>
+                              </span>
+                              <ArrowRight className="h-4 w-4 shrink-0 text-ink-soft" />
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
             <div className="hidden items-center gap-3 border-t border-mist-dark px-5 py-2.5 text-[11px] text-ink-soft sm:flex">
               <kbd className="rounded border border-mist-dark bg-mist px-1.5 py-0.5 font-mono">↑↓</kbd>

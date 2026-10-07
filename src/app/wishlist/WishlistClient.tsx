@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 import { Gift, CheckCircle2, Send, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
@@ -15,6 +16,8 @@ export default function WishlistClient() {
   const treasurer = team.find((t) => t.role === "Treasurer");
   const [pick, setPick] = useState<WishItem | null>(null);
   const [sent, setSent] = useState(false);
+  const dialogRef = useRef<HTMLFormElement>(null);
+  useFocusTrap(dialogRef, !!pick);
   const money = (n: number) => n.toLocaleString(lang === "es" ? "es-US" : "en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
   const remaining = wishlist.reduce((s, i) => s + (i.qty - i.claimed) * i.price, 0);
   function submit(e: React.FormEvent<HTMLFormElement>) {
@@ -56,7 +59,7 @@ export default function WishlistClient() {
       <AnimatePresence>
         {pick && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[80] flex items-end justify-center bg-ink/70 p-4 sm:items-center" onClick={() => setPick(null)} role="dialog" aria-modal="true" aria-label={w.claimForm}>
-            <motion.form initial={{ y: 40 }} animate={{ y: 0 }} exit={{ y: 40 }} onSubmit={submit} onClick={(e) => e.stopPropagation()} className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
+            <motion.form ref={dialogRef} initial={{ y: 40 }} animate={{ y: 0 }} exit={{ y: 40 }} onSubmit={submit} onClick={(e) => e.stopPropagation()} className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <div><p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-red">{w.claimForm}</p><h2 className="text-2xl font-extrabold uppercase text-ink">{lang === "es" ? pick.es : pick.item}</h2></div>
                 <button type="button" onClick={() => setPick(null)} aria-label={d.common.close} className="focus-ring rounded-full p-2 hover:bg-mist"><X className="h-5 w-5" /></button>

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Medal, Users } from "lucide-react";
 import Button from "@/components/ui/Button";
@@ -32,7 +32,7 @@ export default function Hero() {
         County
       </p>
 
-      <div className="container-x relative grid min-h-[100svh] items-end gap-10 pb-28 pt-36 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:pb-40">
+      <div className="container-x relative grid min-h-[100svh] items-end gap-8 pb-28 pt-36 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:pb-40">
         <div>
           <motion.p initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-5 inline-flex w-fit items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-heading text-sm font-bold uppercase tracking-[0.2em] text-gold backdrop-blur">
             <span className="h-2 w-2 animate-pulse rounded-full bg-red" />
@@ -59,6 +59,18 @@ export default function Hero() {
           </motion.div>
         </div>
 
+        <div className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-2 lg:hidden [scrollbar-width:none]" aria-hidden>
+          {[["/images/medals.jpg", `${d.results.gold} ×2`], ["/images/powerlifting.jpg", `Willie · ${lang === "es" ? "Atleta del mes" : "Athlete of the Month"}`], ["/images/basketball-team.jpg", d.nav.teams]].map(([src, cap], i) => (
+            <div key={src} className={`w-44 shrink-0 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-2xl ${i % 2 ? "rotate-2" : "-rotate-2"}`}>
+              <Image src={src} alt="" width={640} height={480} className="aspect-[4/3] object-cover" />
+              <p className="truncate px-2 py-1.5 font-heading text-sm font-bold uppercase text-ink">{cap}</p>
+            </div>
+          ))}
+          <div className="flex w-40 shrink-0 flex-col justify-center gap-2">
+            <span className="flex items-center gap-2 rounded-full bg-gold px-3 py-2 text-ink"><Users className="h-5 w-5" /><span className="font-heading text-2xl font-extrabold leading-none">{athletes.value}{athletes.suffix}</span><span className="text-[10px] font-bold uppercase leading-tight">{lang === "es" ? athletes.labelEs : athletes.label}</span></span>
+            <span className="flex items-center gap-2 rounded-full bg-red px-3 py-2 text-white"><Medal className="h-5 w-5" /><span className="font-heading text-2xl font-extrabold leading-none">$0</span><span className="text-[10px] font-bold uppercase leading-tight">{d.mission.zeroLabel}</span></span>
+          </div>
+        </div>
         <div className="relative hidden h-[30rem] lg:block" aria-hidden>
           <motion.div initial={{ opacity: 0, y: 40, rotate: -6 }} animate={{ opacity: 1, y: 0, rotate: -6 }} transition={{ duration: 0.9, delay: 0.6 }} className="animate-float absolute left-4 top-4 w-64 rotate-[-6deg] overflow-hidden rounded-2xl border-[6px] border-white bg-white shadow-2xl [--r:-6deg]">
             <Image src="/images/medals.jpg" alt="" width={640} height={428} className="aspect-[4/3] object-cover" />

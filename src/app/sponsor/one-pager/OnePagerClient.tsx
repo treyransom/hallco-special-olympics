@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { Printer, ArrowLeft } from "lucide-react";
 import { sponsorTiers, stats, site, team, fundraisers, sports, loc } from "@/lib/data";

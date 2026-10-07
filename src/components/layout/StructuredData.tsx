@@ -30,6 +30,7 @@ export default function StructuredData() {
     location: { "@type": "Place", name: e.location },
     organizer: { "@type": "NGO", name: site.name },
     eventStatus: "https://schema.org/EventScheduled",
+    url: `${site.url}/events/${e.slug}`,
   }));
   return (
     <>

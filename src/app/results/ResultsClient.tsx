@@ -10,6 +10,7 @@ import { useLang } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import Confetti, { useConfetti } from "@/components/ui/Confetti";
 import { PartyPopper } from "lucide-react";
+import ShareBar from "@/components/ui/ShareBar";
 
 const placeStyle = ["", "bg-gold text-ink", "bg-mist-dark text-ink", "bg-[#c97b3a] text-white", "bg-mist text-ink-soft"];
 
@@ -78,6 +79,7 @@ export default function ResultsClient() {
               </div>
             </Reveal>
           ))}
+          <ShareBar path="/results" title={d.results.title} className="justify-center" />
           <SectionHeading align="center" title={d.cta.title} description={d.cta.text} className="pt-6" />
         </div>
       </section>

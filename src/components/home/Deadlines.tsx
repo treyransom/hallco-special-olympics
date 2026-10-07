@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useSyncExternalStore } from "react";
 import { CalendarClock, ArrowRight } from "lucide-react";
-import { registrationWindows, daysUntil, formatDate } from "@/lib/data";
+import { registrationWindows, daysUntil, formatDate, localISO } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
 
 const subscribe = () => () => {};
-const today = () => new Date().toISOString().slice(0, 10);
+const today = () => localISO();
 
 export function DeadlineBadge({ season, compact = false }: { season: string; compact?: boolean }) {
   const { lang, dict: d } = useLang();

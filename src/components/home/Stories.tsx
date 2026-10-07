@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote, Play } from "lucide-react";

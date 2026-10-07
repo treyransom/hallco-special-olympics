@@ -1,11 +1,12 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { posts, formatDate, loc } from "@/lib/data";
 import Button from "@/components/ui/Button";
 import { useLang } from "@/lib/i18n";
+import ShareBar from "@/components/ui/ShareBar";
 
 export default function PostClient({ slug }: { slug: string }) {
   const { lang, dict: d } = useLang();
@@ -30,7 +31,8 @@ export default function PostClient({ slug }: { slug: string }) {
         <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-ink-soft">
           {loc(lang, post, "body").map((p) => <p key={p}>{p}</p>)}
         </div>
-        <div className="mx-auto mt-14 flex max-w-3xl flex-wrap gap-3 border-t border-mist-dark pt-10">
+        <div className="mx-auto mt-10 max-w-3xl"><ShareBar path={`/news/${post.slug}`} title={loc(lang, post, "title")} /></div>
+        <div className="mx-auto mt-10 flex max-w-3xl flex-wrap gap-3 border-t border-mist-dark pt-10">
           <Button href="/get-involved" variant="secondary">{d.common.getInvolved}</Button>
           <Button href="/donate">{d.common.supportAthletes}</Button>
         </div>

@@ -27,7 +27,7 @@ export default function UpcomingEvents() {
             const open = e.shifts?.reduce((n, s) => n + Math.max(0, s.needed - s.filled), 0) ?? 0;
             return (
               <Reveal as="li" key={e.slug} delay={i * 0.06}>
-                <Link href={`/events#${e.slug}`} className="focus-ring group flex h-full gap-5 rounded-3xl bg-white/5 p-5 ring-1 ring-white/10 backdrop-blur transition hover:bg-white/10 hover:ring-gold/60">
+                <Link href={`/events/${e.slug}`} className="focus-ring group flex h-full gap-5 rounded-3xl bg-white/5 p-5 ring-1 ring-white/10 backdrop-blur transition hover:bg-white/10 hover:ring-gold/60">
                   <div className="flex w-20 shrink-0 flex-col items-center justify-center rounded-2xl bg-gold text-ink">
                     <span className="font-heading text-5xl font-extrabold leading-none">{formatDate(e.date, { day: "numeric" }, lang)}</span>
                     <span className="font-heading text-sm font-bold uppercase tracking-wide">{formatDate(e.date, { month: "short" }, lang)}</span>

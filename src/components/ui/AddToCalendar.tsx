@@ -2,7 +2,7 @@
 
 import { CalendarPlus } from "lucide-react";
 import type { Event } from "@/lib/data";
-import { site, loc } from "@/lib/data";
+import { site, loc, localISO } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
 
 function ymd(iso: string) {
@@ -13,7 +13,7 @@ export function googleCalendarUrl(e: Event, lang: "en" | "es" = "en") {
   const start = ymd(e.date);
   const endDate = new Date((e.endDate ?? e.date) + "T12:00:00");
   endDate.setDate(endDate.getDate() + 1);
-  const end = endDate.toISOString().slice(0, 10).replaceAll("-", "");
+  const end = localISO(endDate).replaceAll("-", "");
   const p = new URLSearchParams({ action: "TEMPLATE", text: `${loc(lang, e, "title")} — ${site.shortName}`, dates: `${start}/${end}`, details: `${loc(lang, e, "description")}\n${e.time}`, location: e.address ?? e.location });
   return `https://calendar.google.com/calendar/render?${p.toString()}`;
 }

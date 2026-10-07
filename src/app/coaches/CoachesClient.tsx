@@ -6,12 +6,12 @@ import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
-import { coachResources, certifications, coaches, sports, certStatus, loc, formatDate, CERT_VALID_YEARS } from "@/lib/data";
+import { coachResources, certifications, coaches, sports, certStatus, loc, formatDate, CERT_VALID_YEARS, localISO } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 const subscribe = () => () => {};
-const today = () => new Date().toISOString().slice(0, 10);
+const today = () => localISO();
 const statusStyle = { valid: "bg-teal text-white", expiring: "bg-gold text-ink", expired: "bg-red text-white", missing: "bg-mist text-ink-soft" };
 const statusIcon = { valid: ShieldCheck, expiring: ShieldAlert, expired: ShieldX, missing: ShieldQuestion };
 const typeColor: Record<string, string> = { "Practice plan": "bg-teal text-white", Drills: "bg-gold text-ink", Rules: "bg-ink text-white", Divisioning: "bg-red text-white", Safety: "bg-teal-deep text-white" };

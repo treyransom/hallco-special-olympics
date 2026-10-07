@@ -39,3 +39,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# originals used by scripts/build-images.py (keep locally, too big for git)
+source-photos/

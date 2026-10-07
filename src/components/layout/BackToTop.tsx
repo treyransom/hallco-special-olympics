@@ -16,7 +16,7 @@ export default function BackToTop() {
   return (
     <AnimatePresence>
       {show && (
-        <motion.button type="button" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label={d.a11y.top} className="focus-ring fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-teal text-white shadow-lg shadow-teal/30 hover:bg-teal-dark print:hidden">
+        <motion.button type="button" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label={d.a11y.top} className="focus-ring fixed bottom-24 right-6 xl:bottom-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-teal text-white shadow-lg shadow-teal/30 hover:bg-teal-dark print:hidden">
           <ArrowUp className="h-5 w-5" />
         </motion.button>
       )}

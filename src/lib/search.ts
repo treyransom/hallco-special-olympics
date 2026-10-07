@@ -42,7 +42,7 @@ export function buildIndex(lang: Lang, d: Dict): IndexEntry[] {
     ...pages,
     ...sports.map((s): IndexEntry => ({ type: "sport", title: loc(lang, s, "name"), text: `${d.common.seasons[s.season]} · ${loc(lang, s, "blurb")}`, href: `/sports#${s.slug}` })),
     ...sports.map((s): IndexEntry => ({ type: "team", title: `${loc(lang, s, "name")} — ${d.nav.teams}`, text: d.teams.pageText, href: `/teams/${s.slug}` })),
-    ...events.map((e): IndexEntry => ({ type: "event", title: loc(lang, e, "title"), text: `${e.date} · ${e.location} · ${loc(lang, e, "description")}`, href: `/events#${e.slug}` })),
+    ...events.map((e): IndexEntry => ({ type: "event", title: loc(lang, e, "title"), text: `${e.date} · ${e.location} · ${loc(lang, e, "description")}`, href: `/events/${e.slug}` })),
     ...faqs.map((f): IndexEntry => ({ type: "faq", title: loc(lang, f, "q"), text: loc(lang, f, "a"), href: "/faq" })),
     ...posts.map((p): IndexEntry => ({ type: "post", title: loc(lang, p, "title"), text: loc(lang, p, "excerpt"), href: `/news/${p.slug}` })),
     ...resources.map((r): IndexEntry => ({ type: "resource", title: loc(lang, r, "title"), text: loc(lang, r, "description"), href: r.href.startsWith("/") ? r.href : "/resources" })),

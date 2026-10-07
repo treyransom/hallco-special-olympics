@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SmartImage";
 import Link from "next/link";
 import { Heart, Bus, Shirt, Medal, ClipboardList, Mail } from "lucide-react";
 import PageHero from "@/components/ui/PageHero";
@@ -10,7 +10,8 @@ import Button from "@/components/ui/Button";
 import Campaign from "@/components/home/Campaign";
 import SponsorAthlete from "@/components/home/SponsorAthlete";
 import { givingLevels, site, fundraisers, sponsorTiers, loc, recurringLevels, matchingEmployers } from "@/lib/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import { Search, Repeat, Gift } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
@@ -19,12 +20,33 @@ export default function DonateClient() {
   const x = d.donate;
   const uses = [[Bus, x.u1], [Shirt, x.u2], [Medal, x.u3], [ClipboardList, x.u4]] as const;
   const [q, setQ] = useState("");
+  const tabs = [["once", d.donateTabs.once], ["monthly", d.donateTabs.monthly], ["sponsor", d.donateTabs.sponsor], ["other", d.donateTabs.other]] as const;
+  const [tab, setTab] = useState<(typeof tabs)[number][0]>("once");
+  useEffect(() => {
+    const apply = () => {
+      const h = window.location.hash.replace("#", "");
+      const map: Record<string, (typeof tabs)[number][0]> = { monthly: "monthly", sponsor: "sponsor", "sponsor-an-athlete": "sponsor", fundraisers: "other", matching: "other" };
+      if (map[h]) setTab(map[h]);
+    };
+    apply();
+    window.addEventListener("hashchange", apply);
+    return () => window.removeEventListener("hashchange", apply);
+     
+  }, []);
+  const show = (t: (typeof tabs)[number][0]) => (tab === t ? "" : "hidden");
   const employers = matchingEmployers.filter((e) => e.name.toLowerCase().includes(q.toLowerCase()));
   return (
     <>
       <PageHero curve="mist" eyebrow={x.eyebrow} title={x.title} image="/images/powerlifting.jpg" description={x.text} />
       <Campaign />
-      <section className="bg-dots bg-white py-24 sm:py-32">
+      <div className="sticky top-20 z-30 border-b border-mist-dark bg-white/95 backdrop-blur">
+        <div className="container-x flex gap-1 overflow-x-auto py-2" role="tablist" aria-label={d.nav.donate}>
+          {tabs.map(([k, l]) => (
+            <button key={k} type="button" role="tab" aria-selected={tab === k} onClick={() => { setTab(k); window.scrollTo({ top: 0, behavior: "smooth" }); }} className={cn("focus-ring shrink-0 rounded-full px-5 py-2 font-heading text-lg font-bold uppercase tracking-wide transition", tab === k ? "bg-ink text-white" : "text-ink hover:bg-mist")}>{l}</button>
+          ))}
+        </div>
+      </div>
+      <section className={cn("bg-dots bg-white py-24 sm:py-32", show("once"))}>
         <div className="container-x grid gap-14 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <SectionHeading eyebrow={x.pickE} title={x.pickT} description={x.pickX} />
@@ -56,7 +78,7 @@ export default function DonateClient() {
         </div>
       </section>
 
-      <section id="monthly" className="scroll-mt-20 bg-mist py-24 sm:py-32">
+      <section id="monthly" className={cn("scroll-mt-36 bg-mist py-24 sm:py-32", show("monthly"))}>
         <div className="container-x">
           <SectionHeading align="center" eyebrow={d.recurring.eyebrow} title={d.recurring.title} description={d.recurring.text} />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -72,9 +94,9 @@ export default function DonateClient() {
         </div>
       </section>
 
-      <SponsorAthlete />
+      <div className={show("sponsor")}><SponsorAthlete /></div>
 
-      <section className="bg-dots bg-mist py-20">
+      <section className={cn("bg-dots bg-mist py-20", show("other"))}>
         <div className="container-x">
           <Reveal className="flex flex-col items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-teal-deep to-teal p-8 text-white sm:flex-row sm:p-10">
             <div><p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-gold">{d.wishlistPage.eyebrow}</p><h2 className="mt-1 text-3xl font-extrabold uppercase">{d.wishlistPage.title}</h2></div>
@@ -83,7 +105,7 @@ export default function DonateClient() {
         </div>
       </section>
 
-      <section id="fundraisers" className="noise relative scroll-mt-20 overflow-hidden bg-ink py-24 text-white sm:py-32">
+      <section id="fundraisers" className={cn("noise relative scroll-mt-36 overflow-hidden bg-ink py-24 text-white sm:py-32", show("other"))}>
         <div className="bg-dots-light absolute inset-0" aria-hidden />
         <div className="container-x relative">
           <SectionHeading light eyebrow={x.fundE} title={x.fundT} description={x.fundX} />
@@ -105,7 +127,7 @@ export default function DonateClient() {
         </div>
       </section>
 
-      <section id="sponsor" className="scroll-mt-20 bg-mist py-24 sm:py-32">
+      <section id="sponsor" className={cn("scroll-mt-36 bg-mist py-24 sm:py-32", show("sponsor"))}>
         <div className="container-x">
           <SectionHeading align="center" eyebrow={x.sponsorE} title={x.sponsorT} description={x.sponsorX} />
           <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -123,7 +145,7 @@ export default function DonateClient() {
         </div>
       </section>
 
-      <section id="matching" className="scroll-mt-20 bg-white py-24 sm:py-32">
+      <section id="matching" className={cn("scroll-mt-36 bg-white py-24 sm:py-32", show("other"))}>
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <SectionHeading eyebrow={d.matching.eyebrow} title={d.matching.title} description={d.matching.text} />
           <Reveal delay={0.1} className="rounded-3xl bg-mist p-6 shadow-xl shadow-ink/5">
@@ -145,7 +167,7 @@ export default function DonateClient() {
         </div>
       </section>
 
-      <section className="bg-white pb-24">
+      <section className={cn("bg-white pb-24", show("other"))}>
         <div className="container-x grid gap-8 md:grid-cols-2">
           <Reveal className="rounded-3xl border border-mist-dark p-8">
             <h3 className="text-2xl font-extrabold uppercase text-ink">{x.honorT}</h3>

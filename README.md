@@ -22,6 +22,9 @@ Events, news, Athlete of the Month, results, stories, sponsors, the announcement
 
 Everything else (sports, practices, coaches, rosters, FAQs, wish list, carpools, volunteer hours, certifications, checklists, registration windows, the weather alert) is still in `src/lib/data.ts`.
 
+## Photos
+Originals go in `source-photos/` (ignored by git). Run `python3 scripts/build-images.py` to generate optimized sizes in `public/images/` plus blur placeholders in `src/lib/blur.json`. Every `<Image>` on the site goes through `SmartImage`, which adds the blur-up automatically, and the custom loader in `src/lib/imageLoader.ts` serves the right size per screen. The current photos are 480 to 960 pixels wide; phone photos from a practice will look dramatically better.
+
 ## Installable app
 The site ships a web manifest and a service worker (`public/sw.js`) that caches the schedule, competition guide, and recently visited pages for offline use. The service worker only registers in production builds.
 

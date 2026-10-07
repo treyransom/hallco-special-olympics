@@ -66,7 +66,7 @@ export default function AccessibilityWidget() {
         aria-expanded={open}
         aria-controls="a11y-panel"
         aria-label={d.a11y.label}
-        className="print:hidden focus-ring fixed bottom-6 left-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-ink text-white shadow-lg shadow-ink/30 hover:bg-teal-deep"
+        className="print:hidden focus-ring fixed bottom-24 left-6 xl:bottom-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-ink text-white shadow-lg shadow-ink/30 hover:bg-teal-deep"
       >
         <Accessibility className="h-6 w-6" />
       </button>
@@ -79,7 +79,7 @@ export default function AccessibilityWidget() {
             initial={{ opacity: 0, y: 12, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
-            className="fixed bottom-20 left-6 z-40 w-[min(22rem,calc(100vw-3rem))] rounded-2xl border border-mist-dark bg-white p-5 shadow-2xl shadow-ink/20"
+            className="fixed bottom-40 left-6 xl:bottom-20 z-40 w-[min(22rem,calc(100vw-3rem))] rounded-2xl border border-mist-dark bg-white p-5 shadow-2xl shadow-ink/20"
           >
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-extrabold uppercase text-ink">{d.a11y.title}</h2>

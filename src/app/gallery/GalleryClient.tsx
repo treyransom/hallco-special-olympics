@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import Image from "@/components/ui/SmartImage";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { gallery } from "@/lib/data";
@@ -16,6 +17,8 @@ export default function GalleryClient() {
   const d = useDict();
   const [tag, setTag] = useState("All");
   const [idx, setIdx] = useState<number | null>(null);
+  const boxRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(boxRef, idx !== null);
   const items = gallery.filter((g) => tag === "All" || g.tag === tag);
 
   const close = useCallback(() => setIdx(null), []);
@@ -65,7 +68,7 @@ export default function GalleryClient() {
 
       <AnimatePresence>
         {idx !== null && items[idx] && (
-          <motion.div role="dialog" aria-modal="true" aria-label={items[idx].alt} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/95 p-4" onClick={close}>
+          <motion.div ref={boxRef} role="dialog" aria-modal="true" aria-label={items[idx].alt} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/95 p-4" onClick={close}>
             <button type="button" onClick={close} aria-label={d.common.close} className="focus-ring absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20"><X className="h-6 w-6" /></button>
             <button type="button" onClick={(e) => { e.stopPropagation(); step(-1); }} aria-label={d.common.previous} className="focus-ring absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"><ChevronLeft className="h-6 w-6" /></button>
             <button type="button" onClick={(e) => { e.stopPropagation(); step(1); }} aria-label={d.common.next} className="focus-ring absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"><ChevronRight className="h-6 w-6" /></button>

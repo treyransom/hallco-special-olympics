@@ -5,13 +5,13 @@ import { useSyncExternalStore } from "react";
 import { CalendarDays, MapPin, Clock, ArrowRight, Dumbbell, Trophy } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
-import { events, practices, loc, sportName, formatDate } from "@/lib/data";
+import { events, practices, loc, sportName, formatDate, localISO } from "@/lib/data";
 import { useLang } from "@/lib/i18n";
 
 type Item = { kind: "practice" | "event"; date: Date; title: string; time: string; location: string; href: string; type?: string };
 
 const subscribe = () => () => {};
-const today = () => new Date().toISOString().slice(0, 10);
+const today = () => localISO();
 
 export function weekItems(lang: "en" | "es", base: string): Item[] {
   const start = new Date(base + "T12:00:00");
@@ -19,7 +19,7 @@ export function weekItems(lang: "en" | "es", base: string): Item[] {
   for (let i = 0; i < 7; i++) {
     const day = new Date(start);
     day.setDate(start.getDate() + i);
-    const iso = day.toISOString().slice(0, 10);
+    const iso = localISO(day);
     for (const p of practices) {
       if (p.day === day.getDay() && iso >= p.start && iso <= p.end) {
         items.push({ kind: "practice", date: day, title: sportName(p.sport, lang), time: p.time, location: p.location, href: `/teams/${p.sport}` });
@@ -27,7 +27,7 @@ export function weekItems(lang: "en" | "es", base: string): Item[] {
     }
     for (const e of events) {
       if (iso >= e.date && iso <= (e.endDate ?? e.date) && (iso === e.date || i === 0)) {
-        items.push({ kind: "event", date: day, title: loc(lang, e, "title"), time: e.time, location: e.location, href: `/events#${e.slug}`, type: e.type });
+        items.push({ kind: "event", date: day, title: loc(lang, e, "title"), time: e.time, location: e.location, href: `/events/${e.slug}`, type: e.type });
       }
     }
   }
@@ -54,17 +54,17 @@ export default function ThisWeek() {
         ) : (
           <ul className="mt-10 flex gap-4 overflow-x-auto pb-4 [scrollbar-width:thin]">
             {items.map((it, i) => {
-              const isToday = it.date.toISOString().slice(0, 10) === base;
+              const isToday = localISO(it.date) === base;
               const tomorrow = new Date(base + "T12:00:00");
               tomorrow.setDate(tomorrow.getDate() + 1);
-              const isTomorrow = it.date.toISOString().slice(0, 10) === tomorrow.toISOString().slice(0, 10);
+              const isTomorrow = localISO(it.date) === localISO(tomorrow);
               const label = isToday ? d.thisWeek.today : isTomorrow ? d.thisWeek.tomorrow : d.common.days[it.date.getDay()];
               return (
                 <Reveal as="li" key={i} delay={i * 0.05} className="w-72 shrink-0">
                   <Link href={it.href} className={`focus-ring block h-full rounded-3xl border p-5 transition hover:-translate-y-0.5 hover:shadow-lg ${isToday ? "border-teal bg-teal text-white" : "border-mist-dark bg-mist"}`}>
                     <div className="flex items-center justify-between">
                       <span className={`font-heading text-sm font-bold uppercase tracking-[0.2em] ${isToday ? "text-gold" : "text-red"}`}>{label}</span>
-                      <span className={`text-xs ${isToday ? "text-white/70" : "text-ink-soft"}`}>{formatDate(it.date.toISOString().slice(0, 10), { month: "short", day: "numeric" }, lang)}</span>
+                      <span className={`text-xs ${isToday ? "text-white/70" : "text-ink-soft"}`}>{formatDate(localISO(it.date), { month: "short", day: "numeric" }, lang)}</span>
                     </div>
                     <div className="mt-3 flex items-center gap-2">
                       {it.kind === "practice" ? <Dumbbell className={`h-4 w-4 ${isToday ? "text-gold" : "text-teal"}`} /> : <Trophy className={`h-4 w-4 ${isToday ? "text-gold" : "text-teal"}`} />}
