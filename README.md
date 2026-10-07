@@ -11,9 +11,27 @@ npm run build   # static export to ./out
 `src/lib/data.ts` holds every sport, event, news post, team member, stat, sponsor, and contact detail. Edit it and rebuild.
 
 ## Pages
-Home, About, Sports, Events, Get Involved, News (+ post pages), Donate, Contact, FAQ, Forms & Resources, Photo Gallery. Plus `sitemap.xml`, `robots.txt`, and JSON-LD for the organization, events, and FAQ.
+Home, About, Sports, Teams (+ one page per sport), Events, Competition Guide, Volunteer Shifts, Register, Get Involved, News (+ post pages), Results, Athlete of the Month, Donate, Sponsor (+ printable one-pager), Fundraisers (+ one page per event), Contact, FAQ, Forms & Resources, Photo Gallery, a printable flyer per event, and a `calendar.ics` feed. Plus `sitemap.xml`, `robots.txt`, and JSON-LD for the organization, events, and FAQ.
+
+## Spanish
+Every page has a Spanish version. UI text lives in `src/lib/i18n.tsx` (the `en` and `es` dictionaries). Content in `data.ts` carries optional `es` fields; anything without one falls back to English. The toggle is in the header and the choice is remembered per visitor.
 
 ## Features
+- Online athlete registration (4 steps, saves a draft on the device, sends by email to the Local Coordinator)
+- Practice schedule per sport, with a "This week" strip on the homepage and per-team pages with coaches and rosters
+- Live countdown to the next competition, plus a competition guide with a checkable packing list
+- Fundraiser registration pages with option pickers (golf foursomes, hole sponsors, plunge teams) that hand off to the payment processor or email
+- Sponsor wall grouped by tier, sponsor page, and a print-to-PDF sponsorship one-pager
+- Season fund thermometer (`campaign` in data.ts)
+- Sponsor-an-athlete cards
+- Facebook feed embed on the news page (appears once the real page URL is set)
+- Video stories: add a YouTube ID to a story or news post
+- Results medal board with per-competition highlights
+- Athlete of the Month with archive and nomination link
+- Volunteer shift signup per event, with fill progress
+- Site search (⌘K / Ctrl+K) across pages, sports, events, FAQ, news, resources, teams, fundraisers
+- Printable event flyers with a QR code
+- Calendar subscription feed (`/calendar.ics`) with events and weekly practice recurrences
 - Announcement bar (`announcement` in data.ts; dismiss is remembered for the session)
 - Dropdown navigation on desktop, accordion menu on mobile
 - Homepage hero (swap in a video by setting `site.heroVideo`)
@@ -44,6 +62,11 @@ Search `data.ts` for `PLACEHOLDER`. Specifically:
 - Sponsorship tier amounts and perks on /donate
 - Giving-level descriptions on /donate
 - `resources` links (currently point to specialolympicsga.org or "#")
-- Registration and volunteer form links on /get-involved
+- `practices`, `coaches`, `rosters` (set `showRoster: false` to hide a roster)
+- `campaign` goal and raised amount
+- `athleteSponsorships`, `athleteOfMonth`, `results`
+- `fundraisers` options, prices, and dates
+- `stories[].video` / `posts[].video` YouTube IDs (currently a sample video)
+- Event `shifts` and `address` fields
 
 Also see `CURRENT_SITE_AUDIT.md` for what the old site had.

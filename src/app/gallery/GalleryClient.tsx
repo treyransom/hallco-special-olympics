@@ -6,10 +6,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { gallery } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { useDict } from "@/lib/i18n";
+import PageHero from "@/components/ui/PageHero";
 
 const tags = ["All", ...Array.from(new Set(gallery.map((g) => g.tag)))];
 
 export default function GalleryClient() {
+  const d = useDict();
   const [tag, setTag] = useState("All");
   const [idx, setIdx] = useState<number | null>(null);
   const items = gallery.filter((g) => tag === "All" || g.tag === tag);
@@ -33,12 +36,14 @@ export default function GalleryClient() {
   }, [idx, close, step]);
 
   return (
+    <>
+    <PageHero eyebrow={d.gallery.eyebrow} title={d.gallery.title} image="/images/medals.jpg" description={d.gallery.text} />
     <section className="bg-mist py-16 sm:py-24">
       <div className="container-x">
-        <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter photos">
+        <div className="flex flex-wrap gap-2" role="tablist" aria-label={d.gallery.filter}>
           {tags.map((t) => (
             <button key={t} role="tab" aria-selected={tag === t} onClick={() => { setTag(t); setIdx(null); }} className={cn("focus-ring rounded-full px-4 py-2 font-heading text-base font-bold uppercase tracking-wide transition", tag === t ? "bg-ink text-white" : "bg-white text-ink hover:bg-mist-dark")}>
-              {t}
+              {t === "All" ? d.events.all : t}
             </button>
           ))}
         </div>
@@ -60,9 +65,9 @@ export default function GalleryClient() {
       <AnimatePresence>
         {idx !== null && items[idx] && (
           <motion.div role="dialog" aria-modal="true" aria-label={items[idx].alt} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/95 p-4" onClick={close}>
-            <button type="button" onClick={close} aria-label="Close" className="focus-ring absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20"><X className="h-6 w-6" /></button>
-            <button type="button" onClick={(e) => { e.stopPropagation(); step(-1); }} aria-label="Previous" className="focus-ring absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"><ChevronLeft className="h-6 w-6" /></button>
-            <button type="button" onClick={(e) => { e.stopPropagation(); step(1); }} aria-label="Next" className="focus-ring absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"><ChevronRight className="h-6 w-6" /></button>
+            <button type="button" onClick={close} aria-label={d.common.close} className="focus-ring absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20"><X className="h-6 w-6" /></button>
+            <button type="button" onClick={(e) => { e.stopPropagation(); step(-1); }} aria-label={d.common.previous} className="focus-ring absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"><ChevronLeft className="h-6 w-6" /></button>
+            <button type="button" onClick={(e) => { e.stopPropagation(); step(1); }} aria-label={d.common.next} className="focus-ring absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white hover:bg-white/20"><ChevronRight className="h-6 w-6" /></button>
             <motion.figure key={items[idx].src} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} className="max-h-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
               <Image src={items[idx].src} alt={items[idx].alt} width={items[idx].w} height={items[idx].h} sizes="90vw" className="max-h-[80vh] w-auto rounded-2xl object-contain" />
               <figcaption className="mt-3 text-center text-sm text-white/80">{items[idx].alt} · {idx + 1} / {items.length}</figcaption>
@@ -71,5 +76,6 @@ export default function GalleryClient() {
         )}
       </AnimatePresence>
     </section>
+    </>
   );
 }

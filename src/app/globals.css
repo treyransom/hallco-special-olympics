@@ -93,3 +93,11 @@ h1, h2, h3, h4, .font-heading {
 }
 .a11y-contrast a { text-decoration: underline; }
 .a11y-contrast img { filter: contrast(1.15); }
+
+/* Print */
+@media print {
+  header, footer, nav, .print\:hidden { display: none !important; }
+  main { margin: 0; }
+  body { background: #fff; }
+  @page { margin: 0.5in; }
+}
