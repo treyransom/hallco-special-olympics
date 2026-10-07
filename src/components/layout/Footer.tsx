@@ -13,10 +13,13 @@ export default function Footer() {
   const quick = [
     { href: "/about", label: d.footer.about },
     { href: "/events", label: d.footer.calendar },
+    { href: "/schedule", label: d.nav.schedule },
+    { href: "/locations", label: d.nav.locations },
     { href: "/register", label: d.footer.register },
     { href: "/volunteer", label: d.footer.volunteer },
     { href: "/resources", label: d.footer.resources },
     { href: "/results", label: d.footer.results },
+    { href: "/stories", label: d.nav.stories },
     { href: "/faq", label: d.footer.faq },
     { href: "/gallery", label: d.footer.gallery },
     { href: "/news", label: d.footer.news },

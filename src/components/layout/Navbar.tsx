@@ -24,6 +24,7 @@ export default function Navbar() {
       href: "/about",
       items: [
         { href: "/about", label: n.ourStory, desc: n.ourStoryD },
+        { href: "/stories", label: n.stories, desc: n.storiesD },
         { href: "/about#team", label: n.leadership, desc: n.leadershipD },
         { href: "/teams", label: n.teams, desc: n.teamsD },
         { href: "/athlete-of-the-month", label: n.aom, desc: n.aomD },
@@ -39,6 +40,8 @@ export default function Navbar() {
       href: "/events",
       items: [
         { href: "/events", label: n.calendar, desc: n.calendarD },
+        { href: "/schedule", label: n.schedule, desc: n.scheduleD },
+        { href: "/locations", label: n.locations, desc: n.locationsD },
         { href: "/competition-guide", label: n.guide, desc: n.guideD },
         { href: "/volunteer", label: n.volunteerShifts, desc: n.volunteerShiftsD },
         { href: "/donate#fundraisers", label: n.fundraiserEvents, desc: n.fundraiserEventsD },
@@ -60,9 +63,12 @@ export default function Navbar() {
       href: "/donate",
       items: [
         { href: "/donate", label: n.donate, desc: n.donateD },
+        { href: "/season-fund", label: n.seasonFund, desc: n.seasonFundD },
         { href: "/sponsor", label: n.sponsor, desc: n.sponsorD },
+        { href: "/sponsors", label: n.sponsors, desc: n.sponsorsD },
         { href: "/donate#sponsor-an-athlete", label: n.sponsorAthlete, desc: n.sponsorAthleteD },
         { href: "/donate#fundraisers", label: n.fundraisers, desc: n.fundraisersD },
+        { href: "/newsletter", label: n.newsletter, desc: n.newsletterD },
         ...(site.shopUrl ? [{ href: site.shopUrl, label: n.shop, desc: n.shopD }] : []),
       ],
     },

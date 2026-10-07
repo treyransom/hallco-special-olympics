@@ -11,7 +11,9 @@ npm run build   # static export to ./out
 `src/lib/data.ts` holds every sport, event, news post, team member, stat, sponsor, and contact detail. Edit it and rebuild.
 
 ## Pages
-Home, About, Sports, Teams (+ one page per sport), Events, Competition Guide, Volunteer Shifts, Register, Get Involved, News (+ post pages), Results, Athlete of the Month, Donate, Sponsor (+ printable one-pager), Fundraisers (+ one page per event), Contact, FAQ, Forms & Resources, Photo Gallery, a printable flyer per event, and a `calendar.ics` feed. Plus `sitemap.xml`, `robots.txt`, and JSON-LD for the organization, events, and FAQ.
+Home, About, Athlete Stories, Sports, Teams (+ one page per sport), Events, Practice Schedule, Where We Practice, Competition Guide, Volunteer Shifts, Register, Get Involved, News (+ post pages), Results, Athlete of the Month, Donate, Season Fund, Sponsor (+ printable one-pager), Our Sponsors, Newsletter, Fundraisers (+ one page per event), Contact, FAQ, Forms & Resources, Photo Gallery, a printable flyer per event, and a `calendar.ics` feed. Plus `sitemap.xml`, `robots.txt`, and JSON-LD for the organization, events, and FAQ.
+
+The homepage is intentionally short: hero, countdown, mission, sports, get-involved, upcoming events, and an Explore grid that links to everything else.
 
 ## Spanish
 Every page has a Spanish version. UI text lives in `src/lib/i18n.tsx` (the `en` and `es` dictionaries). Content in `data.ts` carries optional `es` fields; anything without one falls back to English. The toggle is in the header and the choice is remembered per visitor.
