@@ -50,7 +50,7 @@ export default function Sponsors({ full = false }: { full?: boolean }) {
         <Reveal className="mt-10 flex flex-col items-center gap-3 text-center text-sm text-ink-soft sm:flex-row sm:justify-center sm:gap-6">
           <span>{d.sponsorsWall.want} <Link href="/sponsor" className="font-semibold text-teal underline-offset-4 hover:underline">{d.sponsorsWall.become}</Link></span>
           {!full && <Link href="/sponsors" className="focus-ring font-semibold text-ink hover:text-teal">{d.common.viewAll}</Link>}
-          <Link href="/sponsor/one-pager" className="focus-ring inline-flex items-center gap-1.5 font-semibold text-ink hover:text-teal"><Download className="h-4 w-4" /> {d.sponsorsWall.onePager}</Link>
+          <Link href="/sponsor/one-pager" className="focus-ring inline-flex items-center gap-1.5 py-2 font-semibold text-ink hover:text-teal"><Download className="h-4 w-4" /> {d.sponsorsWall.onePager}</Link>
         </Reveal>
       </div>
     </section>

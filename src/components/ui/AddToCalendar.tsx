@@ -21,7 +21,7 @@ export function googleCalendarUrl(e: Event, lang: "en" | "es" = "en") {
 export default function AddToCalendar({ event, className = "" }: { event: Event; className?: string }) {
   const { lang, dict: d } = useLang();
   return (
-    <a href={googleCalendarUrl(event, lang)} target="_blank" rel="noopener noreferrer" className={`focus-ring inline-flex items-center gap-1.5 rounded-full border border-mist-dark px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ink transition hover:border-teal hover:text-teal ${className}`}>
+    <a href={googleCalendarUrl(event, lang)} target="_blank" rel="noopener noreferrer" className={`focus-ring inline-flex items-center gap-1.5 rounded-full border border-mist-dark px-3 py-2 text-xs font-bold uppercase tracking-wider text-ink transition hover:border-teal hover:text-teal ${className}`}>
       <CalendarPlus className="h-3.5 w-3.5" /> {d.common.addToCalendar}
     </a>
   );

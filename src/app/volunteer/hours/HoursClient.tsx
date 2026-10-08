@@ -9,7 +9,7 @@ import Counter from "@/components/home/Counter";
 import { volunteerHours, team, site } from "@/lib/data";
 import { useDict } from "@/lib/i18n";
 
-const medal = ["bg-gold text-ink", "bg-mist-dark text-ink", "bg-[#c97b3a] text-white"];
+const medal = ["bg-gold text-ink", "bg-mist-dark text-ink", "bg-[#9c5a20] text-white"];
 
 export default function HoursClient() {
   const d = useDict();

@@ -2,12 +2,14 @@
 
 @theme inline {
   /* Brand — sampled from the Special Olympics Hall County logo */
-  --color-teal: #00958f;
+  /* Brand teal/red are nudged darker than the logo values so white text and
+     colored text on white pass WCAG AA (4.5:1). Logo artwork keeps the originals. */
+  --color-teal: #007a75;
   --color-teal-light: #19b3ab;
-  --color-teal-dark: #00726d;
+  --color-teal-dark: #00605c;
   --color-teal-deep: #004e4a;
-  --color-red: #f50e30;
-  --color-red-dark: #c70a26;
+  --color-red: #d80b2a;
+  --color-red-dark: #ab0821;
   --color-gold: #f2b134;
   --color-gold-text: #8a5a00;
   --color-ink: #0d1f1e;

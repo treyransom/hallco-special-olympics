@@ -27,7 +27,7 @@ export default function Newsletter({ compact = false }: { compact?: boolean }) {
     <section className="bg-teal py-20 text-white">
       <div className="container-x grid items-center gap-8 lg:grid-cols-2">
         <div>
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-gold">{d.newsletter.eyebrow}</p>
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-white/90">{d.newsletter.eyebrow}</p>
           <h2 className="mt-2 text-4xl font-extrabold uppercase sm:text-5xl">{d.newsletter.title}</h2>
           <p className="mt-3 max-w-md text-white/85">{d.newsletter.text}</p>
         </div>

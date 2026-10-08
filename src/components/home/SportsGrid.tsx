@@ -20,7 +20,7 @@ export default function SportsGrid() {
       <div className="container-x relative">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading light eyebrow={d.sports.eyebrow} title={d.sports.title} description={d.sports.text} />
-          <Link href="/sports" className="focus-ring group inline-flex w-fit items-center gap-2 font-heading text-lg font-bold uppercase tracking-wide text-gold">
+          <Link href="/sports" className="focus-ring group inline-flex w-fit items-center gap-2 py-2 font-heading text-lg font-bold uppercase tracking-wide text-gold">
             {d.sports.schedule} <ArrowUpRight className="h-5 w-5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
         </div>

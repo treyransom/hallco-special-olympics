@@ -46,7 +46,7 @@ export default function ScheduleClient() {
                             <p className="mt-1 flex items-center gap-1.5 text-xs text-ink-soft"><Clock className="h-3 w-3 text-teal" />{p.time}</p>
                             <p className="flex items-center gap-1.5 text-xs text-ink-soft"><MapPin className="h-3 w-3 text-teal" />{p.location}</p>
                             {p.coach && <p className="flex items-center gap-1.5 text-xs text-ink-soft"><User className="h-3 w-3 text-teal" />{p.coach}</p>}
-                            <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-red">{s.months}</p>
+                            <p className="mt-1 text-[11px] font-bold uppercase tracking-wider text-red">{s.months}</p>
                           </li>
                         );
                       })}

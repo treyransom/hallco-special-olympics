@@ -27,7 +27,7 @@ export default function AnnouncementBar() {
       <div className="container-x flex items-center justify-center gap-2 py-2 pr-10 text-xs sm:gap-3 sm:py-2.5 sm:text-base">
         <Megaphone className="hidden h-4 w-4 shrink-0 text-gold sm:block" aria-hidden />
         <p className="font-medium leading-tight">{lang === "es" ? announcement.textEs : announcement.text}</p>
-        <Link href={announcement.cta.href} className="focus-ring inline-flex shrink-0 items-center gap-1 rounded-full bg-gold px-3 py-1 font-heading text-sm font-bold uppercase tracking-wide text-ink hover:bg-white">
+        <Link href={announcement.cta.href} className="focus-ring inline-flex min-h-8 shrink-0 items-center gap-1 rounded-full bg-gold px-3 py-1.5 font-heading text-sm font-bold uppercase tracking-wide text-ink hover:bg-white">
           {lang === "es" ? announcement.cta.labelEs : announcement.cta.label} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
@@ -40,7 +40,7 @@ export default function AnnouncementBar() {
             sessionStorage.setItem(KEY, "1");
           } catch {}
         }}
-        className="focus-ring absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1.5 text-white/70 hover:bg-white/10 hover:text-white"
+        className="focus-ring absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-white/70 hover:bg-white/10 hover:text-white"
       >
         <X className="h-4 w-4" />
       </button>

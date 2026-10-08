@@ -14,7 +14,7 @@ export default function AboutClient() {
   const { lang, dict: d } = useLang();
   const a = d.about;
   const values = [[a.v1, a.v1t, Users, "border-teal bg-teal"], [a.v2, a.v2t, BadgeDollarSign, "border-gold bg-gold"], [a.v3, a.v3t, Sparkles, "border-red bg-red"], [a.v4, a.v4t, HeartHandshake, "border-ink bg-ink"]] as const;
-  const avatar = ["bg-teal", "bg-gold text-ink", "bg-red", "bg-ink", "bg-teal-dark", "bg-red-dark", "bg-teal-deep"];
+  const avatar = ["bg-teal text-white", "bg-gold text-ink", "bg-red text-white", "bg-ink text-white", "bg-teal-dark text-white", "bg-red-dark text-white", "bg-teal-deep text-white"];
   return (
     <>
       <PageHero eyebrow={a.eyebrow} title={a.title} image="/images/team-polos.jpg" description={a.text} />
@@ -58,7 +58,7 @@ export default function AboutClient() {
           <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((m, i) => (
               <Reveal as="li" key={m.name} delay={i * 0.06} className="flex min-w-0 items-center gap-4 rounded-2xl border border-mist-dark bg-mist p-4 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-lg sm:gap-5 sm:p-5">
-                <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full font-heading text-2xl font-bold text-white shadow-lg ${avatar[i % avatar.length]}`}>{m.name.split(" ").map((n) => n[0]).join("")}</div>
+                <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full font-heading text-2xl font-bold shadow-lg ${avatar[i % avatar.length]}`}>{m.name.split(" ").map((n) => n[0]).join("")}</div>
                 <div className="min-w-0">
                   <h3 className="text-2xl font-extrabold uppercase text-ink">{m.name}</h3>
                   <p className="text-sm font-semibold text-teal">{lang === "es" && m.roleEs ? m.roleEs : m.role}</p>

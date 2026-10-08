@@ -12,7 +12,7 @@ import Confetti, { useConfetti } from "@/components/ui/Confetti";
 import { PartyPopper } from "lucide-react";
 import ShareBar from "@/components/ui/ShareBar";
 
-const placeStyle = ["", "bg-gold text-ink", "bg-mist-dark text-ink", "bg-[#c97b3a] text-white", "bg-mist text-ink-soft"];
+const placeStyle = ["", "bg-gold text-ink", "bg-mist-dark text-ink", "bg-[#9c5a20] text-white", "bg-mist text-ink-soft"];
 
 export default function ResultsClient() {
   const { lang, dict: d } = useLang();
@@ -22,7 +22,7 @@ export default function ResultsClient() {
   const cells = (m: typeof totals) => [
     { n: m.gold, l: r.gold, c: "bg-gold text-ink" },
     { n: m.silver, l: r.silver, c: "bg-mist-dark text-ink" },
-    { n: m.bronze, l: r.bronze, c: "bg-[#c97b3a] text-white" },
+    { n: m.bronze, l: r.bronze, c: "bg-[#9c5a20] text-white" },
     { n: m.ribbons, l: r.ribbons, c: "bg-teal text-white" },
   ];
   return (
@@ -36,7 +36,7 @@ export default function ResultsClient() {
             {cells(totals).map((c) => (
               <div key={c.l} className={cn("flex h-24 w-24 flex-col items-center justify-center rounded-2xl", c.c)}>
                 <span className="font-heading text-5xl font-extrabold leading-none">{c.n}</span>
-                <span className="text-[10px] font-bold uppercase tracking-wider opacity-80">{c.l}</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider opacity-80">{c.l}</span>
               </div>
             ))}
           </div>
@@ -56,19 +56,19 @@ export default function ResultsClient() {
                   {cells(res.medals).map((c) => (
                     <div key={c.l} className={cn("flex h-20 w-20 flex-col items-center justify-center rounded-2xl", c.c)}>
                       <span className="font-heading text-4xl font-extrabold leading-none">{c.n}</span>
-                      <span className="text-[10px] font-bold uppercase tracking-wider opacity-80">{c.l}</span>
+                      <span className="text-[11px] font-bold uppercase tracking-wider opacity-80">{c.l}</span>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="overflow-x-auto p-6 sm:p-8">
-                <p className="flex items-center gap-3 font-heading text-sm font-bold uppercase tracking-[0.2em] text-ink-soft">{r.highlights} <span className="inline-flex items-center gap-1 rounded-full bg-mist px-2 py-0.5 text-[10px] text-teal"><PartyPopper className="h-3 w-3" /> {d.confetti.hint}</span></p>
+                <p className="flex items-center gap-3 font-heading text-sm font-bold uppercase tracking-[0.2em] text-ink-soft">{r.highlights} <span className="inline-flex items-center gap-1 rounded-full bg-mist px-2 py-0.5 text-[11px] text-teal"><PartyPopper className="h-3 w-3" /> {d.confetti.hint}</span></p>
                 <table className="mt-3 w-full min-w-[32rem] text-left text-sm">
                   <thead><tr className="text-xs uppercase tracking-wider text-ink-soft"><th className="py-2 pr-4 font-bold">{r.athlete}</th><th className="py-2 pr-4 font-bold">{d.nav.sports}</th><th className="py-2 pr-4 font-bold">{r.event}</th><th className="py-2 font-bold">{r.place}</th></tr></thead>
                   <tbody className="divide-y divide-mist">
                     {res.highlights.map((h, n) => (
                       <tr key={n}>
-                        <td className="py-2.5 pr-4"><button type="button" onClick={(e) => fire(e.clientX, e.clientY)} className="focus-ring rounded font-heading text-lg font-bold uppercase text-ink transition hover:text-teal">{h.athlete}</button></td>
+                        <td className="py-2.5 pr-4"><button type="button" onClick={(e) => fire(e.clientX, e.clientY)} className="focus-ring -my-1 rounded py-1 font-heading text-lg font-bold uppercase text-ink transition hover:text-teal">{h.athlete}</button></td>
                         <td className="py-2.5 pr-4 text-ink-soft">{h.sport}</td>
                         <td className="py-2.5 pr-4 text-ink-soft">{h.event}</td>
                         <td className="py-2.5"><span className={cn("inline-block rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider", placeStyle[h.place])}>{d.common.places[h.place]}</span></td>

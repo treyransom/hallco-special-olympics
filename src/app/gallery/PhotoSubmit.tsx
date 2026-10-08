@@ -31,7 +31,7 @@ export default function PhotoSubmit() {
               <div className="space-y-4 text-sm font-semibold text-ink">
                 <label className="block">{p.name}<input name="name" required className={field} /></label>
                 <label className="block">{p.eventLabel}<input name="event" required className={field} /></label>
-                <label className="flex items-start gap-3 font-normal text-ink-soft"><input type="checkbox" required className="mt-1 accent-teal" /> {p.consent}</label>
+                <label className="flex items-start gap-3 font-normal text-ink-soft"><input type="checkbox" required className="mt-0.5 h-5 w-5 shrink-0 accent-teal" /> {p.consent}</label>
                 <button type="submit" className="focus-ring inline-flex items-center gap-2 rounded-full bg-teal px-6 py-3 font-heading text-lg font-bold uppercase tracking-wide text-white hover:bg-teal-dark"><Camera className="h-4 w-4" /> {p.send} <Send className="h-4 w-4" /></button>
                 <p className="text-xs font-normal text-ink-soft">{p.hint}</p>
               </div>

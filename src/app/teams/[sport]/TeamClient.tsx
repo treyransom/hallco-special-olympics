@@ -33,7 +33,7 @@ export default function TeamClient({ slug }: { slug: string }) {
       <PageHero eyebrow={`${d.teams.eyebrow} · ${d.common.seasons[s.season]}`} title={name} image={s.image} description={loc(lang, s, "blurb")} />
       <section className="bg-white py-20 sm:py-28">
         <div className="container-x">
-          <Link href="/teams" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-ink-soft hover:text-teal"><ArrowLeft className="h-4 w-4" /> {d.teams.allTeams}</Link>
+          <Link href="/teams" className="focus-ring mb-6 inline-flex items-center gap-2 py-2 text-sm font-semibold text-ink-soft hover:text-teal"><ArrowLeft className="h-4 w-4" /> {d.teams.allTeams}</Link>
           <div className="mb-8 flex flex-wrap items-center gap-3"><AlertBanner inline sport={slug} /><DeadlineBadge season={s.season} /></div>
           <div className="grid gap-12 lg:grid-cols-[1fr_22rem]">
             <div className="space-y-16">
@@ -90,7 +90,7 @@ export default function TeamClient({ slug }: { slug: string }) {
                           return (
                             <span className={`inline-flex shrink-0 flex-col items-center rounded-xl px-2 py-1 ${m.color}`} title={m.label ?? undefined}>
                               <span className="inline-flex items-center gap-0.5 font-heading text-lg font-extrabold leading-none"><Award className="h-3.5 w-3.5" />{m.n}</span>
-                              <span className="text-[9px] font-bold uppercase tracking-wider opacity-80">{m.label ?? d.milestones.seasons}</span>
+                              <span className="text-[11px] font-bold uppercase tracking-wider opacity-80">{m.label ?? d.milestones.seasons}</span>
                             </span>
                           );
                         })()}

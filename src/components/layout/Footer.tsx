@@ -41,7 +41,7 @@ export default function Footer() {
           <h3 className="font-heading text-xl font-bold uppercase tracking-wide text-gold">{d.footer.quick}</h3>
           <ul className="mt-4 space-y-2.5 text-sm">
             {quick.map((q) => (
-              <li key={q.href}><Link href={q.href} className="text-white/75 transition hover:text-white">{q.label}</Link></li>
+              <li key={q.href}><Link href={q.href} className="-my-1 inline-block py-1 text-white/75 transition hover:text-white">{q.label}</Link></li>
             ))}
           </ul>
         </div>
@@ -49,7 +49,7 @@ export default function Footer() {
           <h3 className="font-heading text-xl font-bold uppercase tracking-wide text-gold">{d.footer.sports}</h3>
           <ul className="mt-4 space-y-2.5 text-sm">
             {sports.map((s) => (
-              <li key={s.slug}><Link href={`/sports#${s.slug}`} className="text-white/75 transition hover:text-white">{loc(lang, s, "name")}</Link></li>
+              <li key={s.slug}><Link href={`/sports#${s.slug}`} className="-my-1 inline-block py-1 text-white/75 transition hover:text-white">{loc(lang, s, "name")}</Link></li>
             ))}
           </ul>
         </div>
@@ -57,8 +57,8 @@ export default function Footer() {
           <h3 className="font-heading text-xl font-bold uppercase tracking-wide text-gold">{d.footer.contact}</h3>
           <ul className="mt-4 space-y-3 text-sm text-white/75">
             <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal-light" /><span>{site.address.line1}<br />{site.address.city}, {site.address.state} {site.address.zip}</span></li>
-            <li className="flex gap-3"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-teal-light" /><a href={`tel:${site.phone.replace(/\D/g, "")}`} className="hover:text-white">{site.phone}</a></li>
-            <li className="flex gap-3"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal-light" /><a href={`mailto:${site.email}`} className="break-all hover:text-white">{site.email}</a></li>
+            <li className="flex gap-3"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-teal-light" /><a href={`tel:${site.phone.replace(/\D/g, "")}`} className="-my-1 inline-block py-1 hover:text-white">{site.phone}</a></li>
+            <li className="flex gap-3"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-teal-light" /><a href={`mailto:${site.email}`} className="-my-1 inline-block break-all py-1 hover:text-white">{site.email}</a></li>
           </ul>
           <p className="mt-6 text-xs text-white/50">
             {d.footer.accredited} <a href={site.parentOrg.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-white">{site.parentOrg.name}</a>.

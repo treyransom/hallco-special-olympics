@@ -44,7 +44,7 @@ export default function Deadlines() {
             <Link key={w.season} href={w.href} className={`focus-ring group flex items-center gap-5 rounded-3xl p-6 shadow-lg transition hover:-translate-y-0.5 ${urgent ? "bg-red text-white shadow-red/30" : "bg-white shadow-ink/5"}`}>
               <div className={`flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-2xl ${urgent ? "bg-white/15" : "bg-gold text-ink"}`}>
                 <span className="font-heading text-5xl font-extrabold leading-none">{Math.max(0, left)}</span>
-                <span className="text-[10px] font-bold uppercase tracking-wider opacity-80">{d.deadlines.daysLeft}</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider opacity-80">{d.deadlines.daysLeft}</span>
               </div>
               <div className="min-w-0 flex-1">
                 <p className={`font-heading text-sm font-bold uppercase tracking-[0.2em] ${urgent ? "text-white/80" : "text-red"}`}>{d.deadlines.eyebrow}</p>

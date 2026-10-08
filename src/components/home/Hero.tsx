@@ -67,8 +67,8 @@ export default function Hero() {
             </div>
           ))}
           <div className="flex w-40 shrink-0 flex-col justify-center gap-2">
-            <span className="flex items-center gap-2 rounded-full bg-gold px-3 py-2 text-ink"><Users className="h-5 w-5" /><span className="font-heading text-2xl font-extrabold leading-none">{athletes.value}{athletes.suffix}</span><span className="text-[10px] font-bold uppercase leading-tight">{lang === "es" ? athletes.labelEs : athletes.label}</span></span>
-            <span className="flex items-center gap-2 rounded-full bg-red px-3 py-2 text-white"><Medal className="h-5 w-5" /><span className="font-heading text-2xl font-extrabold leading-none">$0</span><span className="text-[10px] font-bold uppercase leading-tight">{d.mission.zeroLabel}</span></span>
+            <span className="flex items-center gap-2 rounded-full bg-gold px-3 py-2 text-ink"><Users className="h-5 w-5" /><span className="font-heading text-2xl font-extrabold leading-none">{athletes.value}{athletes.suffix}</span><span className="text-[11px] font-bold uppercase leading-tight">{lang === "es" ? athletes.labelEs : athletes.label}</span></span>
+            <span className="flex items-center gap-2 rounded-full bg-red px-3 py-2 text-white"><Medal className="h-5 w-5" /><span className="font-heading text-2xl font-extrabold leading-none">$0</span><span className="text-[11px] font-bold uppercase leading-tight">{d.mission.zeroLabel}</span></span>
           </div>
         </div>
         <div className="relative hidden h-[30rem] lg:block" aria-hidden>

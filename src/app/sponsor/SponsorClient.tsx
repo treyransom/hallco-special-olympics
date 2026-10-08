@@ -34,7 +34,7 @@ export default function SponsorClient() {
                 <p className={`font-heading text-sm font-bold uppercase tracking-[0.2em] ${i === 2 ? "text-gold" : "text-red"}`}>{d.common.tiers[t.name]}</p>
                 <p className="mt-2 font-heading text-5xl font-extrabold">{t.amount}</p>
                 <ul className={`mt-6 space-y-2 text-sm ${i === 2 ? "text-white/80" : "text-ink-soft"}`}>
-                  {(lang === "es" ? t.es.perks : t.perks).map((p) => <li key={p} className="flex gap-2"><span className="text-teal-light">✓</span>{p}</li>)}
+                  {(lang === "es" ? t.es.perks : t.perks).map((p) => <li key={p} className="flex gap-2"><span className={i === 2 ? "text-teal-light" : "text-teal"}>✓</span>{p}</li>)}
                 </ul>
                 <a href={`mailto:${chair?.email ?? site.email}?subject=${encodeURIComponent(`${t.name} sponsorship`)}`} className={`focus-ring mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 font-heading text-lg font-bold uppercase tracking-wide ${i === 2 ? "bg-white text-ink hover:bg-gold" : "bg-teal text-white hover:bg-teal-dark"}`}><Mail className="h-4 w-4" /> {x.become} {d.common.tiers[t.name]} {x.sponsorWord}</a>
               </Reveal>

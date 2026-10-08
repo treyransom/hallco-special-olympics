@@ -13,7 +13,7 @@ export default function ResultsPreview() {
   const cells = [
     { n: r.medals.gold, label: d.results.gold, c: "bg-gold text-ink" },
     { n: r.medals.silver, label: d.results.silver, c: "bg-mist-dark text-ink" },
-    { n: r.medals.bronze, label: d.results.bronze, c: "bg-[#c97b3a] text-white" },
+    { n: r.medals.bronze, label: d.results.bronze, c: "bg-[#9c5a20] text-white" },
   ];
   return (
     <section className="bg-mist py-16">
@@ -28,11 +28,11 @@ export default function ResultsPreview() {
             {cells.map((c) => (
               <div key={c.label} className={`flex h-20 w-20 flex-col items-center justify-center rounded-2xl ${c.c}`}>
                 <span className="font-heading text-4xl font-extrabold leading-none">{c.n}</span>
-                <span className="text-[10px] font-bold uppercase tracking-wider opacity-80">{c.label}</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider opacity-80">{c.label}</span>
               </div>
             ))}
           </div>
-          <Link href="/results" className="focus-ring inline-flex items-center gap-2 font-heading text-lg font-bold uppercase tracking-wide text-teal">{d.nav.results} <ArrowRight className="h-5 w-5" /></Link>
+          <Link href="/results" className="focus-ring inline-flex items-center gap-2 py-2 font-heading text-lg font-bold uppercase tracking-wide text-teal">{d.nav.results} <ArrowRight className="h-5 w-5" /></Link>
         </Reveal>
       </div>
     </section>

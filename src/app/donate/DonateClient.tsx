@@ -86,7 +86,7 @@ export default function DonateClient() {
               <Reveal key={r.name} delay={i * 0.06} className={`flex flex-col rounded-3xl p-7 shadow-lg ${i === 3 ? "bg-gradient-to-br from-ink to-teal-deep text-white ring-4 ring-gold" : "bg-white text-ink"}`}>
                 <p className={`font-heading text-sm font-bold uppercase tracking-[0.2em] ${i === 3 ? "text-gold" : "text-red"}`}>{r.name}</p>
                 <p className="mt-2 font-heading text-5xl font-extrabold leading-none">${r.amount}<span className={`text-base font-bold ${i === 3 ? "text-white/60" : "text-ink-soft"}`}>{d.recurring.perMonth}</span></p>
-                <ul className={`mt-5 flex-1 space-y-2 text-sm ${i === 3 ? "text-white/85" : "text-ink-soft"}`}>{(lang === "es" ? r.es.perks : r.perks).map((p) => <li key={p} className="flex gap-2"><span className="text-teal-light">✓</span>{p}</li>)}</ul>
+                <ul className={`mt-5 flex-1 space-y-2 text-sm ${i === 3 ? "text-white/85" : "text-ink-soft"}`}>{(lang === "es" ? r.es.perks : r.perks).map((p) => <li key={p} className="flex gap-2"><span className={i === 3 ? "text-teal-light" : "text-teal"}>✓</span>{p}</li>)}</ul>
                 <a href={site.donateUrl} className={`focus-ring mt-6 inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 font-heading text-base font-bold uppercase tracking-wide ${i === 3 ? "bg-white text-ink hover:bg-gold" : "bg-teal text-white hover:bg-teal-dark"}`}><Repeat className="h-4 w-4" /> {d.recurring.join}</a>
               </Reveal>
             ))}
@@ -136,7 +136,7 @@ export default function DonateClient() {
                 <p className={`font-heading text-sm font-bold uppercase tracking-[0.2em] ${i === 2 ? "text-gold" : "text-red"}`}>{d.common.tiers[t.name]}</p>
                 <p className="mt-2 font-heading text-5xl font-extrabold">{t.amount}</p>
                 <ul className={`mt-6 space-y-2 text-sm ${i === 2 ? "text-white/80" : "text-ink-soft"}`}>
-                  {(lang === "es" ? t.es.perks : t.perks).map((p) => <li key={p} className="flex gap-2"><span className="text-teal-light">✓</span>{p}</li>)}
+                  {(lang === "es" ? t.es.perks : t.perks).map((p) => <li key={p} className="flex gap-2"><span className={i === 2 ? "text-teal-light" : "text-teal"}>✓</span>{p}</li>)}
                 </ul>
                 <Button href="/sponsor" variant={i === 2 ? "white" : "secondary"} className="mt-8 w-full">{x.become} {d.common.tiers[t.name]} {x.sponsorWord}</Button>
               </Reveal>

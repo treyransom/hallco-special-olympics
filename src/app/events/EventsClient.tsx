@@ -66,7 +66,7 @@ export default function EventsClient() {
                   {weekend.map((e) => (
                     <li key={e.slug}>
                       <Link2 href={`/events/${e.slug}`} className="focus-ring group flex items-center gap-3 rounded-2xl bg-white/10 p-4 transition hover:bg-white/15">
-                        <span className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-xl bg-gold text-ink"><span className="font-heading text-xl font-extrabold leading-none">{formatDate(e.date, { day: "numeric" }, lang)}</span><span className="text-[9px] font-bold uppercase">{formatDate(e.date, { month: "short" }, lang)}</span></span>
+                        <span className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-xl bg-gold text-ink"><span className="font-heading text-xl font-extrabold leading-none">{formatDate(e.date, { day: "numeric" }, lang)}</span><span className="text-[11px] font-bold uppercase">{formatDate(e.date, { month: "short" }, lang)}</span></span>
                         <span className="min-w-0 flex-1"><span className="block font-heading text-lg font-bold uppercase leading-tight group-hover:text-gold">{loc(lang, e, "title")}</span><span className="block text-xs text-white/70">{e.time} · {e.location}</span></span>
                         <ArrowRight className="h-4 w-4 text-white/60" />
                       </Link2>
@@ -90,7 +90,7 @@ export default function EventsClient() {
                             <div className={`flex w-16 shrink-0 flex-col items-center rounded-2xl py-3 ${dateColor[e.type]}`}>
                               <span className="font-heading text-3xl font-extrabold leading-none">{formatDate(e.date, { day: "numeric" }, lang)}</span>
                               <span className="font-heading text-sm font-bold uppercase">{formatDate(e.date, { month: "short" }, lang)}</span>
-                              {e.endDate && <span className="mt-1 text-[10px] font-semibold opacity-70">– {formatDate(e.endDate, { day: "numeric" }, lang)}</span>}
+                              {e.endDate && <span className="mt-1 text-[11px] font-semibold opacity-70">– {formatDate(e.endDate, { day: "numeric" }, lang)}</span>}
                             </div>
                             <div className="min-w-0 flex-1">
                               <span className={cn("inline-block rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider", typeColor[e.type])}>{d.common.types[e.type]}</span>
@@ -102,11 +102,11 @@ export default function EventsClient() {
                                 {e.sport && <li className="flex items-center gap-2"><Trophy className="h-4 w-4 text-teal" />{e.sport}</li>}
                               </ul>
                               <div className="mt-4 flex flex-wrap gap-2">
-                                <Link href={`/events/${e.slug}`} className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-teal-deep">{d.common.details} <ArrowRight className="h-3.5 w-3.5" /></Link>
+                                <Link href={`/events/${e.slug}`} className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-teal-deep">{d.common.details} <ArrowRight className="h-3.5 w-3.5" /></Link>
                                 <AddToCalendar event={e} />
-                                <Link href={`/events/${e.slug}/flyer`} className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-mist-dark px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ink transition hover:border-teal hover:text-teal"><Printer className="h-3.5 w-3.5" /> {d.common.printFlyer}</Link>
-                                {open > 0 && <Link href={`/volunteer#${e.slug}`} className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ink transition hover:bg-ink hover:text-white"><HandHeart className="h-3.5 w-3.5" /> {open} {d.events.shiftsOpen}</Link>}
-                                {e.registerHref && <Link href={e.registerHref} className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-red px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-red-dark"><Ticket className="h-3.5 w-3.5" /> {d.events.registerNow}</Link>}
+                                <Link href={`/events/${e.slug}/flyer`} className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-mist-dark px-3 py-2 text-xs font-bold uppercase tracking-wider text-ink transition hover:border-teal hover:text-teal"><Printer className="h-3.5 w-3.5" /> {d.common.printFlyer}</Link>
+                                {open > 0 && <Link href={`/volunteer#${e.slug}`} className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-gold px-3 py-2 text-xs font-bold uppercase tracking-wider text-ink transition hover:bg-ink hover:text-white"><HandHeart className="h-3.5 w-3.5" /> {open} {d.events.shiftsOpen}</Link>}
+                                {e.registerHref && <Link href={e.registerHref} className="focus-ring inline-flex items-center gap-1.5 rounded-full bg-red px-3 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-red-dark"><Ticket className="h-3.5 w-3.5" /> {d.events.registerNow}</Link>}
                               </div>
                             </div>
                           </article>

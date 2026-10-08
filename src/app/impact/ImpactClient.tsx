@@ -46,7 +46,7 @@ export default function ImpactClient() {
               <SectionHeading eyebrow={d.nav.results} title={d.results.title} />
               <ul className="mt-6 space-y-2">
                 {results.map((r) => (
-                  <li key={r.slug} className="flex items-center justify-between rounded-2xl bg-mist px-5 py-3"><span className="font-heading text-xl font-bold uppercase text-ink">{loc(lang, r, "competition")}</span><span className="font-heading text-lg font-bold text-ink-soft"><span className="text-gold">{r.medals.gold}</span> · {r.medals.silver} · <span className="text-[#c97b3a]">{r.medals.bronze}</span></span></li>
+                  <li key={r.slug} className="flex items-center justify-between rounded-2xl bg-mist px-5 py-3"><span className="font-heading text-xl font-bold uppercase text-ink">{loc(lang, r, "competition")}</span><span className="font-heading text-lg font-bold text-ink-soft"><span className="text-[#8a5a00]">{r.medals.gold}</span> · {r.medals.silver} · <span className="text-[#8a4f1c]">{r.medals.bronze}</span></span></li>
                 ))}
               </ul>
             </Reveal>

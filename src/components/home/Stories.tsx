@@ -54,7 +54,7 @@ export default function Stories() {
               )}
               <div className="ml-auto flex gap-1.5" role="tablist" aria-label="Stories">
                 {stories.map((st, n) => (
-                  <button key={st.name} role="tab" aria-selected={n === i} aria-label={st.name} onClick={() => setI(n)} className={`h-2.5 rounded-full transition-all ${n === i ? "w-8 bg-teal" : "w-2.5 bg-mist-dark hover:bg-teal/50"}`} />
+                  <button key={st.name} role="tab" aria-selected={n === i} aria-label={st.name} onClick={() => setI(n)} className="focus-ring -m-1 rounded-full p-3"><span className={`block h-3 rounded-full transition-all ${n === i ? "w-9 bg-teal" : "w-3 bg-mist-dark hover:bg-teal/50"}`} /></button>
                 ))}
               </div>
             </div>

@@ -12,7 +12,7 @@ export default function OnePagerClient() {
   return (
     <div className="bg-mist py-10 print:bg-white print:py-0">
       <div className="container-x mb-6 flex items-center justify-between print:hidden">
-        <Link href="/sponsor" className="inline-flex items-center gap-2 text-sm font-semibold text-ink-soft hover:text-teal"><ArrowLeft className="h-4 w-4" /> {d.nav.sponsor}</Link>
+        <Link href="/sponsor" className="focus-ring inline-flex items-center gap-2 py-2 text-sm font-semibold text-ink-soft hover:text-teal"><ArrowLeft className="h-4 w-4" /> {d.nav.sponsor}</Link>
         <button type="button" onClick={() => window.print()} className="focus-ring inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 font-heading text-lg font-bold uppercase tracking-wide text-white hover:bg-teal-deep"><Printer className="h-4 w-4" /> {d.common.print} / PDF</button>
       </div>
       <article className="mx-auto max-w-[8.5in] bg-white p-10 shadow-xl print:max-w-none print:p-0 print:shadow-none" style={{ minHeight: "11in" }}>
@@ -30,7 +30,7 @@ export default function OnePagerClient() {
           {stats.map((s) => (
             <div key={s.label} className="rounded-xl bg-mist p-3 text-center print:border print:border-mist-dark">
               <p className="font-heading text-3xl font-extrabold text-teal">{s.value}{s.suffix}</p>
-              <p className="text-[10px] font-bold uppercase tracking-wider text-ink-soft">{lang === "es" ? s.labelEs : s.label}</p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-ink-soft">{lang === "es" ? s.labelEs : s.label}</p>
             </div>
           ))}
         </div>

@@ -102,7 +102,7 @@ export default function RegisterClient() {
     <div className={cn("mt-2 grid gap-2 sm:grid-cols-3", errors.includes(name) && "rounded-2xl ring-2 ring-red")}>
       {opts.map((o) => (
         <label key={o} className={cn("flex cursor-pointer items-center gap-3 rounded-2xl border bg-white p-3 text-sm transition", form[name] === o ? "border-teal ring-2 ring-teal/30" : "border-mist-dark hover:border-teal/50")}>
-          <input type="radio" name={name} value={o} checked={form[name] === o} onChange={() => update({ [name]: o } as Partial<Form>)} className="accent-teal" />
+          <input type="radio" name={name} value={o} checked={form[name] === o} onChange={() => update({ [name]: o } as Partial<Form>)} className="h-5 w-5 accent-teal" />
           {o}
         </label>
       ))}

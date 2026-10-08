@@ -44,7 +44,7 @@ export default function Countdown({ compact = false, overlap = false }: { compac
           {cells.map(([v, l]) => (
             <div key={l} className="flex w-14 flex-col items-center rounded-2xl bg-white/10 py-3 backdrop-blur sm:w-20">
               <span className="font-heading text-3xl font-extrabold leading-none tabular-nums sm:text-5xl">{typeof v === "number" ? String(v).padStart(2, "0") : v}</span>
-              <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-white/70">{l}</span>
+              <span className="mt-1 text-[11px] font-bold uppercase tracking-wider text-white/70">{l}</span>
             </div>
           ))}
         </div>

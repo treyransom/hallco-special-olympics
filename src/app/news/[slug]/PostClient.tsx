@@ -17,7 +17,7 @@ export default function PostClient({ slug }: { slug: string }) {
         <Image src={post.image} alt="" fill priority sizes="100vw" className="object-cover opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink to-transparent" />
         <div className="container-x absolute inset-x-0 bottom-0 pb-12 text-white">
-          <Link href="/news" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white"><ArrowLeft className="h-4 w-4" /> {d.common.allNews}</Link>
+          <Link href="/news" className="focus-ring mb-6 inline-flex items-center gap-2 py-2 text-sm font-semibold text-white/80 hover:text-white"><ArrowLeft className="h-4 w-4" /> {d.common.allNews}</Link>
           <p className="text-sm font-bold uppercase tracking-wider text-gold">{formatDate(post.date, { month: "long", day: "numeric", year: "numeric" }, lang)}</p>
           <h1 className="mt-2 max-w-4xl text-balance text-4xl font-extrabold uppercase sm:text-6xl">{loc(lang, post, "title")}</h1>
         </div>

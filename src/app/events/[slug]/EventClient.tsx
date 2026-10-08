@@ -29,7 +29,7 @@ export default function EventClient({ slug }: { slug: string }) {
         <div className="flex flex-wrap items-center gap-3">
           {e.registerHref && <Button href={e.registerHref}><Ticket className="h-4 w-4" /> {d.events.registerNow}</Button>}
           <AddToCalendar event={e} className="border-white/40 text-white hover:border-gold hover:text-gold" />
-          <Link href={`/events/${e.slug}/flyer`} className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-white/40 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition hover:border-gold hover:text-gold"><Printer className="h-3.5 w-3.5" /> {d.common.printFlyer}</Link>
+          <Link href={`/events/${e.slug}/flyer`} className="focus-ring inline-flex items-center gap-1.5 rounded-full border border-white/40 px-3 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:border-gold hover:text-gold"><Printer className="h-3.5 w-3.5" /> {d.common.printFlyer}</Link>
         </div>
       </PageHero>
       <section className="bg-dots bg-mist py-16 sm:py-24">
@@ -87,14 +87,14 @@ export default function EventClient({ slug }: { slug: string }) {
                 {others.map((o) => (
                   <li key={o.slug}>
                     <Link href={`/events/${o.slug}`} className="focus-ring group flex items-center gap-3 py-3">
-                      <span className={cn("flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-xl", typeColor[o.type])}><span className="font-heading text-xl font-extrabold leading-none">{formatDate(o.date, { day: "numeric" }, lang)}</span><span className="text-[9px] font-bold uppercase">{formatDate(o.date, { month: "short" }, lang)}</span></span>
+                      <span className={cn("flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-xl", typeColor[o.type])}><span className="font-heading text-xl font-extrabold leading-none">{formatDate(o.date, { day: "numeric" }, lang)}</span><span className="text-[11px] font-bold uppercase">{formatDate(o.date, { month: "short" }, lang)}</span></span>
                       <span className="min-w-0 flex-1 font-heading text-lg font-bold uppercase leading-tight text-ink group-hover:text-teal">{loc(lang, o, "title")}</span>
                       <ArrowRight className="h-4 w-4 text-ink-soft" />
                     </Link>
                   </li>
                 ))}
               </ul>
-              <Link href="/events" className="mt-3 inline-flex items-center gap-1 font-heading text-base font-bold uppercase tracking-wide text-teal">{d.events.full} <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/events" className="focus-ring mt-3 inline-flex items-center gap-1 py-2 font-heading text-base font-bold uppercase tracking-wide text-teal">{d.events.full} <ArrowRight className="h-4 w-4" /></Link>
             </Reveal>
           </aside>
         </div>

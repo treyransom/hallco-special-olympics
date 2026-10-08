@@ -45,7 +45,7 @@ export default function AlertBanner({ inline = false, sport }: { inline?: boolea
               sessionStorage.setItem(KEY, "1");
             } catch {}
           }}
-          className="focus-ring absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1.5 opacity-70 hover:bg-black/10 hover:opacity-100"
+          className="focus-ring absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full opacity-70 hover:bg-black/10 hover:opacity-100"
         >
           <X className="h-4 w-4" />
         </button>

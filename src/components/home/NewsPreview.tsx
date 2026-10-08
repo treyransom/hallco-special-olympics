@@ -16,7 +16,7 @@ export default function NewsPreview() {
       <div className="container-x">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading eyebrow={d.news.eyebrow} title={d.news.title} />
-          <Link href="/news" className="focus-ring group inline-flex w-fit items-center gap-2 font-heading text-lg font-bold uppercase tracking-wide text-teal">{d.common.allNews} <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" /></Link>
+          <Link href="/news" className="focus-ring group inline-flex w-fit items-center gap-2 py-2 font-heading text-lg font-bold uppercase tracking-wide text-teal">{d.common.allNews} <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" /></Link>
         </div>
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
           <Reveal>

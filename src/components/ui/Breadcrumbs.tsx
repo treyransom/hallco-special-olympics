@@ -17,9 +17,9 @@ export default function Breadcrumbs({ current, light = true }: { current: string
   return (
     <nav aria-label="Breadcrumb" className="mb-5">
       <ol className={`flex flex-wrap items-center gap-1.5 text-xs font-semibold uppercase tracking-wider ${light ? "text-white/60" : "text-ink-soft"}`}>
-        <li><Link href="/" className={`focus-ring inline-flex items-center gap-1 rounded ${tone}`}><Home className="h-3.5 w-3.5" /> <span className="sr-only">Home</span></Link></li>
+        <li><Link href="/" className={`focus-ring -m-2 inline-flex items-center gap-1 rounded p-2 ${tone}`}><Home className="h-4 w-4" /> <span className="sr-only">Home</span></Link></li>
         {crumbs.map((c) => (
-          <li key={c.href} className="flex items-center gap-1.5"><ChevronRight className="h-3 w-3 opacity-60" /><Link href={c.href} className={`focus-ring rounded ${tone}`}>{c.label}</Link></li>
+          <li key={c.href} className="flex items-center gap-1.5"><ChevronRight className="h-3 w-3 opacity-60" /><Link href={c.href} className={`focus-ring -my-1 inline-block rounded py-1 ${tone}`}>{c.label}</Link></li>
         ))}
         <li className="flex items-center gap-1.5" aria-current="page"><ChevronRight className="h-3 w-3 opacity-60" /><span className={light ? "text-gold" : "text-teal"}>{current}</span></li>
       </ol>

@@ -23,7 +23,7 @@ export default function MobileBar() {
           const active = it.href === "/" ? pathname === "/" : pathname.startsWith(it.href);
           return (
             <li key={it.href}>
-              <Link href={it.href} className={cn("focus-ring flex flex-col items-center gap-0.5 py-2 text-[10px] font-bold uppercase tracking-wider", it.accent ? "text-red" : active ? "text-teal" : "text-ink-soft")} aria-current={active ? "page" : undefined}>
+              <Link href={it.href} className={cn("focus-ring flex flex-col items-center gap-0.5 py-2 text-[11px] font-bold uppercase tracking-wider", it.accent ? "text-red" : active ? "text-teal" : "text-ink-soft")} aria-current={active ? "page" : undefined}>
                 <it.icon className={cn("h-5 w-5", it.accent && "fill-current")} />
                 {it.label}
               </Link>
