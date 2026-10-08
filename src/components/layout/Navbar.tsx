@@ -159,7 +159,7 @@ export default function Navbar() {
       <div className="h-1.5 w-full bg-gradient-to-r from-teal via-teal to-red" />
       <div className="container-x flex h-16 items-center justify-between gap-2 sm:h-20 sm:gap-4">
         <Link href="/" className="focus-ring flex shrink-0 items-center rounded" aria-label="Special Olympics Hall County">
-          <Image src="/images/logo-horizontal.png" alt="Special Olympics Hall County" width={1254} height={220} priority className="h-8 w-auto sm:h-11 md:h-14" />
+          <Image src="/images/logo-horizontal.png" alt="Special Olympics Hall County" width={1254} height={220} priority className="h-6 w-auto min-[360px]:h-8 sm:h-11 md:h-14" />
         </Link>
 
         <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
@@ -236,8 +236,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-0.5 sm:gap-2">
-          <div className="hidden sm:block"><ThemeToggle /></div>
+        <div className="flex shrink-0 items-center gap-0 sm:gap-2">
+          <ThemeToggle />
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
@@ -321,11 +321,10 @@ export default function Navbar() {
                   )}
                 </motion.li>
               ))}
-              <li className="flex items-center justify-between gap-3 py-4 sm:hidden">
+              <li className="py-4 sm:hidden">
                 <button type="button" onClick={() => setLang(lang === "en" ? "es" : "en")} className="focus-ring inline-flex items-center gap-2 rounded-full bg-mist px-4 py-2.5 font-heading text-lg font-bold uppercase tracking-wide text-ink">
                   <Globe className="h-4 w-4 text-teal" /> {n.lang}
                 </button>
-                <ThemeToggle />
               </li>
               <li className="pt-2">
                 <Link href="/donate" className="flex items-center justify-center gap-2 rounded-full bg-red px-5 py-4 font-heading text-xl font-bold uppercase text-white">

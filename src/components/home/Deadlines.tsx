@@ -41,17 +41,17 @@ export default function Deadlines() {
           const left = daysUntil(w.closes, now);
           const urgent = left <= 7;
           return (
-            <Link key={w.season} href={w.href} className={`focus-ring group flex items-center gap-5 rounded-3xl p-6 shadow-lg transition hover:-translate-y-0.5 ${urgent ? "bg-red text-white shadow-red/30" : "bg-white shadow-ink/5"}`}>
-              <div className={`flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-2xl ${urgent ? "bg-white/15" : "bg-gold text-ink"}`}>
-                <span className="font-heading text-5xl font-extrabold leading-none">{Math.max(0, left)}</span>
+            <Link key={w.season} href={w.href} className={`focus-ring group flex items-center gap-4 rounded-3xl p-5 shadow-lg sm:gap-5 sm:p-6 transition hover:-translate-y-0.5 ${urgent ? "bg-red text-white shadow-red/30" : "bg-white shadow-ink/5"}`}>
+              <div className={`flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-2xl sm:h-20 sm:w-20 ${urgent ? "bg-white/15" : "bg-gold text-ink"}`}>
+                <span className="font-heading text-4xl font-extrabold leading-none sm:text-5xl">{Math.max(0, left)}</span>
                 <span className="text-[11px] font-bold uppercase tracking-wider opacity-80">{d.deadlines.daysLeft}</span>
               </div>
               <div className="min-w-0 flex-1">
                 <p className={`font-heading text-sm font-bold uppercase tracking-[0.2em] ${urgent ? "text-white/80" : "text-red"}`}>{d.deadlines.eyebrow}</p>
-                <p className={`text-2xl font-extrabold uppercase leading-tight ${urgent ? "" : "text-ink"}`}>{d.deadlines.open}: {d.common.seasons[w.season]} {d.deadlines.season}</p>
+                <p className={`text-xl font-extrabold uppercase leading-tight [overflow-wrap:anywhere] sm:text-2xl ${urgent ? "" : "text-ink"}`}>{d.deadlines.open}: {d.common.seasons[w.season]} {d.deadlines.season}</p>
                 <p className={`text-sm ${urgent ? "text-white/80" : "text-ink-soft"}`}>{d.deadlines.closes} {formatDate(w.closes, { weekday: "long", month: "long", day: "numeric" }, lang)}</p>
               </div>
-              <ArrowRight className={`h-6 w-6 shrink-0 transition group-hover:translate-x-1 ${urgent ? "text-white" : "text-teal"}`} />
+              <ArrowRight className={`hidden h-6 w-6 shrink-0 transition group-hover:translate-x-1 sm:block ${urgent ? "text-white" : "text-teal"}`} />
             </Link>
           );
         })}
