@@ -3,18 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
     "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "deploy:cf": "bash scripts/deploy-cloudflare.sh",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "deploy": "bash scripts/deploy.sh",
+    "deploy:cf": "bash scripts/deploy-cloudflare.sh"
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "^1.20.9",
     "clsx": "^2.1.1",
     "framer-motion": "^14.0.0",
     "lucide-react": "^1.52.0",
