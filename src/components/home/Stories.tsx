@@ -44,7 +44,7 @@ export default function Stories() {
                 “{loc(lang, s, "quote")}”
               </motion.blockquote>
             </AnimatePresence>
-            <div className="mt-8 flex items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <button type="button" onClick={() => go(-1)} aria-label={d.stories.prev} className="focus-ring flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink text-ink transition hover:bg-ink hover:text-white"><ChevronLeft className="h-5 w-5" /></button>
               <button type="button" onClick={() => go(1)} aria-label={d.stories.next} className="focus-ring flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink text-ink transition hover:bg-ink hover:text-white"><ChevronRight className="h-5 w-5" /></button>
               {s.video && (
@@ -52,7 +52,7 @@ export default function Stories() {
                   <Play className="h-4 w-4 fill-current" /> {d.stories.watch}
                 </button>
               )}
-              <div className="ml-auto flex gap-1.5" role="tablist" aria-label="Stories">
+              <div className="flex w-full gap-1.5 sm:ml-auto sm:w-auto" role="tablist" aria-label="Stories">
                 {stories.map((st, n) => (
                   <button key={st.name} role="tab" aria-selected={n === i} aria-label={st.name} onClick={() => setI(n)} className="focus-ring -m-1 rounded-full p-3"><span className={`block h-3 rounded-full transition-all ${n === i ? "w-9 bg-teal" : "w-3 bg-mist-dark hover:bg-teal/50"}`} /></button>
                 ))}

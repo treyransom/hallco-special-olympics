@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
-@theme inline {
-  /* Brand — sampled from the Special Olympics Hall County logo */
-  /* Brand teal/red are nudged darker than the logo values so white text and
-     colored text on white pass WCAG AA (4.5:1). Logo artwork keeps the originals. */
+@theme {
+  /* Brand — sampled from the Special Olympics Hall County logo, nudged for AA contrast */
   --color-teal: #007a75;
   --color-teal-light: #19b3ab;
   --color-teal-dark: #00605c;
@@ -18,7 +16,9 @@
   --color-mist-dark: #e3ecea;
   --color-background: #ffffff;
   --color-foreground: #0d1f1e;
+}
 
+@theme inline {
   --font-heading: var(--font-barlow-condensed);
   --font-body: var(--font-dm-sans);
 
@@ -146,24 +146,34 @@ h1, h2, h3, h4, .font-heading {
 }
 .animate-blob { animation: blob 14s ease-in-out infinite; }
 
-/* Dark mode: remap surface tokens, keep brand sections dark */
+/* Dark mode. Light surface tokens are swapped via variables (they reach every
+   utility, including opacity variants). Tokens that also paint dark sections
+   (ink, teal, red) keep their values and get text-only overrides. */
 .dark {
-  --color-white: #0f1b1a;
   --color-mist: #152423;
   --color-mist-dark: #2a3d3b;
   --color-background: #0a1413;
   --color-foreground: #eef3f2;
+  --color-gold-text: #ffd166;
   color-scheme: dark;
 }
+.dark .bg-white { background-color: #0f1b1a; }
+.dark .bg-white\/95 { background-color: rgba(15, 27, 26, 0.95); }
+.dark .bg-white\/60 { background-color: rgba(15, 27, 26, 0.6); }
+.dark .hover\:bg-white:hover { background-color: #1b2c2a; }
 .dark .text-ink { color: #eef3f2; }
 .dark .text-ink-soft { color: #a9bab7; }
+.dark .text-teal, .dark .text-teal-dark { color: #19b3ab; }
+.dark .text-red { color: #ff6b7a; }
+.dark .text-\[\#8a5a00\] { color: #ffd166; }
+.dark .text-\[\#8a4f1c\] { color: #e0a06a; }
 .dark .border-ink { border-color: #eef3f2; }
-.dark .bg-gold .text-ink, .dark .bg-gold.text-ink, .dark .bg-gold .text-ink-soft, .dark .text-ink.bg-gold { color: #0d1f1e; }
+.dark .bg-gold .text-ink, .dark .bg-gold.text-ink, .dark .bg-gold .text-ink-soft, .dark .text-ink.bg-gold, .dark .bg-gold .text-red { color: #0d1f1e; }
 .dark .bg-ink { background-color: #06100f; }
 .dark .hover\:bg-ink:hover { background-color: #06100f; }
+.dark .hover\:text-white:hover { color: #ffffff; }
 .dark .text-outline { -webkit-text-stroke-color: rgba(255,255,255,0.4); }
 .dark .bg-dots { background-image: radial-gradient(rgba(25,179,171,0.18) 1.5px, transparent 1.5px); }
-.dark img.logo-light { filter: brightness(0) invert(1); }
 .dark ::-webkit-scrollbar-track { background: #152423; }
 .dark .shadow-ink\/5, .dark .shadow-ink\/10, .dark .shadow-ink\/15, .dark .shadow-ink\/20 { --tw-shadow-color: rgba(0,0,0,0.5); }
 
