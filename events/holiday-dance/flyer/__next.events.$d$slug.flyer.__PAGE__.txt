@@ -1,0 +1,37 @@
+2:"$Sreact.fragment"
+3:"/hallco-special-olympics/_next/static/chunks/23hsoq2w-xc7q.js"
+4:"/hallco-special-olympics/_next/static/chunks/3dop11osv0vte.js"
+5:"/hallco-special-olympics/_next/static/chunks/0mctf_3dmotzn.js"
+6:"/hallco-special-olympics/_next/static/chunks/19ohxr5g5ehy0.js"
+7:"/hallco-special-olympics/_next/static/chunks/33rcyppnx338a.js"
+8:"/hallco-special-olympics/_next/static/chunks/1ihsp9fnvmul6.js"
+9:I[39756,["$3","$4","$5","$6","$7","$8"],"default"]
+a:I[37457,["$3","$4","$5","$6","$7","$8"],"default"]
+13:"/hallco-special-olympics/_next/static/chunks/2bmag-8t7a1y_.js"
+14:I[30340,["$3","$4","$5","$6","$7","$8","$13"],"default"]
+16:I[97367,["$3","$4","$5","$6","$7","$8"],"OutletBoundary"]
+17:"$Sreact.suspense"
+1a:"ViewportBoundary"
+1b:I[97367,["$3","$4","$5","$6","$7","$8"],"$1a"]
+1c:"MetadataBoundary"
+1d:I[97367,["$3","$4","$5","$6","$7","$8"],"$1c"]
+1e:I[27201,["$3","$4","$5","$6","$7","$8"],"IconMark"]
+c:X
+c:C
+d:X
+15:T9ef,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39 39" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h39v39H0z"/><path stroke="#0d1f1e" d="M1 1.5h7m2 0h1m1 0h1m1 0h3m2 0h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h7M1 2.5h1m5 0h1m6 0h1m1 0h1m1 0h3m5 0h1m1 0h1m2 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h3m2 0h3m2 0h1m1 0h3m1 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1m3 0h6m1 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m1 0h2m1 0h3m2 0h1m4 0h1m1 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m1 0h1m6 0h2m1 0h1m2 0h2m2 0h1m1 0h1m2 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 8.5h1m1 0h2m1 0h4m3 0h3m3 0h1m1 0h1M1 9.5h1m1 0h5m3 0h2m2 0h2m2 0h3m1 0h1m2 0h1m2 0h1m1 0h5M3 10.5h1m1 0h1m2 0h2m1 0h1m1 0h1m2 0h3m5 0h1m1 0h1m2 0h2m1 0h1m2 0h2M1 11.5h1m2 0h1m1 0h6m2 0h2m2 0h1m2 0h1m1 0h1m2 0h3m1 0h4m1 0h3M2 12.5h1m1 0h3m4 0h1m3 0h1m1 0h1m4 0h1m2 0h1m1 0h1m1 0h1m1 0h1m5 0h1M1 13.5h1m1 0h1m2 0h2m1 0h1m2 0h4m2 0h2m3 0h1m2 0h2m2 0h8M1 14.5h3m1 0h1m2 0h1m2 0h1m1 0h1m1 0h1m1 0h6m1 0h1m4 0h2m1 0h1M2 15.5h2m2 0h4m3 0h1m1 0h4m3 0h2m1 0h2m1 0h2m1 0h4m1 0h2M2 16.5h2m5 0h3m1 0h1m2 0h1m1 0h2m1 0h2m2 0h1m1 0h2m1 0h1m1 0h2m2 0h2M5 17.5h5m2 0h3m2 0h1m2 0h1m2 0h6m2 0h1m1 0h1m1 0h2M1 18.5h3m4 0h3m2 0h1m1 0h2m1 0h2m1 0h1m2 0h1m1 0h1m2 0h1m2 0h1m2 0h2M1 19.5h4m2 0h1m2 0h4m1 0h3m2 0h1m1 0h1m2 0h1m1 0h3m1 0h2m1 0h1m1 0h2M3 20.5h2m1 0h1m1 0h1m2 0h4m1 0h1m3 0h4m3 0h3m3 0h1m3 0h1M3 21.5h3m1 0h1m5 0h1m1 0h2m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h2m1 0h1m1 0h1M5 22.5h1m3 0h1m1 0h1m5 0h1m2 0h3m1 0h1m1 0h1m2 0h1m4 0h1M1 23.5h2m1 0h1m1 0h2m1 0h3m1 0h5m1 0h1m1 0h2m2 0h1m2 0h1m1 0h1m1 0h3m2 0h1M2 24.5h1m2 0h1m2 0h1m2 0h2m1 0h2m6 0h2m6 0h1m1 0h2m3 0h1M2 25.5h1m1 0h4m3 0h1m2 0h1m1 0h1m2 0h1m3 0h1m1 0h4m1 0h2m1 0h1m1 0h2M1 26.5h3m1 0h1m3 0h3m1 0h1m2 0h2m6 0h1m1 0h1m2 0h1m2 0h1m1 0h2M1 27.5h1m1 0h1m3 0h1m1 0h3m6 0h2m1 0h1m1 0h1m2 0h3m1 0h2m4 0h2M1 28.5h1m1 0h1m1 0h2m3 0h1m2 0h1m3 0h1m3 0h3m1 0h1m3 0h3m4 0h2M1 29.5h1m2 0h1m1 0h2m1 0h3m1 0h3m2 0h1m5 0h1m1 0h10M9 30.5h1m1 0h1m1 0h1m3 0h2m1 0h2m2 0h1m1 0h1m2 0h1m3 0h2M1 31.5h7m2 0h1m1 0h1m1 0h1m1 0h3m4 0h1m2 0h2m1 0h1m1 0h1m1 0h1m1 0h3M1 32.5h1m5 0h1m1 0h4m1 0h1m1 0h4m2 0h1m2 0h1m1 0h1m1 0h1m3 0h2m1 0h2M1 33.5h1m1 0h3m1 0h1m1 0h1m3 0h1m1 0h3m2 0h1m2 0h11m1 0h1m1 0h1M1 34.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h3m2 0h3m2 0h1m5 0h2m1 0h1m1 0h1m1 0h1M1 35.5h1m1 0h3m1 0h1m1 0h3m1 0h5m1 0h1m1 0h1m1 0h1m1 0h6m5 0h2M1 36.5h1m5 0h1m2 0h1m1 0h1m1 0h3m2 0h2m1 0h2m3 0h1m1 0h3m1 0h1m3 0h1M1 37.5h7m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m4 0h5m2 0h2m1 0h1m1 0h3"/></svg>
+12:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","$L14",null,{"slug":"holiday-dance","qrSvg":"$15"}],[["$","script","script-0",{"src":"/hallco-special-olympics/_next/static/chunks/2bmag-8t7a1y_.js","async":true}]],["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]]}],"p":"$@19","v":null,"s":"$d"}}]]
+10:[["children",{"s":"flyer","h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L9",null,{"parallelRouterKey":"children","template":["$","$La",null,{}]}]]}],"p":"$@11","v":"$c","s":"$d"},"c":"$Q12"}]]
+e:[["children",{"s":{"n":"slug","t":"d","k":"holiday-dance","s":[]},"h":96,"d":{"r":["$","$2","c",{"children":[null,["$","$L9",null,{"parallelRouterKey":"children","template":["$","$La",null,{}]}]]}],"p":"$@f","v":"$c","s":"$d"},"c":"$Q10"}]]
+1:[["children",{"s":"events","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L9",null,{"parallelRouterKey":"children","template":["$","$La",null,{}]}]]}],"p":"$@b","v":"$c","s":"$d"},"c":"$Qe"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L1b",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L1d",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Athlete Holiday Dance flyer | Special Olympics Hall County"}],["$","meta","1",{"name":"description","content":"Empowering individuals with intellectual disabilities through year-round sports training and athletic competition. Join us in Hall County, Georgia as an athlete, volunteer, coach, or donor."}],["$","link","2",{"rel":"manifest","href":"/hallco-special-olympics/manifest.webmanifest"}],["$","meta","3",{"name":"keywords","content":"Special Olympics,Hall County,Gainesville GA,intellectual disabilities,volunteer,donate,unified sports"}],["$","meta","4",{"name":"robots","content":"noindex"}],["$","meta","5",{"property":"og:title","content":"Special Olympics Hall County"}],["$","meta","6",{"property":"og:description","content":"Empowering individuals with intellectual disabilities through year-round sports training and athletic competition."}],["$","meta","7",{"property":"og:locale","content":"en_US"}],["$","meta","8",{"property":"og:image","content":"https://treyransom.github.io/hallco-special-olympics/images/flag-football.jpg"}],["$","meta","9",{"property":"og:image:width","content":"1800"}],["$","meta","10",{"property":"og:image:height","content":"1350"}],["$","meta","11",{"property":"og:type","content":"website"}],["$","meta","12",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","13",{"name":"twitter:title","content":"Special Olympics Hall County"}],["$","meta","14",{"name":"twitter:description","content":"Empowering individuals with intellectual disabilities through year-round sports training and athletic competition."}],["$","meta","15",{"name":"twitter:image","content":"https://treyransom.github.io/hallco-special-olympics/images/flag-football.jpg"}],["$","meta","16",{"name":"twitter:image:width","content":"1800"}],["$","meta","17",{"name":"twitter:image:height","content":"1350"}],["$","link","18",{"rel":"icon","href":"/hallco-special-olympics/icon.png?icon.2rc5t43ckcfwt.png","sizes":"64x64","type":"image/png"}],["$","$L1e","19",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@1f","v":null,"s":"$d"}},"a":"$@20","u":"$@21","b":"AIE29YRGQmpkIAkMhF7bF"}
+18:null
+21:true
+d:300
+d:C
+20:0
+11:"$undefined"
+f:"$undefined"
+b:"$undefined"
+1f:"$undefined"
+19:"$undefined"

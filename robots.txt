@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /admin
+Disallow: /offline
+
+Sitemap: https://treyransom.github.io/hallco-special-olympics/sitemap.xml

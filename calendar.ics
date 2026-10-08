@@ -1,0 +1,198 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Special Olympics Hall County//Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Special Olympics Hall County
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+BEGIN:VEVENT
+UID:event-fall-games-2026@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261019
+SUMMARY:State Fall Games
+DESCRIPTION:Our flag football and softball teams travel to compete agains
+ t programs from across Georgia.\nAll day\nhttps://treyransom.github.io/ha
+ llco-special-olympics/events#fall-games-2026
+LOCATION:Valdosta State University\, Valdosta\, GA
+URL:https://treyransom.github.io/hallco-special-olympics/events#fall-game
+ s-2026
+CATEGORIES:Competition
+END:VEVENT
+BEGIN:VEVENT
+UID:event-golf-tournament-2026@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:Annual Golf Tournament
+DESCRIPTION:Our biggest fundraiser of the year. Sponsorships\, foursomes\
+ , and hole sponsors available.\n8:00 AM shotgun start\nhttps://treyransom
+ .github.io/hallco-special-olympics/events#golf-tournament-2026
+LOCATION:301 Tommy Aaron Dr\, Gainesville\, GA 30506
+URL:https://treyransom.github.io/hallco-special-olympics/events#golf-tour
+ nament-2026
+CATEGORIES:Fundraiser
+END:VEVENT
+BEGIN:VEVENT
+UID:event-basketball-tryouts@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20261107T100000
+DTEND;TZID=America/New_York:20261107T120000
+SUMMARY:Basketball Season Kickoff
+DESCRIPTION:First practice of the winter season. New athletes welcome — b
+ ring a water bottle and a smile.\n10:00 AM – 12:00 PM\nhttps://treyransom
+ .github.io/hallco-special-olympics/events#basketball-tryouts
+LOCATION:Hall County Gym
+URL:https://treyransom.github.io/hallco-special-olympics/events#basketbal
+ l-tryouts
+CATEGORIES:Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:event-holiday-dance@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20261212T180000
+DTEND;TZID=America/New_York:20261212T210000
+SUMMARY:Athlete Holiday Dance
+DESCRIPTION:Music\, dancing\, and dinner for athletes\, families\, and vo
+ lunteers.\n6:00 – 9:00 PM\nhttps://treyransom.github.io/hallco-special-ol
+ ympics/events#holiday-dance
+LOCATION:Community Center
+URL:https://treyransom.github.io/hallco-special-olympics/events#holiday-d
+ ance
+CATEGORIES:Community
+END:VEVENT
+BEGIN:VEVENT
+UID:event-winter-games@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270125
+SUMMARY:State Winter Games
+DESCRIPTION:Statewide competition for basketball and bowling athletes.\nA
+ ll day\nhttps://treyransom.github.io/hallco-special-olympics/events#winte
+ r-games
+LOCATION:Marietta\, GA
+URL:https://treyransom.github.io/hallco-special-olympics/events#winter-ga
+ mes
+CATEGORIES:Competition
+END:VEVENT
+BEGIN:VEVENT
+UID:event-polar-plunge@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:Polar Plunge
+DESCRIPTION:Freezin' for a reason. Take the plunge into Lake Lanier to su
+ pport our athletes.\n9:00 AM\nhttps://treyransom.github.io/hallco-special
+ -olympics/events#polar-plunge
+LOCATION:3105 Clarks Bridge Rd\, Gainesville\, GA 30506
+URL:https://treyransom.github.io/hallco-special-olympics/events#polar-plu
+ nge
+CATEGORIES:Fundraiser
+END:VEVENT
+BEGIN:VEVENT
+UID:practice-basketball-6-2026-11-07@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20261107T100000
+DTEND;TZID=America/New_York:20261107T113000
+RRULE:FREQ=WEEKLY;BYDAY=SA;UNTIL=20270220T235959Z
+SUMMARY:Basketball practice
+DESCRIPTION:Coach: Bobbie Young\n\nhttps://treyransom.github.io/hallco-sp
+ ecial-olympics/teams/basketball
+LOCATION:Hall County Gym
+URL:https://treyransom.github.io/hallco-special-olympics/teams/basketball
+CATEGORIES:Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:practice-basketball-2-2026-11-10@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20261110T180000
+DTEND;TZID=America/New_York:20261110T193000
+RRULE:FREQ=WEEKLY;BYDAY=TU;UNTIL=20270216T235959Z
+SUMMARY:Basketball practice
+DESCRIPTION:Coach: Bobbie Young\nSkills group\nhttps://treyransom.github.
+ io/hallco-special-olympics/teams/basketball
+LOCATION:Hall County Gym
+URL:https://treyransom.github.io/hallco-special-olympics/teams/basketball
+CATEGORIES:Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:practice-bowling-4-2027-01-07@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20270107T163000
+DTEND;TZID=America/New_York:20270107T180000
+RRULE:FREQ=WEEKLY;BYDAY=TH;UNTIL=20270318T235959Z
+SUMMARY:Bowling practice
+DESCRIPTION:Coach: Lisa Shows\n\nhttps://treyransom.github.io/hallco-spec
+ ial-olympics/teams/bowling
+LOCATION:Stars and Strikes Gainesville
+URL:https://treyransom.github.io/hallco-special-olympics/teams/bowling
+CATEGORIES:Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:practice-athletics-6-2027-03-06@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20270306T090000
+DTEND;TZID=America/New_York:20270306T103000
+RRULE:FREQ=WEEKLY;BYDAY=SA;UNTIL=20270515T235959Z
+SUMMARY:Athletics practice
+DESCRIPTION:\nhttps://treyransom.github.io/hallco-special-olympics/teams/
+ athletics
+LOCATION:Lanier Point Athletic Complex
+URL:https://treyransom.github.io/hallco-special-olympics/teams/athletics
+CATEGORIES:Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:practice-swimming-3-2027-05-05@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20270505T180000
+DTEND;TZID=America/New_York:20270505T190000
+RRULE:FREQ=WEEKLY;BYDAY=WE;UNTIL=20270714T235959Z
+SUMMARY:Swimming practice
+DESCRIPTION:\nhttps://treyransom.github.io/hallco-special-olympics/teams/
+ swimming
+LOCATION:Frances Meadows Aquatic Center
+URL:https://treyransom.github.io/hallco-special-olympics/teams/swimming
+CATEGORIES:Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:practice-bocce-6-2027-06-05@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20270605T090000
+DTEND;TZID=America/New_York:20270605T100000
+RRULE:FREQ=WEEKLY;BYDAY=SA;UNTIL=20270814T235959Z
+SUMMARY:Bocce Ball practice
+DESCRIPTION:\nhttps://treyransom.github.io/hallco-special-olympics/teams/
+ bocce
+LOCATION:Allen Creek Soccer Complex
+URL:https://treyransom.github.io/hallco-special-olympics/teams/bocce
+CATEGORIES:Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:practice-flag-football-6-2026-08-15@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20260815T090000
+DTEND;TZID=America/New_York:20260815T103000
+RRULE:FREQ=WEEKLY;BYDAY=SA;UNTIL=20261010T235959Z
+SUMMARY:Flag Football practice
+DESCRIPTION:Coach: Dave King\n\nhttps://treyransom.github.io/hallco-speci
+ al-olympics/teams/flag-football
+LOCATION:Allen Creek Soccer Complex
+URL:https://treyransom.github.io/hallco-special-olympics/teams/flag-footb
+ all
+CATEGORIES:Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:practice-softball-0-2026-09-06@specialolympicshallcounty.org
+DTSTAMP:20261008T190918Z
+DTSTART;TZID=America/New_York:20260906T140000
+DTEND;TZID=America/New_York:20260906T153000
+RRULE:FREQ=WEEKLY;BYDAY=SU;UNTIL=20261011T235959Z
+SUMMARY:Softball practice
+DESCRIPTION:\nhttps://treyransom.github.io/hallco-special-olympics/teams/
+ softball
+LOCATION:Lanier Point Athletic Complex
+URL:https://treyransom.github.io/hallco-special-olympics/teams/softball
+CATEGORIES:Practice
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,32 @@
+2:"$Sreact.fragment"
+3:"/hallco-special-olympics/_next/static/chunks/23hsoq2w-xc7q.js"
+4:"/hallco-special-olympics/_next/static/chunks/3dop11osv0vte.js"
+5:"/hallco-special-olympics/_next/static/chunks/0mctf_3dmotzn.js"
+6:"/hallco-special-olympics/_next/static/chunks/19ohxr5g5ehy0.js"
+7:"/hallco-special-olympics/_next/static/chunks/33rcyppnx338a.js"
+8:"/hallco-special-olympics/_next/static/chunks/1ihsp9fnvmul6.js"
+9:I[39756,["$3","$4","$5","$6","$7","$8"],"default"]
+a:I[37457,["$3","$4","$5","$6","$7","$8"],"default"]
+10:"/hallco-special-olympics/_next/static/chunks/1l8n0plp-0vay.js"
+11:I[25069,["$3","$4","$5","$6","$7","$8","$10"],"default"]
+12:I[97367,["$3","$4","$5","$6","$7","$8"],"OutletBoundary"]
+13:"$Sreact.suspense"
+16:"ViewportBoundary"
+17:I[97367,["$3","$4","$5","$6","$7","$8"],"$16"]
+18:"MetadataBoundary"
+19:I[97367,["$3","$4","$5","$6","$7","$8"],"$18"]
+1a:I[27201,["$3","$4","$5","$6","$7","$8"],"IconMark"]
+c:X
+c:C
+d:X
+f:T8a8,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who is eligible to be an athlete?","acceptedAnswer":{"@type":"Answer","text":"Anyone age 8 or older with an intellectual disability, cognitive delay, or a closely related developmental disability. There is no upper age limit, and no prior sports experience is needed."}},{"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"Nothing. Training, uniforms, equipment, competition registration, travel, and lodging for State Games are all covered by our fundraising and sponsors."}},{"@type":"Question","name":"How do I register my athlete?","acceptedAnswer":{"@type":"Answer","text":"Use the online registration on this site, then complete the Special Olympics Georgia medical form and have a physician sign it. Email it to our Local Coordinator. The medical form is valid for three years."}},{"@type":"Question","name":"Can my athlete play more than one sport?","acceptedAnswer":{"@type":"Answer","text":"Yes. Most of our athletes play two or three sports across the year. Seasons are staggered so they rarely overlap."}},{"@type":"Question","name":"What is a Unified Partner?","acceptedAnswer":{"@type":"Answer","text":"A teammate without an intellectual disability who trains and competes alongside our athletes on the same team. Partners are matched by age and ability."}},{"@type":"Question","name":"Do volunteers need a background check?","acceptedAnswer":{"@type":"Answer","text":"Coaches and any volunteer with regular contact with athletes complete a free Class A volunteer form and background check through Special Olympics Georgia. Day-of-event volunteers do not."}},{"@type":"Question","name":"Where do you practice?","acceptedAnswer":{"@type":"Answer","text":"Practices happen at gyms, pools, fields, and bowling centers around Gainesville and Hall County. See the Where We Practice page and the Practice Schedule page."}},{"@type":"Question","name":"Is my donation tax-deductible?","acceptedAnswer":{"@type":"Answer","text":"Yes. Special Olympics Hall County is a local program of Special Olympics Georgia, a 501(c)(3) nonprofit. We'll send a receipt for every gift."}}]}e:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$f"}}],["$","$L11",null,{}]],[["$","script","script-0",{"src":"/hallco-special-olympics/_next/static/chunks/1l8n0plp-0vay.js","async":true}]],["$","$L12",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@14"}]}]]}],"p":"$@15","v":null,"s":"$d"}}]]
+1:[["children",{"s":"faq","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L9",null,{"parallelRouterKey":"children","template":["$","$La",null,{}]}]]}],"p":"$@b","v":"$c","s":"$d"},"c":"$Qe"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L19",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$13",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"FAQ | Special Olympics Hall County"}],["$","meta","1",{"name":"description","content":"Answers to common questions about joining, volunteering, costs, and competitions with Special Olympics Hall County."}],["$","link","2",{"rel":"manifest","href":"/hallco-special-olympics/manifest.webmanifest"}],["$","meta","3",{"name":"keywords","content":"Special Olympics,Hall County,Gainesville GA,intellectual disabilities,volunteer,donate,unified sports"}],["$","meta","4",{"property":"og:title","content":"Special Olympics Hall County"}],["$","meta","5",{"property":"og:description","content":"Empowering individuals with intellectual disabilities through year-round sports training and athletic competition."}],["$","meta","6",{"property":"og:locale","content":"en_US"}],["$","meta","7",{"property":"og:image","content":"https://treyransom.github.io/hallco-special-olympics/images/flag-football.jpg"}],["$","meta","8",{"property":"og:image:width","content":"1800"}],["$","meta","9",{"property":"og:image:height","content":"1350"}],["$","meta","10",{"property":"og:type","content":"website"}],["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","12",{"name":"twitter:title","content":"Special Olympics Hall County"}],["$","meta","13",{"name":"twitter:description","content":"Empowering individuals with intellectual disabilities through year-round sports training and athletic competition."}],["$","meta","14",{"name":"twitter:image","content":"https://treyransom.github.io/hallco-special-olympics/images/flag-football.jpg"}],["$","meta","15",{"name":"twitter:image:width","content":"1800"}],["$","meta","16",{"name":"twitter:image:height","content":"1350"}],["$","link","17",{"rel":"icon","href":"/hallco-special-olympics/icon.png?icon.2rc5t43ckcfwt.png","sizes":"64x64","type":"image/png"}],["$","$L1a","18",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@1b","v":null,"s":"$d"}},"a":"$@1c","u":"$@1d","b":"AIE29YRGQmpkIAkMhF7bF"}
+14:null
+1d:true
+d:300
+d:C
+1c:0
+b:"$undefined"
+1b:"$undefined"
+15:"$undefined"
