@@ -51,3 +51,8 @@ source-photos/
 !.dev.vars.example
 
 !.env.example
+
+# Cloudflare / OpenNext scratch
+.wrangler/
+.open-next/
+.dev.vars
