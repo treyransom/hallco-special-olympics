@@ -41,3 +41,13 @@ yarn-error.log*
 next-env.d.ts
 # originals used by scripts/build-images.py (keep locally, too big for git)
 source-photos/
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+
+!.env.example
