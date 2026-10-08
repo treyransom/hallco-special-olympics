@@ -20,7 +20,7 @@ Preview site: https://treyransom.github.io/hallco-special-olympics/
 
 `npm run deploy` builds with `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SITE_URL` set for the repo subpath and pushes `out/` to the `gh-pages` branch, which GitHub Pages serves. To make this automatic on every push, run `gh auth refresh -s workflow` once, move `docs/github-pages-workflow.yml` to `.github/workflows/deploy.yml`, push, and switch the Pages source to "GitHub Actions" in the repo settings.
 
-For the real domain, point a host like Vercel, Netlify, or Cloudflare Pages at the repo (build: `npm run build`, output: `out`) and leave both variables unset.
+**Cloudflare Pages (olympics.agapelabs.net):** run `npx wrangler login` once, then `npm run deploy:cf`. It builds with no base path and `NEXT_PUBLIC_SITE_URL=https://olympics.agapelabs.net`, and publishes `out/` to the `hallco-special-olympics` Pages project. The custom domain is attached to the project in Cloudflare, with a CNAME for `olympics` pointing at `hallco-special-olympics.pages.dev`.
 
 ## Editing content
 Events, news, Athlete of the Month, results, stories, sponsors, the announcement bar, and the season fund live in `content/*.json`. Edit the JSON directly, or use the CMS at `/admin`:
